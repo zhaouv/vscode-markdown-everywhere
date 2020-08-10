@@ -1,0 +1,39 @@
+{
+    "name": "vscode-markdown-everywhere",
+    "displayName": "Markdown Everywhere",
+    "description": "Embed and highlight markdown everywhere",
+    "version": "0.0.1",
+    "publisher": "zhaouv",
+    "repository": {
+        "url": "https://github.com/zhaouv/vscode-markdown-everywhere.git"
+    },
+    "bugs": {
+        "url": "https://github.com/zhaouv/vscode-markdown-everywhere/issues"
+    },
+    "engines": {
+        "vscode": "^1.20.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "keywords": [
+        "markdown",
+        "embed",
+        "cell",
+        "highlight"
+    ],
+    "contributes": {
+        "grammars": [
+            {
+                "injectTo": [
+                    "source.python"
+                ],
+                "scopeName": "comment.markdown-cell-inject.python",
+                "path": "./syntaxes/python.markdown.inject.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.md": "markdown"
+                }
+            }
+        ]
+    }
+}

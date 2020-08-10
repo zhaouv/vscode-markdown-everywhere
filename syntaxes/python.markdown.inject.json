@@ -1,0 +1,36 @@
+{
+	"injectionSelector": "source.python",
+	"patterns": [
+		{
+			"include": "#comment-markdown-cell-inject-python"
+		}
+	],
+	"repository": {
+		"comment-markdown-cell-inject-python": {
+			"name": "text.html.markdown",
+			"begin": "(?<=(?:^|\\G)(?:#\\s*%%\\s*\\[markdown\\]|#\\s*<markdowncell>)\\s*)$",
+			"end": "(^|\\G)(?=[^#\\s]|#\\s*%%|\\s+\\S)",
+			"patterns": [
+				{
+					"include": "#sharp-quote"
+				}
+			]
+		},
+		"sharp-quote": {
+			"begin": "(^|\\G)(#) ?",
+			"captures": {
+				"2": {
+					"name": "comment.punctuation.definition.comment.python"
+				}
+			},
+			"contentName": "meta.embedded.block.md",
+			"patterns": [
+				{
+					"include": "text.html.markdown"
+				}
+			],
+			"while": "(^|\\G)(#) ?"
+		}
+	},
+    "scopeName": "comment.markdown-cell-inject.python"
+}
