@@ -1,3 +1,25 @@
+let blockRules = [
+    {
+        name: 'triple-quote',
+        beginRegExp: '"""',
+        endRegExp: ' ?"""',
+        languages: [
+            { name: 'python', source: 'python' },
+        ]
+    },
+    {
+        name: 'slash-star',
+        beginRegExp: '/\\*',
+        endRegExp: ' ?\\*/',
+        languages: [
+            { name: 'ts', source: 'source.ts' },
+            { name: 'c', source: 'source.c' },
+            { name: 'cpp', source: 'source.cpp' },
+            { name: 'csharp', source: 'source.csharp' },
+        ]
+    },
+]
+
 let lineRules = [
     {
         name: 'sharp',
@@ -13,27 +35,6 @@ let lineRules = [
         RegExp: '//',
         languages: [
             { name: 'js', source: 'source.js' },
-            { name: 'ts', source: 'source.ts' },
-            { name: 'c', source: 'source.c' },
-            { name: 'cpp', source: 'source.cpp' },
-            { name: 'csharp', source: 'source.csharp' },
-        ]
-    },
-]
-let blockRule = [
-    {
-        name: 'triple-quote',
-        beginRegExp: '"""',
-        endRegExp: ' ?"""',
-        languages: [
-            { name: 'python', source: 'python' },
-        ]
-    },
-    {
-        name: 'slash-star',
-        beginRegExp: '/\\*',
-        endRegExp: ' ?\\*/',
-        languages: [
             { name: 'ts', source: 'source.ts' },
             { name: 'c', source: 'source.c' },
             { name: 'cpp', source: 'source.cpp' },
