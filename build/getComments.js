@@ -1,5 +1,8 @@
 // node ./build/getComments
 // a single-shot script, generate comments.js
+
+// to run this script, you should change the path
+const { json } = require('./util')
 const p3 = "C:/Users/ZhaoUV/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/"
 const fs = require('fs')
 
@@ -27,6 +30,7 @@ let arr=fs.readdirSync(p3).map(p=>{
         if (!(l.id && l.configuration && languages[l.id])) {
             return
         }
+        // some json is not standard json format
         const configuration = eval('('+fs.readFileSync(rootDir+l.configuration,{encoding:'utf-8'})+')')
         output.push({id:l.id,comments:configuration.comments,scopeName:languages[l.id]})
     });
@@ -35,4 +39,4 @@ let arr=fs.readdirSync(p3).map(p=>{
 
 // console.log(arr);
 // fs.writeFileSync('ignore/packages.json',JSON.stringify(arr,null,4))
-fs.writeFileSync('build/comments.json',JSON.stringify(arr,null,4))
+fs.writeFileSync('ignore/comments.js',json.stringify(arr,null,4,2))
