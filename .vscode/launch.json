@@ -9,6 +9,15 @@
             "args": [
                 "--extensionDevelopmentPath=${workspaceFolder}"
             ]
+        },
+        {
+            "name": "Launch Program",
+            "program": "${file}",
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "pwa-node"
         }
     ]
 }

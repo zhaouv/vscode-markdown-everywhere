@@ -1,4 +1,5 @@
-exports.rules = [
+exports.rules = 
+[
     {
         name: 'triple-quote',
         beginRegExp: '"""\\s*\\[markdown\\]',
@@ -19,7 +20,7 @@ exports.rules = [
     },
     {
         name: 'number-sign-MD',
-        whileRegExp: '#MD',
+        whileRegExp: '# MD',
         languages: [
             { name: 'python', source: 'source.python' },
             { name: 'julia', source: 'source.julia' },
@@ -53,7 +54,7 @@ exports.rules = [
     },
     {
         name: 'double-slash-MD',
-        whileRegExp: '//MD',
+        whileRegExp: '// MD',
         languages: [
             { name: 'js', source: 'source.js' },
             { name: 'ts', source: 'source.ts' },

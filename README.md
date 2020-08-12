@@ -4,6 +4,8 @@
 
 Embed and highlight markdown everywhere.
 
+> todo: and preview
+
 demo.png...
 
 Extending from my pr in [vscode-python](https://github.com/microsoft/vscode-python) ([issue](https://github.com/microsoft/vscode-python/issues/4356)/[pr](https://github.com/microsoft/vscode-python/pull/13359)).
@@ -12,7 +14,7 @@ Extending from my pr in [vscode-python](https://github.com/microsoft/vscode-pyth
 
 There are 4 types of rules, corresponding to 4 implementations
 
-### LRSM
+**LRSM**  
 line rule with a start mark  
 `beginRegExp`+`whileRegExp`
 
@@ -22,7 +24,7 @@ line rule with a start mark
 // starts with a start mark (which is normaly a line-comment)
 ```
 
-### LRSW
+**LRSW**  
 line rule starts with the mark  
 `whileRegExp`
 ```js
@@ -30,7 +32,7 @@ line rule starts with the mark
 //MD each line starts with the mark
 ```
 
-### MR
+**MR**  
 mixed rule  
 `beginRegExp`+`whileRegExp`+`endRegExp`  
 > May introduce incorrect rendering, for example, use `*/` as markdown content in the follow demo
@@ -42,8 +44,8 @@ mixed rule
  */
 ```
 
-## BR
-block rule
+**BR**  
+block rule  
 `beginRegExp`+`endRegExp`  
 > May introduce incorrect rendering, for example, use `"""` as markdown content in the follow demo
 ```python
