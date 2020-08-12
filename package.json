@@ -26,10 +26,24 @@
         "grammars": [
             {
                 "injectTo": [
-                    "source.python"
+                    "source.python",
+                    "source.julia",
+                    "source.shell"
                 ],
-                "scopeName": "comment.markdown-cell-inject.python",
-                "path": "./syntaxes/python.markdown.inject.json",
+                "scopeName": "comment.markdown-cell-inject.number-sign.LRSW",
+                "path": "./syntaxes/LRSW.markdown.inject.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.md": "markdown"
+                }
+            },
+            {
+                "injectTo": [
+                    "source.python",
+                    "source.julia",
+                    "source.shell"
+                ],
+                "scopeName": "comment.markdown-cell-inject.number-sign.LRSM",
+                "path": "./syntaxes/LRSM.markdown.inject.json",
                 "embeddedLanguages": {
                     "meta.embedded.block.md": "markdown"
                 }
