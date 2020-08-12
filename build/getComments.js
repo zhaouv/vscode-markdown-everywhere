@@ -32,7 +32,7 @@ let arr=fs.readdirSync(p3).map(p=>{
         }
         // some json is not standard json format
         const configuration = eval('('+fs.readFileSync(rootDir+l.configuration,{encoding:'utf-8'})+')')
-        output.push({id:l.id,comments:configuration.comments,scopeName:languages[l.id]})
+        output.push({name:l.id,comments:configuration.comments,source:languages[l.id]})
     });
     return output
 }).reduce((a,b)=>a.concat(b))

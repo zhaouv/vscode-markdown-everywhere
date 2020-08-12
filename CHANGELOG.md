@@ -2,7 +2,6 @@
 
 # todo
 
-more rules  
 add onEnterRules  
 preview:  
   by creating a "Untitled" as markdown and preview it

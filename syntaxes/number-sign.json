@@ -1,5 +1,5 @@
 {
-	"injectionSelector": "L:source.python, L:source.julia, L:source.shell",
+	"injectionSelector": "L:source.coffee, L:source.dockerfile, L:text.git-commit, L:text.git-rebase, L:source.diff, L:source.ignore, L:source.ini, L:source.makefile, L:source.perl, L:source.perl.6, L:source.powershell, L:source.python, L:source.r, L:source.ruby, L:source.shell, L:source.yaml, L:source.julia",
 	"patterns": [
 		{
 			"include": "#comment-markdown-cell-inject-number-sign-LRSM"

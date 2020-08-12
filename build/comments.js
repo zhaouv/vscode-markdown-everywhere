@@ -1,264 +1,263 @@
-// generated from "Microsoft VS Code/resources/app/extensions" by getComments.js
-// as a refence, help to make rules
+// originally generated from "Microsoft VS Code/resources/app/extensions" by getComments.js
 exports.languages=[
     {
-        id: "bat",
+        name: "bat",
         comments: {lineComment: "REM"},
-        scopeName: "source.batchfile"
+        source: "source.batchfile"
     },
     {
-        id: "clojure",
+        name: "clojure",
         comments: {lineComment: ";"},
-        scopeName: "source.clojure"
+        source: "source.clojure"
     },
     {
-        id: "coffeescript",
+        name: "coffeescript",
         comments: {lineComment: "#",blockComment: ["###","###"]},
-        scopeName: "source.coffee"
+        source: "source.coffee"
     },
     {
-        id: "c",
+        name: "c",
         comments: {lineComment: "//",blockComment: ["/*","*/"]},
-        scopeName: "source.c"
+        source: "source.c"
     },
     {
-        id: "cpp",
+        name: "cpp",
         comments: {lineComment: "//",blockComment: ["/*","*/"]},
-        scopeName: "source.cpp"
+        source: "source.cpp"
     },
     {
-        id: "csharp",
+        name: "csharp",
         comments: {lineComment: "//",blockComment: ["/*","*/"]},
-        scopeName: "source.cs"
+        source: "source.cs"
     },
     {
-        id: "css",
+        name: "css",
         comments: {blockComment: ["/*","*/"]},
-        scopeName: "source.css"
+        source: "source.css"
     },
     {
-        id: "dockerfile",
+        name: "dockerfile",
         comments: {lineComment: "#"},
-        scopeName: "source.dockerfile"
+        source: "source.dockerfile"
     },
     {
-        id: "fsharp",
+        name: "fsharp",
         comments: {lineComment: "//",blockComment: ["(*","*)"]},
-        scopeName: "source.fsharp"
+        source: "source.fsharp"
     },
     {
-        id: "git-commit",
+        name: "git-commit",
         comments: {lineComment: "#",blockComment: ["#"," "]},
-        scopeName: "text.git-commit"
+        source: "text.git-commit"
     },
     {
-        id: "git-rebase",
+        name: "git-rebase",
         comments: {lineComment: "#",blockComment: ["#"," "]},
-        scopeName: "text.git-rebase"
+        source: "text.git-rebase"
     },
     {
-        id: "diff",
+        name: "diff",
         comments: {lineComment: "#",blockComment: ["#"," "]},
-        scopeName: "source.diff"
+        source: "source.diff"
     },
     {
-        id: "ignore",
+        name: "ignore",
         comments: {lineComment: "#"},
-        scopeName: "source.ignore"
+        source: "source.ignore"
     },
     {
-        id: "go",
+        name: "go",
         comments: {lineComment: "//",blockComment: ["/*","*/"]},
-        scopeName: "source.go"
+        source: "source.go"
     },
     {
-        id: "groovy",
+        name: "groovy",
         comments: {lineComment: "//",blockComment: ["/*","*/"]},
-        scopeName: "source.groovy"
+        source: "source.groovy"
     },
     {
-        id: "handlebars",
+        name: "handlebars",
         comments: {blockComment: ["{{!--","--}}"]},
-        scopeName: "text.html.handlebars"
+        source: "text.html.handlebars"
     },
     {
-        id: "hlsl",
+        name: "hlsl",
         comments: {lineComment: "//",blockComment: ["/*","*/"]},
-        scopeName: "source.hlsl"
+        source: "source.hlsl"
     },
     {
-        id: "html",
+        name: "html",
         comments: {blockComment: ["<!--","-->"]},
-        scopeName: "text.html.derivative"
+        source: "text.html.derivative"
     },
     {
-        id: "ini",
+        name: "ini",
         comments: {lineComment: ";",blockComment: [";"," "]},
-        scopeName: "source.ini"
+        source: "source.ini"
     },
     {
-        id: "properties",
+        name: "properties",
         comments: {lineComment: "#",blockComment: ["#"," "]},
-        scopeName: "source.ini"
+        source: "source.ini"
     },
     {
-        id: "java",
+        name: "java",
         comments: {lineComment: "//",blockComment: ["/*","*/"]},
-        scopeName: "source.java"
+        source: "source.java"
     },
     {
-        id: "javascriptreact",
+        name: "javascriptreact",
         comments: {lineComment: "//",blockComment: ["/*","*/"]},
-        scopeName: "source.js.jsx"
+        source: "source.js.jsx"
     },
     {
-        id: "javascript",
+        name: "javascript",
         comments: {lineComment: "//",blockComment: ["/*","*/"]},
-        scopeName: "source.js"
+        source: "source.js"
     },
     {
-        id: "json",
+        name: "json",
         comments: {lineComment: "//",blockComment: ["/*","*/"]},
-        scopeName: "source.json"
+        source: "source.json"
     },
     {
-        id: "jsonc",
+        name: "jsonc",
         comments: {lineComment: "//",blockComment: ["/*","*/"]},
-        scopeName: "source.json.comments"
+        source: "source.json.comments"
     },
     {
-        id: "less",
+        name: "less",
         comments: {blockComment: ["/*","*/"],lineComment: "//"},
-        scopeName: "source.css.less"
+        source: "source.css.less"
     },
     {
-        id: "lua",
+        name: "lua",
         comments: {lineComment: "--",blockComment: ["--[[","]]"]},
-        scopeName: "source.lua"
+        source: "source.lua"
     },
     {
-        id: "makefile",
+        name: "makefile",
         comments: {lineComment: "#"},
-        scopeName: "source.makefile"
+        source: "source.makefile"
     },
     {
-        id: "markdown",
+        name: "markdown",
         comments: {blockComment: ["<!--","-->"]},
-        scopeName: "text.html.markdown"
+        source: "text.html.markdown"
     },
     {
-        id: "objective-c",
+        name: "objective-c",
         comments: {lineComment: "//",blockComment: ["/*","*/"]},
-        scopeName: "source.objc"
+        source: "source.objc"
     },
     {
-        id: "objective-cpp",
+        name: "objective-cpp",
         comments: {lineComment: "//",blockComment: ["/*","*/"]},
-        scopeName: "source.objcpp"
+        source: "source.objcpp"
     },
     {
-        id: "perl",
+        name: "perl",
         comments: {lineComment: "#"},
-        scopeName: "source.perl"
+        source: "source.perl"
     },
     {
-        id: "perl6",
+        name: "perl6",
         comments: {lineComment: "#"},
-        scopeName: "source.perl.6"
+        source: "source.perl.6"
     },
     {
-        id: "php",
+        name: "php",
         comments: {lineComment: "//",blockComment: ["/*","*/"]},
-        scopeName: "text.html.php"
+        source: "text.html.php"
     },
     {
-        id: "powershell",
+        name: "powershell",
         comments: {lineComment: "#",blockComment: ["<#","#>"]},
-        scopeName: "source.powershell"
+        source: "source.powershell"
     },
     {
-        id: "jade",
+        name: "jade",
         comments: {lineComment: "//-"},
-        scopeName: "text.pug"
+        source: "text.pug"
     },
     {
-        id: "python",
+        name: "python",
         comments: {lineComment: "#",blockComment: ["\"\"\"","\"\"\""]},
-        scopeName: "source.python"
+        source: "source.python"
     },
     {
-        id: "r",
+        name: "r",
         comments: {lineComment: "#"},
-        scopeName: "source.r"
+        source: "source.r"
     },
     {
-        id: "razor",
+        name: "razor",
         comments: {blockComment: ["<!--","-->"]},
-        scopeName: "text.html.cshtml"
+        source: "text.html.cshtml"
     },
     {
-        id: "ruby",
+        name: "ruby",
         comments: {lineComment: "#",blockComment: ["=begin","=end"]},
-        scopeName: "source.ruby"
+        source: "source.ruby"
     },
     {
-        id: "rust",
+        name: "rust",
         comments: {lineComment: "//",blockComment: ["/*","*/"]},
-        scopeName: "source.rust"
+        source: "source.rust"
     },
     {
-        id: "scss",
+        name: "scss",
         comments: {blockComment: ["/*","*/"],lineComment: "//"},
-        scopeName: "source.css.scss"
+        source: "source.css.scss"
     },
     {
-        id: "shaderlab",
+        name: "shaderlab",
         comments: {lineComment: "//",blockComment: ["/*","*/"]},
-        scopeName: "source.shaderlab"
+        source: "source.shaderlab"
     },
     {
-        id: "shellscript",
+        name: "shellscript",
         comments: {lineComment: "#"},
-        scopeName: "source.shell"
+        source: "source.shell"
     },
     {
-        id: "sql",
+        name: "sql",
         comments: {lineComment: "--",blockComment: ["/*","*/"]},
-        scopeName: "source.sql"
+        source: "source.sql"
     },
     {
-        id: "swift",
+        name: "swift",
         comments: {lineComment: "//",blockComment: ["/*","*/"]},
-        scopeName: "source.swift"
+        source: "source.swift"
     },
     {
-        id: "typescript",
+        name: "typescript",
         comments: {lineComment: "//",blockComment: ["/*","*/"]},
-        scopeName: "source.ts"
+        source: "source.ts"
     },
     {
-        id: "typescriptreact",
+        name: "typescriptreact",
         comments: {lineComment: "//",blockComment: ["/*","*/"]},
-        scopeName: "source.tsx"
+        source: "source.tsx"
     },
     {
-        id: "vb",
+        name: "vb",
         comments: {lineComment: "'"},
-        scopeName: "source.asp.vb.net"
+        source: "source.asp.vb.net"
     },
     {
-        id: "xml",
+        name: "xml",
         comments: {blockComment: ["<!--","-->"]},
-        scopeName: "text.xml"
+        source: "text.xml"
     },
     {
-        id: "xsl",
+        name: "xsl",
         comments: {lineComment: "",blockComment: ["<!--","-->"]},
-        scopeName: "text.xml.xsl"
+        source: "text.xml.xsl"
     },
     {
-        id: "yaml",
+        name: "yaml",
         comments: {lineComment: "#"},
-        scopeName: "source.yaml"
+        source: "source.yaml"
     }
 ]

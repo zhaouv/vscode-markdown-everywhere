@@ -1,66 +1,52 @@
-exports.rules = 
-[
+const { languages } = require('./comments')
+exports.rules = [
     {
-        name: 'triple-quote',
-        beginRegExp: '"""\\s*\\[markdown\\]',
-        endRegExp: '"""',
+        name: "triple-quote",
+        beginRegExp: "\"\"\"\\s*\\[markdown\\]",
+        endRegExp: "\"\"\"",
         languages: [
-            { name: 'python', source: 'source.python' },
+            ...languages.filter(l => JSON.stringify(l.comments.blockComment||"") === JSON.stringify(["\"\"\"", "\"\"\""])),
         ]
     },
     {
-        name: 'number-sign',
-        beginRegExp: '#\\s*\\[markdown\\]',
-        whileRegExp: '#',
+        name: "number-sign",
+        beginRegExp: "#\\s*\\[markdown\\]",
+        whileRegExp: "#",
         languages: [
-            { name: 'python', source: 'source.python' },
-            { name: 'julia', source: 'source.julia' },
-            { name: 'shell', source: 'source.shell' },
+            ...languages.filter(l => l.comments.lineComment === "#"),
+            { name: "julia", source: "source.julia" },
         ]
     },
     {
-        name: 'number-sign-MD',
-        whileRegExp: '# MD',
+        name: "number-sign-MD",
+        whileRegExp: "# MD",
         languages: [
-            { name: 'python', source: 'source.python' },
-            { name: 'julia', source: 'source.julia' },
-            { name: 'shell', source: 'source.shell' },
+            ...languages.filter(l => l.comments.lineComment === "#"),
+            { name: "julia", source: "source.julia" },
         ]
     },
     {
-        name: 'slash-star',
-        beginRegExp: '/\\*\\s*\\[markdown\\]',
-        whileRegExp: '\\*(?!/)',
-        endRegExp: '\\*/',
+        name: "slash-star",
+        beginRegExp: "/\\*\\s*\\[markdown\\]",
+        whileRegExp: "\\*(?!/)",
+        endRegExp: "\\*/",
         languages: [
-            { name: 'js', source: 'source.js' },
-            { name: 'ts', source: 'source.ts' },
-            { name: 'c', source: 'source.c' },
-            { name: 'cpp', source: 'source.cpp' },
-            { name: 'csharp', source: 'source.csharp' },
+            ...languages.filter(l => l.comments.lineComment === "//"),
         ]
     },
     {
-        name: 'double-slash',
-        beginRegExp: '//\\s*\\[markdown\\]',
-        whileRegExp: '//',
+        name: "double-slash",
+        beginRegExp: "//\\s*\\[markdown\\]",
+        whileRegExp: "//",
         languages: [
-            { name: 'js', source: 'source.js' },
-            { name: 'ts', source: 'source.ts' },
-            { name: 'c', source: 'source.c' },
-            { name: 'cpp', source: 'source.cpp' },
-            { name: 'csharp', source: 'source.csharp' },
+            ...languages.filter(l => l.comments.lineComment === "//"),
         ]
     },
     {
-        name: 'double-slash-MD',
-        whileRegExp: '// MD',
+        name: "double-slash-MD",
+        whileRegExp: "// MD",
         languages: [
-            { name: 'js', source: 'source.js' },
-            { name: 'ts', source: 'source.ts' },
-            { name: 'c', source: 'source.c' },
-            { name: 'cpp', source: 'source.cpp' },
-            { name: 'csharp', source: 'source.csharp' },
+            ...languages.filter(l => JSON.stringify(l.comments.blockComment||"") === JSON.stringify(["/*","*/"])),
         ]
-    },
+    }
 ]
