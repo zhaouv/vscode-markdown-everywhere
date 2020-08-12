@@ -1,0 +1,27 @@
+{
+	"injectionSelector": "__languages__",
+	"patterns": [
+		{
+			"include": "#comment-markdown-cell-inject-__name__-LRSW"
+		}
+	],
+	"repository": {
+		"comment-markdown-cell-inject-__name__-LRSW": {
+			"begin": "(^|\\G)\\s*(__whileRegExp__) ?",
+			"captures": {
+				"2": {
+					"name": "comment.punctuation.definition.quote_code.__name__.LRSW"
+				}
+			},
+			"name": "comment.quote_code.__name__.LRSW",
+			"contentName": "meta.embedded.block.md",
+			"patterns": [
+				{
+					"include": "text.html.markdown"
+				}
+			],
+			"while": "(^|\\G)\\s*(__whileRegExp__) ?"
+		}
+	},
+    "scopeName": "comment.markdown-cell-inject.__name__.LRSW"
+}

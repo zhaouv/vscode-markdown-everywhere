@@ -1,0 +1,36 @@
+{
+	"injectionSelector": "L:source.js, L:source.ts, L:source.c, L:source.cpp, L:source.csharp",
+	"patterns": [
+		{
+			"include": "#comment-markdown-cell-inject-slash-star-MR"
+		}
+	],
+	"repository": {
+		"comment-markdown-cell-inject-slash-star-MR": {
+			"name": "comment.quote_code.slash-star.MR",
+			"begin": "(?:^|\\G)\\s*/\\*\\s*\\[markdown\\]$",
+			"end": "(?:^|\\G)\\s*\\*/$",
+			"patterns": [
+				{
+					"include": "#slash-star-quote-MR"
+				}
+			]
+		},
+		"slash-star-quote-MR": {
+			"begin": "(^|\\G)\\s*(\\*(?!/)) ?",
+			"captures": {
+				"2": {
+					"name": "comment.punctuation.definition.quote_code.slash-star.MR"
+				}
+			},
+			"contentName": "meta.embedded.block.md",
+			"patterns": [
+				{
+					"include": "text.html.markdown"
+				}
+			],
+			"while": "(^|\\G)\\s*(\\*(?!/)) ?"
+		}
+	},
+    "scopeName": "comment.markdown-cell-inject.slash-star.MR"
+}

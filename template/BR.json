@@ -1,0 +1,27 @@
+{
+	"injectionSelector": "__languages__",
+	"patterns": [
+		{
+			"include": "#comment-markdown-cell-inject-__name__-BR"
+		}
+	],
+	"repository": {
+		"comment-markdown-cell-inject-__name__-BR": {
+			"begin": "(^|\\G)\\s*(__beginRegExp__) ?",
+			"captures": {
+				"2": {
+					"name": "comment.punctuation.definition.quote_code.__name__.BR"
+				}
+			},
+			"name": "comment.quote_code.__name__.BR",
+			"contentName": "meta.embedded.block.md",
+			"patterns": [
+				{
+					"include": "text.html.markdown"
+				}
+			],
+			"end": "(^|\\G)\\s*(__endRegExp__) ?"
+		}
+	},
+    "scopeName": "comment.markdown-cell-inject.__name__.BR"
+}

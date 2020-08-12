@@ -2,18 +2,18 @@
 	"injectionSelector": "L:source.python, L:source.julia, L:source.shell",
 	"patterns": [
 		{
-			"include": "#comment-markdown-cell-inject-LRSW"
+			"include": "#comment-markdown-cell-inject-number-sign-MD-LRSW"
 		}
 	],
 	"repository": {
-		"comment-markdown-cell-inject-LRSW": {
+		"comment-markdown-cell-inject-number-sign-MD-LRSW": {
 			"begin": "(^|\\G)\\s*(#MD) ?",
 			"captures": {
 				"2": {
-					"name": "comment.punctuation.definition.quote_code.LRSW"
+					"name": "comment.punctuation.definition.quote_code.number-sign-MD.LRSW"
 				}
 			},
-			"name": "comment.quote_code.number-sign.LRSW",
+			"name": "comment.quote_code.number-sign-MD.LRSW",
 			"contentName": "meta.embedded.block.md",
 			"patterns": [
 				{
@@ -23,5 +23,5 @@
 			"while": "(^|\\G)\\s*(#MD) ?"
 		}
 	},
-    "scopeName": "comment.markdown-cell-inject.number-sign.LRSW"
+    "scopeName": "comment.markdown-cell-inject.number-sign-MD.LRSW"
 }

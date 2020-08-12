@@ -26,12 +26,10 @@
         "grammars": [
             {
                 "injectTo": [
-                    "source.python",
-                    "source.julia",
-                    "source.shell"
+                    "source.python"
                 ],
-                "scopeName": "comment.markdown-cell-inject.number-sign.LRSW",
-                "path": "./syntaxes/LRSW.markdown.inject.json",
+                "scopeName": "comment.markdown-cell-inject.triple-quote.BR",
+                "path": "./syntaxes/triple-quote.json",
                 "embeddedLanguages": {
                     "meta.embedded.block.md": "markdown"
                 }
@@ -43,11 +41,68 @@
                     "source.shell"
                 ],
                 "scopeName": "comment.markdown-cell-inject.number-sign.LRSM",
-                "path": "./syntaxes/LRSM.markdown.inject.json",
+                "path": "./syntaxes/number-sign.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.md": "markdown"
+                }
+            },
+            {
+                "injectTo": [
+                    "source.python",
+                    "source.julia",
+                    "source.shell"
+                ],
+                "scopeName": "comment.markdown-cell-inject.number-sign-MD.LRSW",
+                "path": "./syntaxes/number-sign-MD.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.md": "markdown"
+                }
+            },
+            {
+                "injectTo": [
+                    "source.js",
+                    "source.ts",
+                    "source.c",
+                    "source.cpp",
+                    "source.csharp"
+                ],
+                "scopeName": "comment.markdown-cell-inject.slash-star.MR",
+                "path": "./syntaxes/slash-star.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.md": "markdown"
+                }
+            },
+            {
+                "injectTo": [
+                    "source.js",
+                    "source.ts",
+                    "source.c",
+                    "source.cpp",
+                    "source.csharp"
+                ],
+                "scopeName": "comment.markdown-cell-inject.double-slash.LRSM",
+                "path": "./syntaxes/double-slash.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.md": "markdown"
+                }
+            },
+            {
+                "injectTo": [
+                    "source.js",
+                    "source.ts",
+                    "source.c",
+                    "source.cpp",
+                    "source.csharp"
+                ],
+                "scopeName": "comment.markdown-cell-inject.double-slash-MD.LRSW",
+                "path": "./syntaxes/double-slash-MD.json",
                 "embeddedLanguages": {
                     "meta.embedded.block.md": "markdown"
                 }
             }
         ]
+    },
+    "scripts": {
+        "build": "node ./build/build"
     }
 }

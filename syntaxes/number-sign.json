@@ -2,14 +2,14 @@
 	"injectionSelector": "L:source.python, L:source.julia, L:source.shell",
 	"patterns": [
 		{
-			"include": "#comment-markdown-cell-inject-LRSM"
+			"include": "#comment-markdown-cell-inject-number-sign-LRSM"
 		}
 	],
 	"repository": {
-		"comment-markdown-cell-inject-LRSM": {
+		"comment-markdown-cell-inject-number-sign-LRSM": {
 			"name": "comment.quote_code.number-sign.LRSM",
 			"begin": "(?<=(?:^|\\G)\\s*#\\s*\\[markdown\\])$",
-			"end": "(^|\\G)(?=\\s*[^#\\s]|\\s*$)",
+			"end": "(^|\\G)(?=\\s*(?!#|\\s)|\\s*$)",
 			"patterns": [
 				{
 					"include": "#number-sign-quote-LRSM"
@@ -20,7 +20,7 @@
 			"begin": "(^|\\G)\\s*(#) ?",
 			"captures": {
 				"2": {
-					"name": "comment.punctuation.definition.quote_code.LRSM"
+					"name": "comment.punctuation.definition.quote_code.number-sign.LRSM"
 				}
 			},
 			"contentName": "meta.embedded.block.md",

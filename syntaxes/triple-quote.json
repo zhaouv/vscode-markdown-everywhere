@@ -1,0 +1,27 @@
+{
+	"injectionSelector": "L:source.python",
+	"patterns": [
+		{
+			"include": "#comment-markdown-cell-inject-triple-quote-BR"
+		}
+	],
+	"repository": {
+		"comment-markdown-cell-inject-triple-quote-BR": {
+			"begin": "(^|\\G)\\s*(\"\"\"\\s*\\[markdown\\]) ?",
+			"captures": {
+				"2": {
+					"name": "comment.punctuation.definition.quote_code.triple-quote.BR"
+				}
+			},
+			"name": "comment.quote_code.triple-quote.BR",
+			"contentName": "meta.embedded.block.md",
+			"patterns": [
+				{
+					"include": "text.html.markdown"
+				}
+			],
+			"end": "(^|\\G)\\s*(\"\"\") ?"
+		}
+	},
+    "scopeName": "comment.markdown-cell-inject.triple-quote.BR"
+}
