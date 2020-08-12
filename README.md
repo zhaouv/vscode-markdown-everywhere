@@ -28,8 +28,8 @@ line rule with a start mark
 line rule starts with the mark  
 `whileRegExp`
 ```js
-//MD connecting line-comment
-//MD each line starts with the mark
+// MD connecting line-comment
+// MD each line starts with the mark
 ```
 
 **MR**  

@@ -7,7 +7,7 @@
 	],
 	"repository": {
 		"comment-markdown-cell-inject-number-sign-MD-LRSW": {
-			"begin": "(^|\\G)\\s*(#MD) ?",
+			"begin": "(^|\\G)\\s*(# MD) ?",
 			"captures": {
 				"2": {
 					"name": "comment.punctuation.definition.quote_code.number-sign-MD.LRSW"
@@ -20,7 +20,7 @@
 					"include": "text.html.markdown"
 				}
 			],
-			"while": "(^|\\G)\\s*(#MD) ?"
+			"while": "(^|\\G)\\s*(# MD) ?"
 		}
 	},
     "scopeName": "comment.markdown-cell-inject.number-sign-MD.LRSW"
