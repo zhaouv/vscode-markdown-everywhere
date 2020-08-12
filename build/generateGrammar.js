@@ -16,6 +16,7 @@ const renderTemplate = (rule, tpl) => {
     let output = tpl;
     let rule_ = {};
     for (const key in rule) {
+        if (!/\w+RegExp|name/.test(key)) continue;
         rule_['__' + key + '__'] = JSON.stringify(rule[key]).slice(1, -1);
     }
     rule_['__languages__'] = rule.languages.map(language => {
