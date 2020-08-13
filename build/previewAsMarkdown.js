@@ -125,7 +125,7 @@ const postProcessSource = (languageId, savedRules, lines, marks, output, options
             lino++;
             if (marks[lino] >= 0 || lino === 0) continue;
             if (marks[lino - 1] >= 0) {
-                output[lino] = '<br><hr>'
+                output[lino] = '<hr>'
             }
         }
         return

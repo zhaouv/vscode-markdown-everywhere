@@ -2,7 +2,13 @@
 
 Embed and highlight and **preview** markdown everywhere.
 
-demo.png...
+`Embed & Highlight`  
+![](img_md/highlight-python.png)  
+![](img_md/highlight-js.png)
+
+`preview`  
+![](img_md/preview-icon.png)  
+![](img_md/fenced-preview.png)
 
 ## Recommended Color
 
@@ -51,12 +57,20 @@ So that markdown can be easily distinguished from both code and comments.
 ## Preview
 
 Three mode  
-+ `splitter`: ignore source code part and put `<br><hr>` as splitter  
++ `splitter`: ignore source code part and put `<hr>` as splitter  
 + `ignored`: ignore source code part  
 + `fenced`: keep source code as fenced code  
 
-change it at "settings.json"
+`spliter` Help organize information  
+![](img_md/spliter-preview.png)
+`ignored`  
+![](img_md/ignore-preview.png)
+`fenced`  
+![](img_md/fenced-preview.png)
 
+
+change it at "settings.json"  
+![](img_md/preview-mode-set.png)
 
 ## Enhancing-typing
 
@@ -78,8 +92,8 @@ After pressing `enter` at `"e"`, it will automatically append `"// MD "`.
 // MD the second line
 // MD 
 ```
-
-> can not turn off now
+change it at "settings.json"  
+![](img_md/enhancing-typing-set.png)
 
 ## Supported List
 
