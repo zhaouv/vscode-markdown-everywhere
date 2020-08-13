@@ -73,6 +73,14 @@
                 }
             ]
         },
+        "keybindings": [
+            {
+                "command": "markdown-everywhere.showPreviewToSide",
+                "key": "ctrl+k v",
+                "mac": "cmd+k v",
+                "when": "editorLangId != markdown && !notebookEditorFocused"
+            }
+        ],
         "grammars": [
             {
                 "injectTo": [
