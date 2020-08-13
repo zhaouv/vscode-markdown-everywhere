@@ -4,17 +4,17 @@ const { getRuleType } = require('./util');
 
 const getLanguageConfiguration = (rules) => {
     let symbols = rules.filter(rule => rule.whileSymbol || rule.whileRegExp).map(rule => {
-        let enterRule = {
-            beforeText: new RegExp('^\\s*' + JSON.stringify(rule.whileRegExp).slice(1, -1) + ' ' + '.*'),
+        let enterRule = (space) => ({
+            beforeText: new RegExp('^\\s*' + JSON.stringify(rule.whileRegExp).slice(1, -1) + space + '.*'),
             afterText: /.*$/,
             action: {
                 indentAction: 0,
-                appendText: (rule.whileSymbol || rule.whileRegExp) + ' '
+                appendText: (rule.whileSymbol || rule.whileRegExp) + space
             }
-        };
-        return enterRule;
+        });
+        return Array.from({ length: 13 }).map((v, i) => enterRule(Array.from({ length: 13 + 1 - i }).join(' ')));
     });
-    return { onEnterRules: symbols };
+    return { onEnterRules: symbols.reduce((a, b) => a.concat(b)) };
 }
 
 
