@@ -28,14 +28,39 @@ So that it can be easily distinguished from both code and comments.
     }
 ```
 
-## preview
+## Preview
 
 Three mode  
 1. ignore source code part
 2. keep source code as fenced code
-3. ignore source code part and put `<br><hr>` as splitter
+3. ignore source code part and put `<br><hr>` as splitter  
+change it at "settings.json"
 
 > can not change now
+
+
+## Indent
+
+`whileSymbol` or `whileRegExp` (if `whileSymbol` undefined) will be used for enhancing indent.  
+There will be some `onEnterRules` pushed to markdown.  
+So it will also affect the editing of normal markdown files.  
+You can turn off it in "settings.json".
+
+`onEnterRules` checks the previous line, so it does not work on the first line of a markdown region.
+
+Example:
+```js
+// MD the first line
+// MD the second line
+```
+After pressing `enter` at `"e"`, it will automatically append `"// MD "`.
+```js
+// MD the first line
+// MD the second line
+// MD 
+```
+
+> can not turn off now
 
 ## Supported List
 
@@ -68,6 +93,18 @@ line rule starts with the mark
 // MD connecting line-comment
 // MD each line starts with the mark
 ```
+```js
+rule={
+    name: "double-slash-MD",
+    whileRegExp: "// MD",
+    example: "// MD # title<br>// MD content<br>",
+    languages: [
+        ...languages.filter(l => l.comments.lineComment === "//"),
+        { name: "antlr", source: "source.antlr" },
+        { name: "qasm-lang", source: "source.qasm" },
+    ]
+}
+```
 
 **BR**  
 block rule  
@@ -78,6 +115,17 @@ block rule
 block comment starts with a start mark
 and finally a end mark
 """
+```
+```js
+rule={
+    name: "triple-quote",
+    beginRegExp: "\"\"\"\\s*\\[markdown\\]",
+    endRegExp: "\"\"\"",
+    example: "\"\"\" [markdown]<br># title<br>content<br>\"\"\"",
+    languages: [
+        ...languages.filter(l => JSON.stringify(l.comments.blockComment||"") === JSON.stringify(["\"\"\"", "\"\"\""])),
+    ]
+}
 ```
 
 **MR**  
@@ -91,6 +139,20 @@ mixed rule
  * and finally a end mark
  */
 ```
+```js
+rule={
+    name: "slash-star",
+    beginRegExp: "/\\*\\s*\\[markdown\\]",
+    whileRegExp: "\\*(?!/)",
+    whileSymbol: "*",
+    endRegExp: "\\*/",
+    example: "/* [markdown]<br>&nbsp;* # title<br>&nbsp;* content<br>&nbsp;*/<br>",
+    languages: [
+        ...languages.filter(l => JSON.stringify(l.comments.blockComment||"") === JSON.stringify(["/*","*/"])),
+        { name: "antlr", source: "source.antlr" },
+    ]
+}
+```
 
 **LRSM**  
 line rule with a start mark  
@@ -101,16 +163,18 @@ line rule with a start mark
 // some connecting normal line-comment 
 // starts with a start mark (which is normaly a line-comment)
 ```
+```js
+rule={
+    name: "double-slash",
+    beginRegExp: "//\\s*\\[markdown\\]",
+    whileRegExp: "//",
+    example: "// [markdown]<br>// # title<br>// content<br>",
+    languages: [
+        ...languages.filter(l => l.comments.lineComment === "//"),
+        { name: "antlr", source: "source.antlr" },
+        { name: "qasm-lang", source: "source.qasm" },
+    ]
+}
+```
 
 > There is bug for this case. The following first line will be highlighted as comment. I haven't figured out the mechanism yet. So please put a empty line after these.
-
-## Indent
-
-`whileSymbol` or `whileRegExp` (if `whileSymbol` undefined) will be used for enhancing indent.  
-There will be some `onEnterRules` pushed to markdown.  
-So it will also affect the editing of normal markdown files.  
-You can turn off it in "settings.json".
-
-`onEnterRules` checks the previous line, so it does not work on the first line of a markdown region.
-
-> unfinished (can not turn off now)
