@@ -31,7 +31,8 @@
         "commands": [
             {
                 "command": "markdown-everywhere.showPreviewToSide",
-                "title": "Preview Embedded Markdown"
+                "title": "Preview Embedded Markdown",
+                "icon": "$(open-preview)"
             }
         ],
         "markdown.markdownItPlugins": true,
@@ -55,6 +56,22 @@
                     "description": "How to deal with the original source code (re-preview to trigger). 'splitter' for ignoring them and put lines as splitter. 'ignore' for ignoring. 'fenced' for showing source code as fenced code."
                 }
             }
+        },
+        "menus": {
+            "editor/title": [
+                {
+                    "command": "markdown-everywhere.showPreviewToSide",
+                    "when": "editorLangId != markdown && !notebookEditorFocused",
+                    "group": "navigation"
+                }
+            ],
+            "commandPalette": [
+                {
+                    "command": "markdown-everywhere.showPreviewToSide",
+                    "when": "editorLangId != markdown && !notebookEditorFocused",
+                    "group": "navigation"
+                }
+            ]
         },
         "grammars": [
             {

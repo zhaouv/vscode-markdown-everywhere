@@ -26,8 +26,6 @@ const vscodeMarkdownRender = {
             return src;
         }
         let languageId = editor.document.languageId;
-        // this.languageId = languageId;
-        // console.log(languageId)
         return processSource(languageId, this.rules, src, this.options);
     },
     processResult: v => v,
@@ -39,10 +37,7 @@ const vscodeMarkdownRender = {
             "ignored":0,
             "fenced":1,
         })[previewMode];
-        console.log(previewMode)
-        console.log(this.options.code)
     }
-    // languageId: '',
 };
 
 const injectRender = (md) => {

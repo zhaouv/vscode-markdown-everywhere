@@ -10,18 +10,42 @@ You can put those into "settings.json" to adjust the color.
 So that markdown can be easily distinguished from both code and comments.  
 
 ```json
-    "editor.tokenColorCustomizations": {
-        "[Default Dark+]": {
-            "textMateRules": [
-                {
-                    "scope": "meta.embedded.block.everywhere.md",
-                    "settings": {
-                        "foreground": "#9abb87",
-                    }
+"editor.tokenColorCustomizations": {
+    "[Default Dark+]": {
+        "textMateRules": [
+            {
+                "scope": "meta.embedded.block.everywhere.md markup.heading, meta.embedded.block.everywhere.md markup.bold",
+                "settings": {
+                    "foreground": "#61aa71",
                 }
-            ]
-        }
+            },
+            {
+                "scope": "meta.embedded.block.everywhere.md punctuation.definition.list.begin.markdown, meta.embedded.block.everywhere.md entity.name.tag",
+                "settings": {
+                    "foreground": "#599aa5",
+                }
+            },
+            {
+                "scope": "meta.embedded.block.everywhere.md entity.other.attribute-name",
+                "settings": {
+                    "foreground": "#98bdc4",
+                }
+            },
+            {
+                "scope": "meta.embedded.block.everywhere.md markup.inline.raw, meta.embedded.block.everywhere.md string",
+                "settings": {
+                    "foreground": "#ceca8b",
+                }
+            },
+            {
+                "scope": "meta.embedded.block.everywhere.md, meta.embedded.block.everywhere.md meta.embedded",
+                "settings": {
+                    "foreground": "#9abb87",
+                }
+            }
+        ]
     }
+}
 ```
 
 ## Preview
