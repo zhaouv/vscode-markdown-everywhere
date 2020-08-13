@@ -95,7 +95,7 @@ line rule with a start mark
 // starts with a start mark (which is normaly a line-comment)
 ```
 
-> There is bug for this case. The following first will be highlighted ad comment. I haven't figured out the mechanism yet. So please put a empty line after these.
+> There is bug for this case. The following first line will be highlighted as comment. I haven't figured out the mechanism yet. So please put a empty line after these.
 
 ## Indent
 
