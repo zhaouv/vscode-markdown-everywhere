@@ -1,0 +1,27 @@
+{
+	"injectionSelector": "L:source.matlab, L:text.bibtex, L:text.tex, L:text.latex",
+	"patterns": [
+		{
+			"include": "#comment-markdown-cell-inject-percentage-MD-LRSW"
+		}
+	],
+	"repository": {
+		"comment-markdown-cell-inject-percentage-MD-LRSW": {
+			"begin": "(^|\\G)\\s*(% MD) ?",
+			"captures": {
+				"2": {
+					"name": "comment.punctuation.definition.quote_code.percentage-MD.LRSW"
+				}
+			},
+			"name": "comment.quote_code.percentage-MD.LRSW",
+			"contentName": "meta.embedded.block.md",
+			"patterns": [
+				{
+					"include": "text.html.markdown"
+				}
+			],
+			"while": "(^|\\G)\\s*(% MD) ?"
+		}
+	},
+    "scopeName": "comment.markdown-cell-inject.percentage-MD.LRSW"
+}

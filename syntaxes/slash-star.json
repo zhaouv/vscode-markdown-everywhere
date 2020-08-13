@@ -1,5 +1,5 @@
 {
-	"injectionSelector": "L:source.c, L:source.cpp, L:source.cs, L:source.fsharp, L:source.go, L:source.groovy, L:source.hlsl, L:source.java, L:source.js.jsx, L:source.js, L:source.json, L:source.json.comments, L:source.css.less, L:source.objc, L:source.objcpp, L:text.html.php, L:source.rust, L:source.css.scss, L:source.shaderlab, L:source.swift, L:source.ts, L:source.tsx",
+	"injectionSelector": "L:source.c, L:source.cpp, L:source.cs, L:source.css, L:source.go, L:source.groovy, L:source.hlsl, L:source.java, L:source.js.jsx, L:source.js, L:source.json, L:source.json.comments, L:source.css.less, L:source.objc, L:source.objcpp, L:text.html.php, L:source.rust, L:source.css.scss, L:source.shaderlab, L:source.sql, L:source.swift, L:source.ts, L:source.tsx, L:source.antlr",
 	"patterns": [
 		{
 			"include": "#comment-markdown-cell-inject-slash-star-MR"

@@ -52,7 +52,9 @@
                     "source.ruby",
                     "source.shell",
                     "source.yaml",
-                    "source.julia"
+                    "source.cython",
+                    "source.julia",
+                    "source.cmake"
                 ],
                 "scopeName": "comment.markdown-cell-inject.number-sign.LRSM",
                 "path": "./syntaxes/number-sign.json",
@@ -78,7 +80,9 @@
                     "source.ruby",
                     "source.shell",
                     "source.yaml",
-                    "source.julia"
+                    "source.cython",
+                    "source.julia",
+                    "source.cmake"
                 ],
                 "scopeName": "comment.markdown-cell-inject.number-sign-MD.LRSW",
                 "path": "./syntaxes/number-sign-MD.json",
@@ -91,7 +95,7 @@
                     "source.c",
                     "source.cpp",
                     "source.cs",
-                    "source.fsharp",
+                    "source.css",
                     "source.go",
                     "source.groovy",
                     "source.hlsl",
@@ -107,9 +111,11 @@
                     "source.rust",
                     "source.css.scss",
                     "source.shaderlab",
+                    "source.sql",
                     "source.swift",
                     "source.ts",
-                    "source.tsx"
+                    "source.tsx",
+                    "source.antlr"
                 ],
                 "scopeName": "comment.markdown-cell-inject.slash-star.MR",
                 "path": "./syntaxes/slash-star.json",
@@ -140,7 +146,9 @@
                     "source.shaderlab",
                     "source.swift",
                     "source.ts",
-                    "source.tsx"
+                    "source.tsx",
+                    "source.antlr",
+                    "source.qasm"
                 ],
                 "scopeName": "comment.markdown-cell-inject.double-slash.LRSM",
                 "path": "./syntaxes/double-slash.json",
@@ -153,7 +161,7 @@
                     "source.c",
                     "source.cpp",
                     "source.cs",
-                    "source.css",
+                    "source.fsharp",
                     "source.go",
                     "source.groovy",
                     "source.hlsl",
@@ -169,13 +177,40 @@
                     "source.rust",
                     "source.css.scss",
                     "source.shaderlab",
-                    "source.sql",
                     "source.swift",
                     "source.ts",
-                    "source.tsx"
+                    "source.tsx",
+                    "source.antlr",
+                    "source.qasm"
                 ],
                 "scopeName": "comment.markdown-cell-inject.double-slash-MD.LRSW",
                 "path": "./syntaxes/double-slash-MD.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.md": "markdown"
+                }
+            },
+            {
+                "injectTo": [
+                    "source.matlab",
+                    "text.bibtex",
+                    "text.tex",
+                    "text.latex"
+                ],
+                "scopeName": "comment.markdown-cell-inject.percentage.LRSM",
+                "path": "./syntaxes/percentage.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.md": "markdown"
+                }
+            },
+            {
+                "injectTo": [
+                    "source.matlab",
+                    "text.bibtex",
+                    "text.tex",
+                    "text.latex"
+                ],
+                "scopeName": "comment.markdown-cell-inject.percentage-MD.LRSW",
+                "path": "./syntaxes/percentage-MD.json",
                 "embeddedLanguages": {
                     "meta.embedded.block.md": "markdown"
                 }

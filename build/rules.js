@@ -16,7 +16,9 @@ exports.rules = [
         example: "# [markdown]<br># # title<br># content<br>",
         languages: [
             ...languages.filter(l => l.comments.lineComment === "#"),
+            { name: "cython", source: "source.cython" },
             { name: "julia", source: "source.julia" },
+            { name: "cmake", source: "source.cmake" },
         ]
     },
     {
@@ -25,7 +27,9 @@ exports.rules = [
         example: "# MD # title<br># MD content<br>",
         languages: [
             ...languages.filter(l => l.comments.lineComment === "#"),
+            { name: "cython", source: "source.cython" },
             { name: "julia", source: "source.julia" },
+            { name: "cmake", source: "source.cmake" },
         ]
     },
     {
@@ -35,7 +39,8 @@ exports.rules = [
         endRegExp: "\\*/",
         example: "/* [markdown]<br>&nbsp;* # title<br>&nbsp;* content<br>&nbsp;*/<br>",
         languages: [
-            ...languages.filter(l => l.comments.lineComment === "//"),
+            ...languages.filter(l => JSON.stringify(l.comments.blockComment||"") === JSON.stringify(["/*","*/"])),
+            { name: "antlr", source: "source.antlr" },
         ]
     },
     {
@@ -45,6 +50,8 @@ exports.rules = [
         example: "// [markdown]<br>// # title<br>// content<br>",
         languages: [
             ...languages.filter(l => l.comments.lineComment === "//"),
+            { name: "antlr", source: "source.antlr" },
+            { name: "qasm-lang", source: "source.qasm" },
         ]
     },
     {
@@ -52,7 +59,32 @@ exports.rules = [
         whileRegExp: "// MD",
         example: "// MD # title<br>// MD content<br>",
         languages: [
-            ...languages.filter(l => JSON.stringify(l.comments.blockComment||"") === JSON.stringify(["/*","*/"])),
+            ...languages.filter(l => l.comments.lineComment === "//"),
+            { name: "antlr", source: "source.antlr" },
+            { name: "qasm-lang", source: "source.qasm" },
         ]
-    }
+    },
+    {
+        name: "percentage",
+        beginRegExp: "%\\s*\\[markdown\\]",
+        whileRegExp: "%",
+        example: "% [markdown]<br>% # title<br>% content<br>",
+        languages: [
+            { name: "matlab", source: "source.matlab" },
+            { name: "bibtex", source: "text.bibtex" },
+            { name: "tex", source: "text.tex" },
+            { name: "latex", source: "text.latex" },
+        ]
+    },
+    {
+        name: "percentage-MD",
+        whileRegExp: "% MD",
+        example: "% MD # title<br>% MD content<br>",
+        languages: [
+            { name: "matlab", source: "source.matlab" },
+            { name: "bibtex", source: "text.bibtex" },
+            { name: "tex", source: "text.tex" },
+            { name: "latex", source: "text.latex" },
+        ]
+    },
 ]
