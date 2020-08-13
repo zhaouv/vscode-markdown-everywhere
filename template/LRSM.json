@@ -8,7 +8,7 @@
 	"repository": {
 		"comment-markdown-cell-inject-__name__-LRSM": {
 			"name": "comment.quote_code.__name__.LRSM",
-			"begin": "(?<=(?:^|\\G)\\s*__beginRegExp__)$",
+			"begin": "(?<=(?:^|\\G)\\s*__beginRegExp__$)(^|\\G)",
 			"end": "(^|\\G)(?=\\s*(?!__whileRegExp__|\\s)|\\s*$)",
 			"patterns": [
 				{

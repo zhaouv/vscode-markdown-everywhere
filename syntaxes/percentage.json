@@ -8,7 +8,7 @@
 	"repository": {
 		"comment-markdown-cell-inject-percentage-LRSM": {
 			"name": "comment.quote_code.percentage.LRSM",
-			"begin": "(?<=(?:^|\\G)\\s*%\\s*\\[markdown\\])$",
+			"begin": "(?<=(?:^|\\G)\\s*%\\s*\\[markdown\\]$)(^|\\G)",
 			"end": "(^|\\G)(?=\\s*(?!%|\\s)|\\s*$)",
 			"patterns": [
 				{

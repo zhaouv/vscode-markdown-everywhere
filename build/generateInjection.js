@@ -16,9 +16,17 @@ const getInjection = () => {
     }));
 };
 
+const getActivation = () => {
+    return [...(new Set(rules
+        .map(rule => rule.languages.map(language => "onLanguage:" + language.name))
+        .reduce((a, b) => a.concat(b))
+    ))];
+}
+
 exports.updateInjection = () => {
     const packageJsonPath = path.join(__dirname, '..', 'package.json');
     const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, { encoding: 'utf-8' }));
     packageJson.contributes.grammars = getInjection();
+    packageJson.activationEvents = getActivation();
     fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 4));
 };

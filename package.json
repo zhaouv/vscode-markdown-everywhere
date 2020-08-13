@@ -11,7 +11,7 @@
         "url": "https://github.com/zhaouv/vscode-markdown-everywhere/issues"
     },
     "engines": {
-        "vscode": "^1.20.0"
+        "vscode": "^1.21.99"
     },
     "categories": [
         "Programming Languages"
@@ -22,7 +22,66 @@
         "cell",
         "highlight"
     ],
+    "activationEvents": [
+        "onLanguage:python",
+        "onLanguage:coffeescript",
+        "onLanguage:dockerfile",
+        "onLanguage:git-commit",
+        "onLanguage:git-rebase",
+        "onLanguage:diff",
+        "onLanguage:ignore",
+        "onLanguage:properties",
+        "onLanguage:makefile",
+        "onLanguage:perl",
+        "onLanguage:perl6",
+        "onLanguage:powershell",
+        "onLanguage:r",
+        "onLanguage:ruby",
+        "onLanguage:shellscript",
+        "onLanguage:yaml",
+        "onLanguage:cython",
+        "onLanguage:julia",
+        "onLanguage:cmake",
+        "onLanguage:c",
+        "onLanguage:cpp",
+        "onLanguage:csharp",
+        "onLanguage:css",
+        "onLanguage:go",
+        "onLanguage:groovy",
+        "onLanguage:hlsl",
+        "onLanguage:java",
+        "onLanguage:javascriptreact",
+        "onLanguage:javascript",
+        "onLanguage:json",
+        "onLanguage:jsonc",
+        "onLanguage:less",
+        "onLanguage:objective-c",
+        "onLanguage:objective-cpp",
+        "onLanguage:php",
+        "onLanguage:rust",
+        "onLanguage:scss",
+        "onLanguage:shaderlab",
+        "onLanguage:sql",
+        "onLanguage:swift",
+        "onLanguage:typescript",
+        "onLanguage:typescriptreact",
+        "onLanguage:antlr",
+        "onLanguage:fsharp",
+        "onLanguage:qasm-lang",
+        "onLanguage:matlab",
+        "onLanguage:bibtex",
+        "onLanguage:tex",
+        "onLanguage:latex"
+    ],
+    "main": "./build/extension",
     "contributes": {
+        "commands": [
+            {
+                "command": "markdown-everywhere.showPreviewToSide",
+                "title": "Preview Embedded Markdown"
+            }
+        ],
+        "markdown.markdownItPlugins": true,
         "grammars": [
             {
                 "injectTo": [

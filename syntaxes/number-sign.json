@@ -8,7 +8,7 @@
 	"repository": {
 		"comment-markdown-cell-inject-number-sign-LRSM": {
 			"name": "comment.quote_code.number-sign.LRSM",
-			"begin": "(?<=(?:^|\\G)\\s*#\\s*\\[markdown\\])$",
+			"begin": "(?<=(?:^|\\G)\\s*#\\s*\\[markdown\\]$)(^|\\G)",
 			"end": "(^|\\G)(?=\\s*(?!#|\\s)|\\s*$)",
 			"patterns": [
 				{
