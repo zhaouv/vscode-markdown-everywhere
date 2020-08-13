@@ -11,7 +11,7 @@ const getInjection = () => {
         scopeName: `comment.markdown-cell-inject.${rule.name}.${getRuleType(rule)}`,
         path: `./syntaxes/${rule.name}.json`,
         embeddedLanguages: {
-            "meta.embedded.block.md": "markdown"
+            "meta.embedded.block.everywhere.md": "markdown"
         }
     }));
 };

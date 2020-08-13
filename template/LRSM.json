@@ -8,7 +8,7 @@
 	"repository": {
 		"comment-markdown-cell-inject-__name__-LRSM": {
 			"name": "comment.quote_code.__name__.LRSM",
-			"begin": "(?<=(?:^|\\G)\\s*__beginRegExp__$)(^|\\G)",
+			"begin": "(?<=(?:^|\\G)\\s*__beginRegExp__)$",
 			"end": "(^|\\G)(?=\\s*(?!__whileRegExp__|\\s)|\\s*$)",
 			"patterns": [
 				{
@@ -23,7 +23,7 @@
 					"name": "comment.punctuation.definition.quote_code.__name__.LRSM"
 				}
 			},
-			"contentName": "meta.embedded.block.md",
+			"contentName": "meta.embedded.block.everywhere.md",
 			"patterns": [
 				{
 					"include": "text.html.markdown"

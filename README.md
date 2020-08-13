@@ -10,6 +10,23 @@ demo.png...
 
 Extending from my pr in [vscode-python](https://github.com/microsoft/vscode-python) ([issue](https://github.com/microsoft/vscode-python/issues/4356)/[pr](https://github.com/microsoft/vscode-python/pull/13359)).
 
+## Recommended Color
+
+```json
+    "editor.tokenColorCustomizations": {
+        "[Default Dark+]": {
+            "textMateRules": [
+                {
+                    "scope": "meta.embedded.block.everywhere.md",
+                    "settings": {
+                        "foreground": "#9abb87",
+                    }
+                }
+            ]
+        }
+    }
+```
+
 ## Supported List
 
 (note that some languages require that you install an VS Code extension that provides a grammar for that language)

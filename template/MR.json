@@ -23,7 +23,7 @@
 					"name": "comment.punctuation.definition.quote_code.__name__.MR"
 				}
 			},
-			"contentName": "meta.embedded.block.md",
+			"contentName": "meta.embedded.block.everywhere.md",
 			"patterns": [
 				{
 					"include": "text.html.markdown"

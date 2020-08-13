@@ -14,7 +14,7 @@
 				}
 			},
 			"name": "comment.quote_code.percentage-MD.LRSW",
-			"contentName": "meta.embedded.block.md",
+			"contentName": "meta.embedded.block.everywhere.md",
 			"patterns": [
 				{
 					"include": "text.html.markdown"

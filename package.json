@@ -90,7 +90,7 @@
                 "scopeName": "comment.markdown-cell-inject.triple-quote.BR",
                 "path": "./syntaxes/triple-quote.json",
                 "embeddedLanguages": {
-                    "meta.embedded.block.md": "markdown"
+                    "meta.embedded.block.everywhere.md": "markdown"
                 }
             },
             {
@@ -118,7 +118,7 @@
                 "scopeName": "comment.markdown-cell-inject.number-sign.LRSM",
                 "path": "./syntaxes/number-sign.json",
                 "embeddedLanguages": {
-                    "meta.embedded.block.md": "markdown"
+                    "meta.embedded.block.everywhere.md": "markdown"
                 }
             },
             {
@@ -146,7 +146,7 @@
                 "scopeName": "comment.markdown-cell-inject.number-sign-MD.LRSW",
                 "path": "./syntaxes/number-sign-MD.json",
                 "embeddedLanguages": {
-                    "meta.embedded.block.md": "markdown"
+                    "meta.embedded.block.everywhere.md": "markdown"
                 }
             },
             {
@@ -179,7 +179,7 @@
                 "scopeName": "comment.markdown-cell-inject.slash-star.MR",
                 "path": "./syntaxes/slash-star.json",
                 "embeddedLanguages": {
-                    "meta.embedded.block.md": "markdown"
+                    "meta.embedded.block.everywhere.md": "markdown"
                 }
             },
             {
@@ -212,7 +212,7 @@
                 "scopeName": "comment.markdown-cell-inject.double-slash.LRSM",
                 "path": "./syntaxes/double-slash.json",
                 "embeddedLanguages": {
-                    "meta.embedded.block.md": "markdown"
+                    "meta.embedded.block.everywhere.md": "markdown"
                 }
             },
             {
@@ -245,7 +245,7 @@
                 "scopeName": "comment.markdown-cell-inject.double-slash-MD.LRSW",
                 "path": "./syntaxes/double-slash-MD.json",
                 "embeddedLanguages": {
-                    "meta.embedded.block.md": "markdown"
+                    "meta.embedded.block.everywhere.md": "markdown"
                 }
             },
             {
@@ -258,7 +258,7 @@
                 "scopeName": "comment.markdown-cell-inject.percentage.LRSM",
                 "path": "./syntaxes/percentage.json",
                 "embeddedLanguages": {
-                    "meta.embedded.block.md": "markdown"
+                    "meta.embedded.block.everywhere.md": "markdown"
                 }
             },
             {
@@ -271,7 +271,7 @@
                 "scopeName": "comment.markdown-cell-inject.percentage-MD.LRSW",
                 "path": "./syntaxes/percentage-MD.json",
                 "embeddedLanguages": {
-                    "meta.embedded.block.md": "markdown"
+                    "meta.embedded.block.everywhere.md": "markdown"
                 }
             }
         ]
