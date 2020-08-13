@@ -1,7 +1,5 @@
 # Markdown Everywhere
 
-> finished but not published yet
-
 Embed and highlight and **preview** markdown everywhere.
 
 demo.png...
@@ -29,17 +27,16 @@ So that markdown can be easily distinguished from both code and comments.
 ## Preview
 
 Three mode  
-1. ignore source code part
-2. keep source code as fenced code
-3. ignore source code part and put `<br><hr>` as splitter  
++ `splitter`: ignore source code part and put `<br><hr>` as splitter  
++ `ignored`: ignore source code part  
++ `fenced`: keep source code as fenced code  
+
 change it at "settings.json"
 
-> can not change now
 
+## Enhancing-typing
 
-## Indent
-
-`whileSymbol` or `whileRegExp` (if `whileSymbol` undefined) will be used for enhancing indent.  
+`whileSymbol` or `whileRegExp` (if `whileSymbol` undefined) will be used for enhancing typing.  
 There will be some `onEnterRules` pushed to markdown.  
 So it will also affect the editing of normal markdown files.  
 You can turn off it in "settings.json".
@@ -78,7 +75,6 @@ After pressing `enter` at `"e"`, it will automatically append `"// MD "`.
 | percentage | LRSM | % [markdown]<br>% # title<br>% content<br> | matlab<br>bibtex<br>tex<br>latex |
 
 <!--Supported_List_Splitter-->
-
 
 ## Rules
 

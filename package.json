@@ -26,57 +26,6 @@
     "scripts": {
         "build": "node ./build/build"
     },
-    "activationEvents": [
-        "onLanguage:python",
-        "onLanguage:coffeescript",
-        "onLanguage:dockerfile",
-        "onLanguage:git-commit",
-        "onLanguage:git-rebase",
-        "onLanguage:diff",
-        "onLanguage:ignore",
-        "onLanguage:properties",
-        "onLanguage:makefile",
-        "onLanguage:perl",
-        "onLanguage:perl6",
-        "onLanguage:powershell",
-        "onLanguage:r",
-        "onLanguage:ruby",
-        "onLanguage:shellscript",
-        "onLanguage:yaml",
-        "onLanguage:cython",
-        "onLanguage:julia",
-        "onLanguage:cmake",
-        "onLanguage:c",
-        "onLanguage:cpp",
-        "onLanguage:csharp",
-        "onLanguage:css",
-        "onLanguage:go",
-        "onLanguage:groovy",
-        "onLanguage:hlsl",
-        "onLanguage:java",
-        "onLanguage:javascriptreact",
-        "onLanguage:javascript",
-        "onLanguage:json",
-        "onLanguage:jsonc",
-        "onLanguage:less",
-        "onLanguage:objective-c",
-        "onLanguage:objective-cpp",
-        "onLanguage:php",
-        "onLanguage:rust",
-        "onLanguage:scss",
-        "onLanguage:shaderlab",
-        "onLanguage:sql",
-        "onLanguage:swift",
-        "onLanguage:typescript",
-        "onLanguage:typescriptreact",
-        "onLanguage:antlr",
-        "onLanguage:fsharp",
-        "onLanguage:qasm-lang",
-        "onLanguage:matlab",
-        "onLanguage:bibtex",
-        "onLanguage:tex",
-        "onLanguage:latex"
-    ],
     "main": "./build/extension",
     "contributes": {
         "commands": [
@@ -86,6 +35,27 @@
             }
         ],
         "markdown.markdownItPlugins": true,
+        "configuration": {
+            "type": "object",
+            "title": "Markdown Everywhere",
+            "properties": {
+                "markdown-everywhere.enhancing-typing": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Inject onEnterRules to markdown (reload needed). After opening, extra characters will be added when editing markdown and pressing enter."
+                },
+                "markdown-everywhere.preview-mode": {
+                    "type": "string",
+                    "default": "splitter",
+                    "enum": [
+                        "splitter",
+                        "ignored",
+                        "fenced"
+                    ],
+                    "description": "How to deal with the original source code (re-preview to trigger). 'splitter' for ignoring them and put lines as splitter. 'ignore' for ignoring. 'fenced' for showing source code as fenced code."
+                }
+            }
+        },
         "grammars": [
             {
                 "injectTo": [
@@ -279,5 +249,56 @@
                 }
             }
         ]
-    }
+    },
+    "activationEvents": [
+        "onLanguage:python",
+        "onLanguage:coffeescript",
+        "onLanguage:dockerfile",
+        "onLanguage:git-commit",
+        "onLanguage:git-rebase",
+        "onLanguage:diff",
+        "onLanguage:ignore",
+        "onLanguage:properties",
+        "onLanguage:makefile",
+        "onLanguage:perl",
+        "onLanguage:perl6",
+        "onLanguage:powershell",
+        "onLanguage:r",
+        "onLanguage:ruby",
+        "onLanguage:shellscript",
+        "onLanguage:yaml",
+        "onLanguage:cython",
+        "onLanguage:julia",
+        "onLanguage:cmake",
+        "onLanguage:c",
+        "onLanguage:cpp",
+        "onLanguage:csharp",
+        "onLanguage:css",
+        "onLanguage:go",
+        "onLanguage:groovy",
+        "onLanguage:hlsl",
+        "onLanguage:java",
+        "onLanguage:javascriptreact",
+        "onLanguage:javascript",
+        "onLanguage:json",
+        "onLanguage:jsonc",
+        "onLanguage:less",
+        "onLanguage:objective-c",
+        "onLanguage:objective-cpp",
+        "onLanguage:php",
+        "onLanguage:rust",
+        "onLanguage:scss",
+        "onLanguage:shaderlab",
+        "onLanguage:sql",
+        "onLanguage:swift",
+        "onLanguage:typescript",
+        "onLanguage:typescriptreact",
+        "onLanguage:antlr",
+        "onLanguage:fsharp",
+        "onLanguage:qasm-lang",
+        "onLanguage:matlab",
+        "onLanguage:bibtex",
+        "onLanguage:tex",
+        "onLanguage:latex"
+    ]
 }

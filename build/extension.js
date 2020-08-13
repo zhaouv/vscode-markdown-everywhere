@@ -32,6 +32,16 @@ const vscodeMarkdownRender = {
     },
     processResult: v => v,
     options: { code: 2 },
+    /** @type {(src) => undefined} */
+    setPreviewMode: function (previewMode) {
+        this.options.code=({
+            "splitter":2,
+            "ignored":0,
+            "fenced":1,
+        })[previewMode];
+        console.log(previewMode)
+        console.log(this.options.code)
+    }
     // languageId: '',
 };
 
@@ -54,11 +64,14 @@ exports.activate = function (context) {
     const rules = localRules;
     vscodeMarkdownRender.rules = rules;
 
-    vscode.languages.setLanguageConfiguration('markdown', getLanguageConfiguration(rules));
+    let enhancing = vscode.workspace.getConfiguration('markdown-everywhere')['enhancing-typing'];
+    if (enhancing) vscode.languages.setLanguageConfiguration('markdown', getLanguageConfiguration(rules));
 
     context.subscriptions.push(vscode.commands.registerCommand('markdown-everywhere.showPreviewToSide', () => {
         let editor = vscode.window.activeTextEditor;
         if (!editor) return; // No open text editor
+        let previewMode = vscode.workspace.getConfiguration('markdown-everywhere')['preview-mode'];
+        vscodeMarkdownRender.setPreviewMode(previewMode);
         vscode.commands.executeCommand('markdown.showPreviewToSide');
     }));
 
