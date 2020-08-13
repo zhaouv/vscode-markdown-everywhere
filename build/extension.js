@@ -1,22 +1,29 @@
-const vscode = require("vscode");
+const vscode = require('vscode');
 const { rules } = require('./rules');
 const { getRuleType } = require('./util');
 
-/** @param {import('vscode').ExtensionContext} context */
-function activate(context) {
-
-    vscode.languages.setLanguageConfiguration('markdown', {
-        onEnterRules: [
-            {
-                beforeText: /^\s*# .*/,
-                afterText: /.*$/,
-                action: {
-                    indentAction: 0,
-                    appendText: '# '
-                }
+const getLanguageConfiguration = (rules) => {
+    let symbols = rules.filter(rule => rule.whileSymbol || rule.whileRegExp).map(rule => {
+        let enterRule = {
+            beforeText: new RegExp('^\\s*' + JSON.stringify(rule.whileRegExp).slice(1, -1) + ' ' + '.*'),
+            afterText: /.*$/,
+            action: {
+                indentAction: 0,
+                appendText: (rule.whileSymbol || rule.whileRegExp) + ' '
             }
-        ]
+        };
+        return enterRule;
     });
+    return { onEnterRules: symbols };
+}
+
+
+/** @param {import('vscode').ExtensionContext} context */
+exports.activate = function (context) {
+
+    // todo: change to suit rule
+    // it is a prototype here
+    vscode.languages.setLanguageConfiguration('markdown', getLanguageConfiguration(rules));
 
     let vscodeMarkdownRender = {
         /** @type {(src) => String} */
@@ -58,4 +65,3 @@ function activate(context) {
 
     return { extendMarkdownIt: injectRender };
 }
-exports.activate = activate;

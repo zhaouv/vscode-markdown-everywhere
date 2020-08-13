@@ -115,8 +115,8 @@
                     "source.julia",
                     "source.cmake"
                 ],
-                "scopeName": "comment.markdown-cell-inject.number-sign.LRSM",
-                "path": "./syntaxes/number-sign.json",
+                "scopeName": "comment.markdown-cell-inject.number-sign-MD.LRSW",
+                "path": "./syntaxes/number-sign-MD.json",
                 "embeddedLanguages": {
                     "meta.embedded.block.everywhere.md": "markdown"
                 }
@@ -143,8 +143,8 @@
                     "source.julia",
                     "source.cmake"
                 ],
-                "scopeName": "comment.markdown-cell-inject.number-sign-MD.LRSW",
-                "path": "./syntaxes/number-sign-MD.json",
+                "scopeName": "comment.markdown-cell-inject.number-sign.LRSM",
+                "path": "./syntaxes/number-sign.json",
                 "embeddedLanguages": {
                     "meta.embedded.block.everywhere.md": "markdown"
                 }
@@ -209,8 +209,8 @@
                     "source.antlr",
                     "source.qasm"
                 ],
-                "scopeName": "comment.markdown-cell-inject.double-slash.LRSM",
-                "path": "./syntaxes/double-slash.json",
+                "scopeName": "comment.markdown-cell-inject.double-slash-MD.LRSW",
+                "path": "./syntaxes/double-slash-MD.json",
                 "embeddedLanguages": {
                     "meta.embedded.block.everywhere.md": "markdown"
                 }
@@ -242,21 +242,8 @@
                     "source.antlr",
                     "source.qasm"
                 ],
-                "scopeName": "comment.markdown-cell-inject.double-slash-MD.LRSW",
-                "path": "./syntaxes/double-slash-MD.json",
-                "embeddedLanguages": {
-                    "meta.embedded.block.everywhere.md": "markdown"
-                }
-            },
-            {
-                "injectTo": [
-                    "source.matlab",
-                    "text.bibtex",
-                    "text.tex",
-                    "text.latex"
-                ],
-                "scopeName": "comment.markdown-cell-inject.percentage.LRSM",
-                "path": "./syntaxes/percentage.json",
+                "scopeName": "comment.markdown-cell-inject.double-slash.LRSM",
+                "path": "./syntaxes/double-slash.json",
                 "embeddedLanguages": {
                     "meta.embedded.block.everywhere.md": "markdown"
                 }
@@ -270,6 +257,19 @@
                 ],
                 "scopeName": "comment.markdown-cell-inject.percentage-MD.LRSW",
                 "path": "./syntaxes/percentage-MD.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.everywhere.md": "markdown"
+                }
+            },
+            {
+                "injectTo": [
+                    "source.matlab",
+                    "text.bibtex",
+                    "text.tex",
+                    "text.latex"
+                ],
+                "scopeName": "comment.markdown-cell-inject.percentage.LRSM",
+                "path": "./syntaxes/percentage.json",
                 "embeddedLanguages": {
                     "meta.embedded.block.everywhere.md": "markdown"
                 }
