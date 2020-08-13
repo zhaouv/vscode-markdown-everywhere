@@ -1,8 +1,8 @@
 {
     "name": "vscode-markdown-everywhere",
     "displayName": "Markdown Everywhere",
-    "description": "Embed and highlight markdown everywhere",
-    "version": "0.0.1",
+    "description": "Embed and highlight and preview markdown everywhere",
+    "version": "0.0.2",
     "publisher": "zhaouv",
     "license": "Apache",
     "repository": {
@@ -20,6 +20,8 @@
     "keywords": [
         "markdown",
         "embed",
+        "preview",
+        "vscode",
         "cell",
         "highlight"
     ],

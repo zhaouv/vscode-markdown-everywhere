@@ -1,9 +1,7 @@
 # Change Log
 
-# todo
-
-preview:  
-  by creating a "Untitled" as markdown and preview it
+## 0.0.2 (2020-08-13)
++ Initial Release
 
 ## 0.0.1 (2020-08-10)
-+ Initial
++ Initial Project
