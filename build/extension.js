@@ -35,26 +35,26 @@ const vscodeMarkdownRender = {
     // languageId: '',
 };
 
+const injectRender = (md) => {
+    vscodeMarkdownRender.md = md;
+    const parse = md.parse;
+    md.parse = (src, env) => {
+        return parse.call(md, vscodeMarkdownRender.processSource(src), env);
+    };
+    const rendererRender = md.renderer.render;
+    md.renderer.render = (tokens, options, env) => {
+        return vscodeMarkdownRender.processResult(rendererRender.call(md.renderer, tokens, options, env));
+    };
+    return md;
+};
+
+
 /** @param {import('vscode').ExtensionContext} context */
 exports.activate = function (context) {
     const rules = localRules;
     vscodeMarkdownRender.rules = rules;
-    // todo: change to suit rule
-    // it is a prototype here
-    vscode.languages.setLanguageConfiguration('markdown', getLanguageConfiguration(rules));
 
-    let injectRender = (md) => {
-        vscodeMarkdownRender.md = md;
-        const parse = md.parse;
-        md.parse = (src, env) => {
-            return parse.call(md, vscodeMarkdownRender.processSource(src), env);
-        };
-        const rendererRender = md.renderer.render;
-        md.renderer.render = (tokens, options, env) => {
-            return vscodeMarkdownRender.processResult(rendererRender.call(md.renderer, tokens, options, env));
-        };
-        return md;
-    };
+    vscode.languages.setLanguageConfiguration('markdown', getLanguageConfiguration(rules));
 
     context.subscriptions.push(vscode.commands.registerCommand('markdown-everywhere.showPreviewToSide', () => {
         let editor = vscode.window.activeTextEditor;

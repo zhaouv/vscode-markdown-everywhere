@@ -2,16 +2,14 @@
 
 > finished but not published yet
 
-Embed and highlight and preview markdown everywhere.
+Embed and highlight and **preview** markdown everywhere.
 
 demo.png...
-
-Extending from my pr in [vscode-python](https://github.com/microsoft/vscode-python) ([issue](https://github.com/microsoft/vscode-python/issues/4356)/[pr](https://github.com/microsoft/vscode-python/pull/13359)).
 
 ## Recommended Color
 
 You can put those into "settings.json" to adjust the color.  
-So that it can be easily distinguished from both code and comments.  
+So that markdown can be easily distinguished from both code and comments.  
 
 ```json
     "editor.tokenColorCustomizations": {
@@ -178,3 +176,7 @@ rule={
 ```
 
 > There is bug for this case. The following first line will be highlighted as comment. I haven't figured out the mechanism yet. So please put a empty line after these.
+
+* * * * *
+
+Extending from my pr in [vscode-python](https://github.com/microsoft/vscode-python) ([issue](https://github.com/microsoft/vscode-python/issues/4356)/[pr](https://github.com/microsoft/vscode-python/pull/13359)).

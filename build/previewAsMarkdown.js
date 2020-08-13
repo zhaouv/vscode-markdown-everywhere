@@ -1,9 +1,10 @@
-const { getRuleType, LRSM, LRSW, MR, BR } = require('./util');
+const { getRuleType, LRSM, LRSW, MR, BR, encodeRegExp } = require('./util');
 
 const fetchRelatedRule = (languageId, rules) => {
     return rules.filter(rule => rule.languages.filter(languages => languages.name === languageId).length);
 }
 
+// MD A bad implementation, just works
 const ruleProcess = (rule, ruleIndex, lines, marks, output) => {
     const start_ = 0;
     const while_ = 1;
@@ -13,6 +14,11 @@ const ruleProcess = (rule, ruleIndex, lines, marks, output) => {
     let state = start_;
     if (type === LRSW) state = while_;
 
+    // ~~!!rule.beginRegExp + ~~!!rule.whileRegExp + ~~!!rule.endRegExp;
+    //     '110': () => LRSM,
+    //     '010': () => LRSW,
+    //     '111': () => MR,
+    //     '101': () => BR,
     let nextState = (state, type, success) => {
         if (type === LRSW) return while_;
         if (success) {
@@ -30,6 +36,7 @@ const ruleProcess = (rule, ruleIndex, lines, marks, output) => {
         }
     }
 
+    // MD I'm a bit puzzled why there is no need to `encodeRegExp` here
     const beginRegExp = new RegExp(`^\\s*(${rule.beginRegExp || '...'}) ?`);
     const whileRegExp = new RegExp(`^\\s*(${rule.whileRegExp || '...'}) ?`);
     const endRegExp = new RegExp(`^\\s*(${rule.endRegExp || '...'}) ?`);
@@ -48,6 +55,7 @@ const ruleProcess = (rule, ruleIndex, lines, marks, output) => {
             let success = whileRegExp.exec(line);
             if (success) {
                 marks[lino] = ruleIndex;
+                // MD remove the start mark and get content
                 output[lino] = line.slice(success[0].length);
             }
             state = nextState(state, type, success);
@@ -58,6 +66,7 @@ const ruleProcess = (rule, ruleIndex, lines, marks, output) => {
             } else {
                 if (type === BR) {
                     marks[lino] = ruleIndex;
+                    // MD the hole line is content for `BR` when not matching `endRegExp`
                     output[lino] = line;
                 }
             }
@@ -68,10 +77,12 @@ const ruleProcess = (rule, ruleIndex, lines, marks, output) => {
 }
 
 const postProcessSource = (languageId, savedRules, lines, marks, output, options) => {
-    if (options.code===0) { // do nothing
+    // MD do nothing
+    if (options.code === 0) { 
         return
     }
-    if (options.code===1) { // keep source
+    // MD keep source
+    if (options.code === 1) { 
         let lino = -1;
         while (lino < lines.length - 1) {
             lino++;
@@ -88,12 +99,16 @@ const postProcessSource = (languageId, savedRules, lines, marks, output, options
             if (marks[lino] >= 0) continue;
             const line = lines[lino];
             let used = false;
+            // MD The number of lines will be more, and finally the preview and the source code will be staggered  
+            // MD start fenced code
             if (lino === 0 || marks[lino - 1] >= 0) {
                 output[lino] = '``` ' + languageId + '\r\n' + line;
                 used = true;
             }
             if (lino === lines.length - 1 || marks[lino + 1] >= 0) {
+                // MD end fenced code
                 if (!used) output[lino] = line + '\r\n```';
+                // MD single-line code
                 else output[lino] = '``` ' + languageId + '\r\n' + line + '\r\n```';
                 used = true;
             }
@@ -103,7 +118,8 @@ const postProcessSource = (languageId, savedRules, lines, marks, output, options
         }
         return
     }
-    if (options.code===2) { // spilter
+    // MD splitter
+    if (options.code === 2) { 
         let lino = -1;
         while (lino < lines.length - 1) {
             lino++;
