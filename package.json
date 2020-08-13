@@ -22,6 +22,9 @@
         "cell",
         "highlight"
     ],
+    "scripts": {
+        "build": "node ./build/build"
+    },
     "activationEvents": [
         "onLanguage:python",
         "onLanguage:coffeescript",
@@ -275,8 +278,5 @@
                 }
             }
         ]
-    },
-    "scripts": {
-        "build": "node ./build/build"
     }
 }

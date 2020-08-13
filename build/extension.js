@@ -1,11 +1,12 @@
 const vscode = require('vscode');
-const { rules } = require('./rules');
-const { getRuleType } = require('./util');
+const { rules: localRules } = require('./rules');
+const { encodeRegExp } = require('./util');
+const { processSource } = require('./previewAsMarkdown');
 
 const getLanguageConfiguration = (rules) => {
     let symbols = rules.filter(rule => rule.whileSymbol || rule.whileRegExp).map(rule => {
         let enterRule = (space) => ({
-            beforeText: new RegExp('^\\s*' + JSON.stringify(rule.whileRegExp).slice(1, -1) + space + '.*'),
+            beforeText: new RegExp('^\\s*' + encodeRegExp(rule.whileRegExp) + space + '.*'),
             afterText: /.*$/,
             action: {
                 indentAction: 0,
@@ -17,30 +18,30 @@ const getLanguageConfiguration = (rules) => {
     return { onEnterRules: symbols.reduce((a, b) => a.concat(b)) };
 }
 
+const vscodeMarkdownRender = {
+    /** @type {(src) => String} */
+    processSource: function (src) {
+        let editor = vscode.window.activeTextEditor;
+        if (!editor) {
+            return src;
+        }
+        let languageId = editor.document.languageId;
+        // this.languageId = languageId;
+        // console.log(languageId)
+        return processSource(languageId, this.rules, src, this.options);
+    },
+    processResult: v => v,
+    options: { code: 2 },
+    // languageId: '',
+};
 
 /** @param {import('vscode').ExtensionContext} context */
 exports.activate = function (context) {
-
+    const rules = localRules;
+    vscodeMarkdownRender.rules = rules;
     // todo: change to suit rule
     // it is a prototype here
     vscode.languages.setLanguageConfiguration('markdown', getLanguageConfiguration(rules));
-
-    let vscodeMarkdownRender = {
-        /** @type {(src) => String} */
-        processSource: function (src) {
-            let editor = vscode.window.activeTextEditor;
-            if (!editor) {
-                return src;
-            }
-            let languageId = editor.document.languageId;
-            this.languageId = languageId;
-            console.log(languageId)
-            return src;
-        },
-        processResult: v => v,
-        languageId: '',
-    };
-
 
     let injectRender = (md) => {
         vscodeMarkdownRender.md = md;
@@ -57,9 +58,7 @@ exports.activate = function (context) {
 
     context.subscriptions.push(vscode.commands.registerCommand('markdown-everywhere.showPreviewToSide', () => {
         let editor = vscode.window.activeTextEditor;
-        if (!editor) {
-            return; // No open text editor
-        }
+        if (!editor) return; // No open text editor
         vscode.commands.executeCommand('markdown.showPreviewToSide');
     }));
 

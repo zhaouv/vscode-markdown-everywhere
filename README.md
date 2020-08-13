@@ -2,9 +2,7 @@
 
 > finished but not published yet
 
-Embed and highlight markdown everywhere.
-
-> todo: and preview
+Embed and highlight and preview markdown everywhere.
 
 demo.png...
 
@@ -29,6 +27,15 @@ So that it can be easily distinguished from both code and comments.
         }
     }
 ```
+
+## preview
+
+Three mode  
+1. ignore source code part
+2. keep source code as fenced code
+3. ignore source code part and put `<br><hr>` as splitter
+
+> can not change now
 
 ## Supported List
 

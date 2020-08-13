@@ -1,3 +1,4 @@
-require('./generateGrammar').updateGrammars();
-require('./generateInjection').updateInjection();
-require('./generateDocs').updateDocs();
+const { rules } = require('./rules');
+require('./generateGrammar').updateGrammars(rules);
+require('./generateInjection').updateInjection(rules);
+require('./generateDocs').updateDocs(rules);

@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { rules } = require('./rules');
-const { RULETYPE, getRuleType } = require('./util');
+const { RULETYPE, getRuleType, encodeRegExp } = require('./util');
 
 const grammarTemplates = {};
 
@@ -17,7 +16,7 @@ const renderTemplate = (rule, tpl) => {
     let rule_ = {};
     for (const key in rule) {
         if (!/\w+RegExp|name/.test(key)) continue;
-        rule_['__' + key + '__'] = JSON.stringify(rule[key]).slice(1, -1);
+        rule_['__' + key + '__'] = encodeRegExp(rule[key]);
     }
     rule_['__languages__'] = rule.languages.map(language => {
         const sources = Array.isArray(language.source) ? language.source : [language.source];
@@ -29,7 +28,7 @@ const renderTemplate = (rule, tpl) => {
     return output;
 }
 
-exports.updateGrammars = () => {
+exports.updateGrammars = (rules) => {
     loadTemplates();
     let types = rules.map(rule => getRuleType(rule));
     const outDir = path.join(__dirname, '..', 'syntaxes');
