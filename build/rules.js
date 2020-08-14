@@ -1,15 +1,6 @@
 const { languages } = require('./comments')
 exports.rules = [
     {
-        name: "triple-quote",
-        beginRegExp: "\"\"\"\\s*\\[markdown\\]",
-        endRegExp: "\"\"\"",
-        example: "\"\"\" [markdown]<br># title<br>content<br>\"\"\"",
-        languages: [
-            { name: "python", source: "source.python" }
-        ]
-    },
-    {
         name: "number-sign-MD",
         whileRegExp: "# MD",
         example: "# MD # title<br># MD content<br>",
@@ -189,6 +180,16 @@ exports.rules = [
         whileSymbol: "#",
         example: "# %% [markdown]<br># # highlight python markdown cell<br># for the vscode-python data-science feature<br>",
         languages: [
+            { name: "python", source: "source.python" }
+        ]
+    },
+    {
+        name: "triple-quote",
+        beginRegExp: "\"\"\"",
+        endRegExp: "\"\"\"",
+        example: "\"\"\"<br>&nbsp;&nbsp;&nbsp;&nbsp;bar(x[, y])<br><br>julia standard markdown doc<br>\"\"\"<br>function bar(x, y) ...",
+        languages: [
+            { name: "julia", source: "source.julia" },
             { name: "python", source: "source.python" }
         ]
     }

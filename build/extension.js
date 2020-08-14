@@ -82,6 +82,7 @@ exports.activate = function (context) {
     }));
 
     context.subscriptions.push(vscode.commands.registerCommand('markdown-everywhere.buildMarkdownEmbeddingRules', () => {
+        let rules = getRules();
         require('./generateGrammar').updateGrammars(rules);
         require('./generateInjection').updateInjection(rules);
         require('./generateDocs').updateDocs(rules);

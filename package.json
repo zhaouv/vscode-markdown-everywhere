@@ -2,7 +2,7 @@
     "name": "vscode-markdown-everywhere",
     "displayName": "Markdown Everywhere",
     "description": "Embed and highlight and preview markdown everywhere",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "publisher": "zhaouv",
     "license": "Apache",
     "repository": {
@@ -95,16 +95,6 @@
             }
         ],
         "grammars": [
-            {
-                "injectTo": [
-                    "source.python"
-                ],
-                "scopeName": "comment.markdown-cell-inject.triple-quote.BR",
-                "path": "./syntaxes/triple-quote.json",
-                "embeddedLanguages": {
-                    "meta.embedded.block.everywhere.md": "markdown"
-                }
-            },
             {
                 "injectTo": [
                     "source.coffee",
@@ -295,11 +285,21 @@
                 "embeddedLanguages": {
                     "meta.embedded.block.everywhere.md": "markdown"
                 }
+            },
+            {
+                "injectTo": [
+                    "source.julia",
+                    "source.python"
+                ],
+                "scopeName": "comment.markdown-cell-inject.triple-quote.BR",
+                "path": "./syntaxes/triple-quote.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.everywhere.md": "markdown"
+                }
             }
         ]
     },
     "activationEvents": [
-        "onLanguage:python",
         "onLanguage:coffeescript",
         "onLanguage:dockerfile",
         "onLanguage:git-commit",
@@ -311,6 +311,7 @@
         "onLanguage:perl",
         "onLanguage:perl6",
         "onLanguage:powershell",
+        "onLanguage:python",
         "onLanguage:r",
         "onLanguage:ruby",
         "onLanguage:shellscript",

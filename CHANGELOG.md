@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.0.5 (2020-08-14)
+
+fix bug in "Build Rules"
+
+fix bug when beginRegExp equals to endRegExp
+
 ## 0.0.4 (2020-08-14)
 
 fix bug in "Enhancing-typing"

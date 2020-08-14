@@ -1,5 +1,5 @@
 {
-	"injectionSelector": "L:source.matlab -string, L:text.bibtex -string, L:text.tex -string, L:text.latex -string",
+	"injectionSelector": "L:source.matlab -string -meta.embedded.block.everywhere.md, L:text.bibtex -string -meta.embedded.block.everywhere.md, L:text.tex -string -meta.embedded.block.everywhere.md, L:text.latex -string -meta.embedded.block.everywhere.md",
 	"patterns": [
 		{
 			"include": "#comment-markdown-cell-inject-percentage-MD-LRSW"
