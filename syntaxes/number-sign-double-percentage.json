@@ -1,0 +1,36 @@
+{
+	"injectionSelector": "L:source.python -string",
+	"patterns": [
+		{
+			"include": "#comment-markdown-cell-inject-number-sign-double-percentage-LRSM"
+		}
+	],
+	"repository": {
+		"comment-markdown-cell-inject-number-sign-double-percentage-LRSM": {
+			"name": "comment.quote_code.number-sign-double-percentage.LRSM",
+			"begin": "(?<=(?:^|\\G)\\s*#\\s*%%\\s*(?:\\[markdown\\]|<markdowncell>))$",
+			"end": "(^|\\G)(?=\\s*(?!#(?!\\s*%%)|\\s)|\\s*$)",
+			"patterns": [
+				{
+					"include": "#number-sign-double-percentage-quote-LRSM"
+				}
+			]
+		},
+		"number-sign-double-percentage-quote-LRSM": {
+			"begin": "(^|\\G)\\s*(#(?!\\s*%%)) ?",
+			"captures": {
+				"2": {
+					"name": "comment.punctuation.definition.quote_code.number-sign-double-percentage.LRSM"
+				}
+			},
+			"contentName": "meta.embedded.block.everywhere.md",
+			"patterns": [
+				{
+					"include": "text.html.markdown"
+				}
+			],
+			"while": "(^|\\G)\\s*(#(?!\\s*%%)) ?"
+		}
+	},
+    "scopeName": "comment.markdown-cell-inject.number-sign-double-percentage.LRSM"
+}

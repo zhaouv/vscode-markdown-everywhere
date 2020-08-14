@@ -1,5 +1,5 @@
 {
-	"injectionSelector": "L:source.matlab, L:text.bibtex, L:text.tex, L:text.latex",
+	"injectionSelector": "L:source.matlab -string, L:text.bibtex -string, L:text.tex -string, L:text.latex -string",
 	"patterns": [
 		{
 			"include": "#comment-markdown-cell-inject-percentage-LRSM"

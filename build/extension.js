@@ -4,17 +4,21 @@ const { encodeRegExp } = require('./util');
 const { processSource } = require('./previewAsMarkdown');
 
 const getLanguageConfiguration = (rules) => {
-    let symbols = rules.filter(rule => rule.whileSymbol || rule.whileRegExp).map(rule => {
-        let enterRule = (space) => ({
-            beforeText: new RegExp('^\\s*' + encodeRegExp(rule.whileRegExp) + space + '.*'),
-            afterText: /.*$/,
-            action: {
-                indentAction: 0,
-                appendText: (rule.whileSymbol || rule.whileRegExp) + space
-            }
+    let symbol=(rule)=>rule.whileSymbol || rule.whileRegExp;
+    let symbols = rules
+        .filter(rule => symbol(rule))
+        .sort((ra,rb)=>symbol(rb).length-symbol(ra).length)
+        .map(rule => {
+            let enterRule = (space) => ({
+                beforeText: new RegExp('^\\s*' + encodeRegExp(rule.whileRegExp) + space + '.*'),
+                afterText: /.*$/,
+                action: {
+                    indentAction: 0,
+                    appendText: (rule.whileSymbol || rule.whileRegExp) + space
+                }
+            });
+            return Array.from({ length: 13 }).map((v, i) => enterRule(Array.from({ length: 13 + 1 - i }).join(' ')));
         });
-        return Array.from({ length: 13 }).map((v, i) => enterRule(Array.from({ length: 13 + 1 - i }).join(' ')));
-    });
     return { onEnterRules: symbols.reduce((a, b) => a.concat(b)) };
 }
 
@@ -32,10 +36,10 @@ const vscodeMarkdownRender = {
     options: { code: 2 },
     /** @type {(src) => undefined} */
     setPreviewMode: function (previewMode) {
-        this.options.code=({
-            "splitter":2,
-            "ignored":0,
-            "fenced":1,
+        this.options.code = ({
+            "splitter": 2,
+            "ignored": 0,
+            "fenced": 1,
         })[previewMode];
     }
 };

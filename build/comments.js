@@ -261,3 +261,14 @@ exports.languages=[
         source: "source.yaml"
     }
 ]
+
+if (typeof require !== 'undefined' && require.main === module) {
+    const { languages } = exports
+    const { json } = require('./util')
+    json.log([
+        languages.filter(l => JSON.stringify(l.comments.blockComment||"") === JSON.stringify(["\"\"\"", "\"\"\""])).map(v=>({name:v.name,source:v.source})),
+        languages.filter(l => l.comments.lineComment === "#").map(v=>({name:v.name,source:v.source})),
+        languages.filter(l => JSON.stringify(l.comments.blockComment||"") === JSON.stringify(["/*","*/"])).map(v=>({name:v.name,source:v.source})),
+        languages.filter(l => l.comments.lineComment === "//").map(v=>({name:v.name,source:v.source})),
+    ],2)
+}
