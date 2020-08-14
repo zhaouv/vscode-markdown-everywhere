@@ -2,7 +2,7 @@
     "name": "vscode-markdown-everywhere",
     "displayName": "Markdown Everywhere",
     "description": "Embed and highlight and preview markdown everywhere",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "publisher": "zhaouv",
     "license": "Apache",
     "repository": {
@@ -35,6 +35,10 @@
                 "command": "markdown-everywhere.showPreviewToSide",
                 "title": "Preview Embedded Markdown",
                 "icon": "$(open-preview)"
+            },
+            {
+                "command": "markdown-everywhere.buildMarkdownEmbeddingRules",
+                "title": "Build Markdown Embedding Rules"
             }
         ],
         "markdown.markdownItPlugins": true,
@@ -56,6 +60,13 @@
                         "fenced"
                     ],
                     "description": "How to deal with the original source code (re-preview to trigger). 'splitter' for ignoring them and put lines as splitter. 'ignore' for ignoring. 'fenced' for showing source code as fenced code."
+                },
+                "markdown-everywhere.customized-rules": {
+                    "type": "array",
+                    "default": [
+                        "defaultRules"
+                    ],
+                    "description": "Save the first element \"defaultRules\" to keep default rules. Remove to only use customized rules. See README.md#Customize for details"
                 }
             }
         },

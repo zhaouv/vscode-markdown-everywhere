@@ -10,6 +10,49 @@ Embed and highlight and **preview** markdown everywhere.
 ![](img_md/preview-icon.png)  
 ![](img_md/fenced-preview.png)
 
+
+## Preview
+
+Three mode  
++ `splitter`: ignore source code part and put `<hr>` as splitter  
++ `ignored`: ignore source code part  
++ `fenced`: keep source code as fenced code  
+
+`spliter` Help organize information  
+![](img_md/spliter-preview.png)
+`ignored`  
+![](img_md/ignore-preview.png)
+`fenced`  
+![](img_md/fenced-preview.png)
+
+
+change it at "settings.json"  
+![](img_md/preview-mode-set.png)
+
+## Enhancing-typing
+
+`whileSymbol` or `whileRegExp` (if `whileSymbol` undefined) will be used for enhancing typing.  
+There will be some `onEnterRules` pushed to markdown.  
+So it will also affect the editing of normal markdown files.  
+You can turn off it in "settings.json".
+
+`onEnterRules` checks the previous line, so it does not work on the first line of a markdown region.
+
+Example:
+```js
+// MD the first line
+// MD the second line
+```
+After pressing `enter` at `"e"`, it will automatically append `"// MD "`.
+```js
+// MD the first line
+// MD the second line
+// MD 
+```
+change it at "settings.json"  
+![](img_md/enhancing-typing-set.png)
+
+
 ## Recommended Color
 
 You can put those into "settings.json" to adjust the color.  
@@ -54,47 +97,6 @@ So that markdown can be easily distinguished from both code and comments.
 }
 ```
 
-## Preview
-
-Three mode  
-+ `splitter`: ignore source code part and put `<hr>` as splitter  
-+ `ignored`: ignore source code part  
-+ `fenced`: keep source code as fenced code  
-
-`spliter` Help organize information  
-![](img_md/spliter-preview.png)
-`ignored`  
-![](img_md/ignore-preview.png)
-`fenced`  
-![](img_md/fenced-preview.png)
-
-
-change it at "settings.json"  
-![](img_md/preview-mode-set.png)
-
-## Enhancing-typing
-
-`whileSymbol` or `whileRegExp` (if `whileSymbol` undefined) will be used for enhancing typing.  
-There will be some `onEnterRules` pushed to markdown.  
-So it will also affect the editing of normal markdown files.  
-You can turn off it in "settings.json".
-
-`onEnterRules` checks the previous line, so it does not work on the first line of a markdown region.
-
-Example:
-```js
-// MD the first line
-// MD the second line
-```
-After pressing `enter` at `"e"`, it will automatically append `"// MD "`.
-```js
-// MD the first line
-// MD the second line
-// MD 
-```
-change it at "settings.json"  
-![](img_md/enhancing-typing-set.png)
-
 ## Supported List
 
 (note that some languages require that you install an VS Code extension that provides a grammar for that language)
@@ -114,6 +116,29 @@ change it at "settings.json"
 | number-sign-double-percentage | LRSM | # %% [markdown]<br># # title<br># content<br> | python |
 
 <!--Supported_List_Splitter-->
+
+## Customize
+
+Imitate [rules](https://github.com/zhaouv/vscode-markdown-everywhere/blob/master/build/rules.js) and add new rules to "settings.json". And then run command "Build Markdown Embedding Rules" and then reload (press "F1", type "Build Markdown Embedding Rules" and "Reload Window"). And you need to run build command again when you update this extension.
+
+Save the first element `defaultRules` to keep default rules. Remove to only use customized rules. Example:
+
+``` json
+"markdown-everywhere.customized-rules": [
+    "defaultRules",
+    {
+        "name": "number-sign-equals",
+        "beginRegExp": "#=\\s*\\[markdown\\]",
+        "endRegExp": "=#",
+        "example": "#= [markdown]<br># title<br>content<br>=#",
+        "languages": [
+            { "name": "julia", "source": "source.julia" }
+        ]
+    }
+]
+```
+
+<!-- File changed dynamically. Not working when debugging, But effective after actual installation. -->
 
 ## Rules
 

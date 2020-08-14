@@ -1,13 +1,13 @@
 const vscode = require('vscode');
 const { rules: localRules } = require('./rules');
-const { encodeRegExp } = require('./util');
+const { encodeRegExp, getRuleType } = require('./util');
 const { processSource } = require('./previewAsMarkdown');
 
 const getLanguageConfiguration = (rules) => {
-    let symbol=(rule)=>rule.whileSymbol || rule.whileRegExp;
+    let symbol = (rule) => rule.whileSymbol || rule.whileRegExp;
     let symbols = rules
         .filter(rule => symbol(rule))
-        .sort((ra,rb)=>symbol(rb).length-symbol(ra).length)
+        .sort((ra, rb) => symbol(rb).length - symbol(ra).length)
         .map(rule => {
             let enterRule = (space) => ({
                 beforeText: new RegExp('^\\s*' + encodeRegExp(rule.whileRegExp) + space + '.*'),
@@ -57,10 +57,18 @@ const injectRender = (md) => {
     return md;
 };
 
+const getRules = () => {
+    let rules = Array.from(localRules);
+    let customizedRules = vscode.workspace.getConfiguration('markdown-everywhere')['customized-rules'];
+    if (customizedRules.indexOf("defaultRules") === -1) {
+        rules = [];
+    }
+    return rules.concat(customizedRules.filter(v => v !== "defaultRules"));
+}
 
 /** @param {import('vscode').ExtensionContext} context */
 exports.activate = function (context) {
-    const rules = localRules;
+    const rules = getRules();
     vscodeMarkdownRender.rules = rules;
 
     let enhancing = vscode.workspace.getConfiguration('markdown-everywhere')['enhancing-typing'];
@@ -72,6 +80,12 @@ exports.activate = function (context) {
         let previewMode = vscode.workspace.getConfiguration('markdown-everywhere')['preview-mode'];
         vscodeMarkdownRender.setPreviewMode(previewMode);
         vscode.commands.executeCommand('markdown.showPreviewToSide');
+    }));
+
+    context.subscriptions.push(vscode.commands.registerCommand('markdown-everywhere.buildMarkdownEmbeddingRules', () => {
+        require('./generateGrammar').updateGrammars(rules);
+        require('./generateInjection').updateInjection(rules);
+        require('./generateDocs').updateDocs(rules);
     }));
 
     return { extendMarkdownIt: injectRender };
