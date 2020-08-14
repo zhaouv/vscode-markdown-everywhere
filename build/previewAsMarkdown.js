@@ -1,4 +1,4 @@
-const { getRuleType, LRSM, LRSW, MR, BR, encodeRegExp } = require('./util');
+const { getRuleType, LRSM, LRSW, MR, BR } = require('./util');
 
 const fetchRelatedRule = (languageId, rules) => {
     return rules.filter(rule => rule.languages.filter(languages => languages.name === languageId).length);
@@ -36,7 +36,6 @@ const ruleProcess = (rule, ruleIndex, lines, marks, output) => {
         }
     }
 
-    // MD I'm a bit puzzled why there is no need to `encodeRegExp` here
     const beginRegExp = new RegExp(`^\\s*(${rule.beginRegExp || '...'}) ?`);
     const whileRegExp = new RegExp(`^\\s*(${rule.whileRegExp || '...'}) ?`);
     const endRegExp = new RegExp(`^\\s*(${rule.endRegExp || '...'}) ?`);

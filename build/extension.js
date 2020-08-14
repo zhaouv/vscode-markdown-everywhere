@@ -1,6 +1,5 @@
 const vscode = require('vscode');
 const { rules: localRules } = require('./rules');
-const { encodeRegExp, getRuleType } = require('./util');
 const { processSource } = require('./previewAsMarkdown');
 
 const getLanguageConfiguration = (rules) => {
@@ -10,14 +9,14 @@ const getLanguageConfiguration = (rules) => {
         .sort((ra, rb) => symbol(rb).length - symbol(ra).length)
         .map(rule => {
             let enterRule = (space) => ({
-                beforeText: new RegExp('^\\s*' + encodeRegExp(rule.whileRegExp) + space + '.*'),
+                beforeText: new RegExp('^\\s*' + rule.whileRegExp + space + '.*'),
                 afterText: /.*$/,
                 action: {
                     indentAction: 0,
                     appendText: (rule.whileSymbol || rule.whileRegExp) + space
                 }
             });
-            return Array.from({ length: 13 }).map((v, i) => enterRule(Array.from({ length: 13 + 1 - i }).join(' ')));
+            return Array.from({ length: 21 }).map((v, i) => enterRule(Array.from({ length: 21 + 1 - i }).join(' ')));
         });
     return { onEnterRules: symbols.reduce((a, b) => a.concat(b)) };
 }

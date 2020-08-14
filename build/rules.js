@@ -187,7 +187,7 @@ exports.rules = [
         beginRegExp: "#\\s*%%\\s*(?:\\[markdown\\]|<markdowncell>)",
         whileRegExp: "#(?!\\s*%%)",
         whileSymbol: "#",
-        example: "# %% [markdown]<br># # title<br># content<br>",
+        example: "# %% [markdown]<br># # highlight python markdown cell<br># for the vscode-python data-science feature<br>",
         languages: [
             { name: "python", source: "source.python" }
         ]
