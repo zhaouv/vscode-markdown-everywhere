@@ -1,8 +1,8 @@
 {
     "name": "vscode-markdown-everywhere",
     "displayName": "Markdown Everywhere",
-    "description": "Embed and highlight and preview markdown everywhere",
-    "version": "0.0.5",
+    "description": "Embed and highlight and preview markdown everywhere. e.g. Highlight python markdown cell/ Highlight julia markdown doc string",
+    "version": "0.0.6",
     "publisher": "zhaouv",
     "license": "Apache",
     "repository": {
@@ -59,7 +59,7 @@
                         "ignored",
                         "fenced"
                     ],
-                    "description": "How to deal with the original source code (re-preview to trigger). 'splitter' for ignoring them and put lines as splitter. 'ignore' for ignoring. 'fenced' for showing source code as fenced code."
+                    "description": "How to deal with the original source code (re-preview and change file to trigger). 'splitter' for ignoring them and put lines as splitter. 'ignore' for ignoring. 'fenced' for showing source code as fenced code."
                 },
                 "markdown-everywhere.customized-rules": {
                     "type": "array",

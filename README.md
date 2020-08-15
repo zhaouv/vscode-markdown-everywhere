@@ -1,6 +1,8 @@
 # Markdown Everywhere
 
-Embed and highlight and **preview** markdown everywhere.
+Embed and highlight and **preview** markdown in any language which support line-comment or block-comment for vscode.
+
+e.g. Highlight python markdown cell/ Highlight julia markdown doc string
 
 `Embed & Highlight`  
 ![](img_md/highlight-python.png)  
@@ -18,7 +20,7 @@ Three mode
 + `ignored`: ignore source code part  
 + `fenced`: keep source code as fenced code  
 
-`spliter` Help organize information  
+`splitter` Help organize information  
 ![](img_md/spliter-preview.png)
 `ignored`  
 ![](img_md/ignore-preview.png)

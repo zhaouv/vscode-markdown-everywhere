@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.0.6 (2020-08-15)
+
+fix spelling error  
+update document  
+
 ## 0.0.5 (2020-08-14)
 
 fix bug in "Build Rules"
