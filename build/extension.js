@@ -39,6 +39,7 @@ const vscodeMarkdownRender = {
             "splitter": 2,
             "ignored": 0,
             "fenced": 1,
+            "folded": 3,
         })[previewMode];
     }
 };

@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.7 (2020-08-17)
+
+add folded mode for preview
+
 ## 0.0.6 (2020-08-15)
 
 fix spelling error  

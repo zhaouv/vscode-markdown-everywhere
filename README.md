@@ -19,6 +19,7 @@ Three mode
 + `splitter`: ignore source code part and put `<hr>` as splitter  
 + `ignored`: ignore source code part  
 + `fenced`: keep source code as fenced code  
++ `folded`: keep source code as folded fenced code  
 
 `splitter` Help organize information  
 ![](img_md/spliter-preview.png)
@@ -26,7 +27,8 @@ Three mode
 ![](img_md/ignore-preview.png)
 `fenced`  
 ![](img_md/fenced-preview.png)
-
+`folded`  
+![](img_md/folded-preview.png)
 
 change it at "settings.json"  
 ![](img_md/preview-mode-set.png)

@@ -80,8 +80,15 @@ const postProcessSource = (languageId, savedRules, lines, marks, output, options
     if (options.code === 0) { 
         return
     }
-    // MD keep source
-    if (options.code === 1) { 
+    // MD keep source  
+    // MD fenced or \<details>\<summary>
+    if (options.code === 1 || options.code === 3) { 
+        let startStr = '``` ' + languageId + '\r\n';
+        let endStr = '\r\n```';
+        if (options.code === 3) {
+            startStr='<details><summary></summary>\r\n\r\n'+startStr;
+            endStr=endStr+'\r\n</details>'
+        }
         let lino = -1;
         while (lino < lines.length - 1) {
             lino++;
@@ -101,14 +108,14 @@ const postProcessSource = (languageId, savedRules, lines, marks, output, options
             // MD The number of lines will be more, and finally the preview and the source code will be staggered  
             // MD start fenced code
             if (lino === 0 || marks[lino - 1] >= 0) {
-                output[lino] = '``` ' + languageId + '\r\n' + line;
+                output[lino] = startStr + line;
                 used = true;
             }
             if (lino === lines.length - 1 || marks[lino + 1] >= 0) {
                 // MD end fenced code
-                if (!used) output[lino] = line + '\r\n```';
+                if (!used) output[lino] = line + endStr;
                 // MD single-line code
-                else output[lino] = '``` ' + languageId + '\r\n' + line + '\r\n```';
+                else output[lino] = startStr + line + endStr;
                 used = true;
             }
             if (!used) {
