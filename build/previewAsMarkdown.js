@@ -76,18 +76,23 @@ const ruleProcess = (rule, ruleIndex, lines, marks, output) => {
 }
 
 const postProcessSource = (languageId, savedRules, lines, marks, output, options) => {
+    options.offset = [];
     // MD do nothing
-    if (options.code === 0) { 
+    if (options.code === 0) {
         return
     }
     // MD keep source  
     // MD fenced or \<details>\<summary>
-    if (options.code === 1 || options.code === 3) { 
+    if (options.code === 1 || options.code === 3) {
         let startStr = '``` ' + languageId + '\r\n';
         let endStr = '\r\n```';
+        let startOffset = 1;
+        let endOffset = 1;
         if (options.code === 3) {
-            startStr='<details><summary></summary>\r\n\r\n'+startStr;
-            endStr=endStr+'\r\n</details>'
+            startStr = '<details><summary></summary>\r\n\r\n' + startStr;
+            startOffset += 2;
+            endStr = endStr + '\r\n</details>'
+            endOffset += 1;
         }
         let lino = -1;
         while (lino < lines.length - 1) {
@@ -99,6 +104,8 @@ const postProcessSource = (languageId, savedRules, lines, marks, output, options
                 // continue;
             }
         }
+        /** offset of data-line */
+        let currentOffset = 0;
         lino = -1;
         while (lino < lines.length - 1) {
             lino++;
@@ -110,22 +117,26 @@ const postProcessSource = (languageId, savedRules, lines, marks, output, options
             if (lino === 0 || marks[lino - 1] >= 0) {
                 output[lino] = startStr + line;
                 used = true;
+                currentOffset += startOffset;
             }
             if (lino === lines.length - 1 || marks[lino + 1] >= 0) {
                 // MD end fenced code
                 if (!used) output[lino] = line + endStr;
                 // MD single-line code
                 else output[lino] = startStr + line + endStr;
+                currentOffset += endOffset;
                 used = true;
             }
             if (!used) {
                 output[lino] = line;
+            } else {
+                options.offset.push([lino + currentOffset, currentOffset])
             }
         }
         return
     }
     // MD splitter
-    if (options.code === 2) { 
+    if (options.code === 2) {
         let lino = -1;
         while (lino < lines.length - 1) {
             lino++;
@@ -138,10 +149,8 @@ const postProcessSource = (languageId, savedRules, lines, marks, output, options
     }
 }
 
-const processSource = (languageId, rules, src, options) => {
-    if (languageId === 'markdown') {
-        return src;
-    }
+exports.processSource = (languageId, rules, src, options) => {
+    
     let savedRules = fetchRelatedRule(languageId, rules);
     if (savedRules.length === 0) {
         return src;
@@ -154,7 +163,25 @@ const processSource = (languageId, rules, src, options) => {
     return output.join('\r\n');
 }
 
-
-exports.processSource = (languageId, rules, src, options) => {
-    return processSource(languageId, rules, src, options);
+exports.processResult = (languageId, ret, options) => {
+    if (options.offset.length === 0) {
+        return ret;
+    }
+    const lines = ret.split(/\r?\n|\r\n?/);
+    let lino = -1;
+    let offsetI = 0;
+    let offsetV = 0;
+    const offset = [[0, 0]].concat(options.offset);
+    while (++lino < lines.length) {
+        const line = lines[lino];
+        let match = /^(<(?:><|[^><])*?data-line=")(\d+)/.exec(line);
+        if (match) {
+            const dl = ~~match[2];
+            while (offsetI < offset.length && offset[offsetI][0] <= dl) {
+                offsetV = -offset[offsetI++][1];
+            }
+            lines[lino] = match[1] + (offsetV + dl) + line.slice(match[0].length);
+        }
+    }
+    return lines.join('\r\n');
 }

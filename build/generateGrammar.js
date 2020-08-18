@@ -20,7 +20,7 @@ const renderTemplate = (rule, tpl) => {
     }
     rule_['__languages__'] = rule.languages.map(language => {
         const sources = Array.isArray(language.source) ? language.source : [language.source];
-        return sources.map(s => 'L:' + s + ' -string -meta.embedded.block.everywhere.md').join(', ');
+        return sources.map(s => 'L:' + s + ' -string -comment -meta.embedded.block.everywhere.md').join(', ');
     }).join(', ');
     for (const key in rule_) {
         output = output.split(key).join(rule_[key]);

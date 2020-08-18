@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.0.8 (2020-08-18)
+
+improve `when-clause-contexts`, preview-icon does not appears any where  
+
+fix the offset of `data-line`, which is related to the correspondence of lines of code and preview.  
+
+fix bugs
++ start mark in comment  
++ block rule with indent  
+
 ## 0.0.7 (2020-08-17)
 
 add folded mode for preview

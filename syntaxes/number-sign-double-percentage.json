@@ -1,5 +1,5 @@
 {
-	"injectionSelector": "L:source.python -string -meta.embedded.block.everywhere.md",
+	"injectionSelector": "L:source.python -string -comment -meta.embedded.block.everywhere.md",
 	"patterns": [
 		{
 			"include": "#comment-markdown-cell-inject-number-sign-double-percentage-LRSM"

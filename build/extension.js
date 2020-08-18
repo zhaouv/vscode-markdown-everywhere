@@ -1,6 +1,6 @@
 const vscode = require('vscode');
 const { rules: localRules } = require('./rules');
-const { processSource } = require('./previewAsMarkdown');
+const { processSource, processResult } = require('./previewAsMarkdown');
 
 const getLanguageConfiguration = (rules) => {
     let symbol = (rule) => rule.whileSymbol || rule.whileRegExp;
@@ -29,10 +29,26 @@ const vscodeMarkdownRender = {
             return src;
         }
         let languageId = editor.document.languageId;
+        if (languageId === 'markdown') {
+            return src;
+        }
+        let previewMode = vscode.workspace.getConfiguration('markdown-everywhere')['preview-mode'];
+        this.setPreviewMode(previewMode);
         return processSource(languageId, this.rules, src, this.options);
     },
-    processResult: v => v,
-    options: { code: 2 },
+    /** @type {(ret) => String} */
+    processResult: function (ret) {
+        let editor = vscode.window.activeTextEditor;
+        if (!editor) {
+            return ret;
+        }
+        let languageId = editor.document.languageId;
+        if (languageId === 'markdown') {
+            return ret;
+        }
+        return processResult(languageId, ret, this.options);
+    },
+    options: { code: 2, offset: [] },
     /** @type {(src) => undefined} */
     setPreviewMode: function (previewMode) {
         this.options.code = ({
@@ -41,6 +57,7 @@ const vscodeMarkdownRender = {
             "fenced": 1,
             "folded": 3,
         })[previewMode];
+        this.options.offset = [];
     }
 };
 
@@ -77,8 +94,8 @@ exports.activate = function (context) {
     context.subscriptions.push(vscode.commands.registerCommand('markdown-everywhere.showPreviewToSide', () => {
         let editor = vscode.window.activeTextEditor;
         if (!editor) return; // No open text editor
-        let previewMode = vscode.workspace.getConfiguration('markdown-everywhere')['preview-mode'];
-        vscodeMarkdownRender.setPreviewMode(previewMode);
+        // let previewMode = vscode.workspace.getConfiguration('markdown-everywhere')['preview-mode'];
+        // vscodeMarkdownRender.setPreviewMode(previewMode);
         vscode.commands.executeCommand('markdown.showPreviewToSide');
     }));
 

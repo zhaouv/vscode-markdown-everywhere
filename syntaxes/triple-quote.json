@@ -1,5 +1,5 @@
 {
-	"injectionSelector": "L:source.julia -string -meta.embedded.block.everywhere.md, L:source.python -string -meta.embedded.block.everywhere.md",
+	"injectionSelector": "L:source.julia -string -comment -meta.embedded.block.everywhere.md, L:source.python -string -comment -meta.embedded.block.everywhere.md",
 	"patterns": [
 		{
 			"include": "#comment-markdown-cell-inject-triple-quote-BR"
@@ -7,7 +7,7 @@
 	],
 	"repository": {
 		"comment-markdown-cell-inject-triple-quote-BR": {
-			"begin": "(^|\\G)\\s*(\"\"\") ?",
+			"begin": "(^|\\G)(\"\"\") ?$",
 			"captures": {
 				"2": {
 					"name": "comment.punctuation.definition.quote_code.triple-quote.BR"
@@ -20,7 +20,7 @@
 					"include": "text.html.markdown"
 				}
 			],
-			"end": "(^|\\G)\\s*(\"\"\") ?"
+			"end": "(^|\\G)(\"\"\") ?$"
 		}
 	},
     "scopeName": "comment.markdown-cell-inject.triple-quote.BR"

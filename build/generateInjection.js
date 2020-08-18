@@ -22,10 +22,21 @@ const getActivation = (rules) => {
     ))];
 }
 
+const getWhen = (rules) => {
+    return [...(new Set(rules
+        .map(rule => rule.languages.map(language => "editorLangId == '" + language.name + "' && !notebookEditorFocused"))
+        .reduce((a, b) => a.concat(b))
+    ))].join(' || ');
+}
+
 exports.updateInjection = (rules) => {
     const packageJsonPath = path.join(__dirname, '..', 'package.json');
     const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, { encoding: 'utf-8' }));
     packageJson.contributes.grammars = getInjection(rules);
     packageJson.activationEvents = getActivation(rules);
+    const when = getWhen(rules);
+    packageJson.contributes.menus["editor/title"][0].when = when;
+    packageJson.contributes.menus.commandPalette[0].when = when;
+    packageJson.contributes.keybindings[0].when = when;
     fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 4));
 };
