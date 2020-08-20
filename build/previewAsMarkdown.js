@@ -89,10 +89,10 @@ const postProcessSource = (languageId, savedRules, lines, marks, output, options
         let startOffset = 1;
         let endOffset = 1;
         if (options.code === 3) {
-            startStr = '<details><summary></summary>\r\n\r\n' + startStr;
-            startOffset += 2;
-            endStr = endStr + '\r\n</details>'
-            endOffset += 1;
+            startStr = '\r\n<details><summary></summary>\r\n\r\n' + startStr;
+            startOffset += 3;
+            endStr = endStr + '\r\n</details>\r\n'
+            endOffset += 2;
         }
         let lino = -1;
         while (lino < lines.length - 1) {

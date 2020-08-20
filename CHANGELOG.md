@@ -1,5 +1,8 @@
 # Change Log
 
+
+fix the break -MD folded preview
+
 ## 0.0.8 (2020-08-18)
 
 improve `when-clause-contexts`, preview-icon does not appears any where  
