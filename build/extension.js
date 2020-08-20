@@ -8,6 +8,9 @@ const getLanguageConfiguration = (rules) => {
         .filter(rule => symbol(rule))
         .sort((ra, rb) => symbol(rb).length - symbol(ra).length)
         .map(rule => {
+            if (rule.whileSymbol!=null && /^\s*$/.test(rule.whileSymbol)) {
+                return [];
+            }
             let enterRule = (space) => ({
                 beforeText: new RegExp('^\\s*' + rule.whileRegExp + space + '.*'),
                 afterText: /.*$/,

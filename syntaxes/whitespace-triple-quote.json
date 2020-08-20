@@ -1,0 +1,36 @@
+{
+	"injectionSelector": "L:source.julia -string -comment -meta.embedded.block.everywhere.md, L:source.python -string -comment -meta.embedded.block.everywhere.md",
+	"patterns": [
+		{
+			"include": "#comment-markdown-cell-inject-whitespace-triple-quote-MR"
+		}
+	],
+	"repository": {
+		"comment-markdown-cell-inject-whitespace-triple-quote-MR": {
+			"name": "comment.quote_code.whitespace-triple-quote.MR",
+			"begin": "(?:^|\\G)\\s*\\s+\"\"\" ?$",
+			"end": "(?:^|\\G)\\s*\\s*\"\"\" ?$",
+			"patterns": [
+				{
+					"include": "#whitespace-triple-quote-quote-MR"
+				}
+			]
+		},
+		"whitespace-triple-quote-quote-MR": {
+			"begin": "(^|\\G)\\s*(\\s*(?!\\s|\"\"\")) ?",
+			"captures": {
+				"2": {
+					"name": "comment.punctuation.definition.quote_code.whitespace-triple-quote.MR"
+				}
+			},
+			"contentName": "meta.embedded.block.everywhere.md",
+			"patterns": [
+				{
+					"include": "text.html.markdown"
+				}
+			],
+			"while": "(^|\\G)\\s*(\\s*(?!\\s|\"\"\")) ?"
+		}
+	},
+    "scopeName": "comment.markdown-cell-inject.whitespace-triple-quote.MR"
+}

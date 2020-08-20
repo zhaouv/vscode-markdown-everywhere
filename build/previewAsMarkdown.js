@@ -36,9 +36,9 @@ const ruleProcess = (rule, ruleIndex, lines, marks, output) => {
         }
     }
 
-    const beginRegExp = new RegExp(`^\\s*(${rule.beginRegExp || '...'}) ?`);
+    const beginRegExp = type !== BR ? new RegExp(`^\\s*(${rule.beginRegExp || '...'}) ?`) : new RegExp(`^(${rule.beginRegExp}) ?$`);
     const whileRegExp = new RegExp(`^\\s*(${rule.whileRegExp || '...'}) ?`);
-    const endRegExp = new RegExp(`^\\s*(${rule.endRegExp || '...'}) ?`);
+    const endRegExp = type !== BR ? new RegExp(`^\\s*(${rule.endRegExp || '...'}) ?`) : new RegExp(`^(${rule.endRegExp}) ?$`);
 
     while (lino < lines.length - 1) {
         lino++;
@@ -150,7 +150,7 @@ const postProcessSource = (languageId, savedRules, lines, marks, output, options
 }
 
 exports.processSource = (languageId, rules, src, options) => {
-    
+
     let savedRules = fetchRelatedRule(languageId, rules);
     if (savedRules.length === 0) {
         return src;

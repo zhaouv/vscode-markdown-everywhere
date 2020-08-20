@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.9 (2020-08-20)
+
+improve when `/\s+/.test(whileSymbol)`  
+support block rule `\s+"""`  
 use json in rules.js to help user modify rules  
 fix the break -MD folded preview  
 

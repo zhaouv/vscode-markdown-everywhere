@@ -20,7 +20,7 @@
 					"include": "text.html.markdown"
 				}
 			],
-			"end": "(^|\\G)(\"\"\") ?$"
+			"end": "(^|\\G)( ?\"\"\") ?$"
 		}
 	},
     "scopeName": "comment.markdown-cell-inject.triple-quote.BR"

@@ -2,7 +2,7 @@
     "name": "vscode-markdown-everywhere",
     "displayName": "Markdown Everywhere",
     "description": "Embed and highlight and preview markdown everywhere. e.g. Highlight python markdown cell/ Highlight julia markdown doc string",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "publisher": "zhaouv",
     "license": "Apache",
     "repository": {
@@ -294,6 +294,17 @@
                 ],
                 "scopeName": "comment.markdown-cell-inject.triple-quote.BR",
                 "path": "./syntaxes/triple-quote.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.everywhere.md": "markdown"
+                }
+            },
+            {
+                "injectTo": [
+                    "source.julia",
+                    "source.python"
+                ],
+                "scopeName": "comment.markdown-cell-inject.whitespace-triple-quote.MR",
+                "path": "./syntaxes/whitespace-triple-quote.json",
                 "embeddedLanguages": {
                     "meta.embedded.block.everywhere.md": "markdown"
                 }

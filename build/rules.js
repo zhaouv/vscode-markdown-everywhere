@@ -186,8 +186,20 @@ exports.rules = [
     {
         "name": "triple-quote",
         "beginRegExp": "\"\"\"",
-        "endRegExp": "\"\"\"",
+        "endRegExp": " ?\"\"\"",
         "example": "\"\"\"<br>&nbsp;&nbsp;&nbsp;&nbsp;bar(x[, y])<br><br>julia standard markdown doc<br>\"\"\"<br>function bar(x, y) ...",        
+        "languages": [
+            {"name":"julia","source":"source.julia"},
+            {"name":"python","source":"source.python"}
+        ]
+    },
+    {
+        "name": "whitespace-triple-quote",
+        "beginRegExp": "\\s+\"\"\" ?",
+        "whileRegExp": "\\s*(?!\\s|\"\"\")",
+        "whileSymbol": " ",
+        "endRegExp": "\\s*\"\"\" ?",
+        "example": "def abc():<br>&nbsp;&nbsp;&nbsp;&nbsp;\"\"\"<br>&nbsp;&nbsp;&nbsp;&nbsp;xxx xxx<br>&nbsp;&nbsp;&nbsp;&nbsp;xxx xxx<br>&nbsp;&nbsp;&nbsp;&nbsp;\"\"\"<br>&nbsp;&nbsp;&nbsp;&nbsp;...",
         "languages": [
             {"name":"julia","source":"source.julia"},
             {"name":"python","source":"source.python"}
