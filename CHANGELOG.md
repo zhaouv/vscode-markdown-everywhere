@@ -1,7 +1,7 @@
 # Change Log
 
-
-fix the break -MD folded preview
+use json in rules.js to help user modify rules  
+fix the break -MD folded preview  
 
 ## 0.0.8 (2020-08-18)
 
