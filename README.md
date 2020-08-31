@@ -15,7 +15,7 @@ e.g. Highlight python markdown cell/ Highlight julia markdown doc string
 
 ## Preview
 
-Three mode  
+Four mode  
 + `splitter`: ignore source code part and put `<hr>` as splitter  
 + `ignored`: ignore source code part  
 + `fenced`: keep source code as fenced code  
@@ -190,6 +190,14 @@ rule={
     ]
 }
 ```
+
+> preview will break in a situation like this, the current preview does not parse the statements
+> ```python
+> a="""
+> asd
+> """
+> ```
+> you can custom rules without defaultRules to close the triple-quote rule
 
 **MR**  
 mixed rule  

@@ -8,8 +8,8 @@
 	"repository": {
 		"comment-markdown-cell-inject-__name__-MR": {
 			"name": "comment.quote_code.__name__.MR",
-			"begin": "(?:^|\\G)\\s*__beginRegExp__$",
-			"end": "(?:^|\\G)\\s*__endRegExp__$",
+			"begin": "(?:^)\\s*__beginRegExp__$",
+			"end": "__endRegExp__",
 			"patterns": [
 				{
 					"include": "#__name__-quote-MR"

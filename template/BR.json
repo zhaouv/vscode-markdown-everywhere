@@ -7,7 +7,7 @@
 	],
 	"repository": {
 		"comment-markdown-cell-inject-__name__-BR": {
-			"begin": "(^|\\G)(__beginRegExp__) ?$",
+			"begin": "(^)(__beginRegExp__) ?$",
 			"captures": {
 				"2": {
 					"name": "comment.punctuation.definition.quote_code.__name__.BR"
@@ -20,7 +20,7 @@
 					"include": "text.html.markdown"
 				}
 			],
-			"end": "(^|\\G)(__endRegExp__) ?$"
+			"end": "( ?)(__endRegExp__)"
 		}
 	},
     "scopeName": "comment.markdown-cell-inject.__name__.BR"

@@ -8,8 +8,8 @@
 	"repository": {
 		"comment-markdown-cell-inject-slash-star-MR": {
 			"name": "comment.quote_code.slash-star.MR",
-			"begin": "(?:^|\\G)\\s*/\\*\\s*\\[markdown\\]$",
-			"end": "(?:^|\\G)\\s*\\*/$",
+			"begin": "(?:^)\\s*/\\*\\s*\\[markdown\\]$",
+			"end": "\\*/",
 			"patterns": [
 				{
 					"include": "#slash-star-quote-MR"

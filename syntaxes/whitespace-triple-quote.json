@@ -8,8 +8,8 @@
 	"repository": {
 		"comment-markdown-cell-inject-whitespace-triple-quote-MR": {
 			"name": "comment.quote_code.whitespace-triple-quote.MR",
-			"begin": "(?:^|\\G)\\s*\\s+\"\"\" ?$",
-			"end": "(?:^|\\G)\\s*\\s*\"\"\" ?$",
+			"begin": "(?:^)\\s*\\s+\"\"\" ?$",
+			"end": "\\s*\"\"\" ?",
 			"patterns": [
 				{
 					"include": "#whitespace-triple-quote-quote-MR"

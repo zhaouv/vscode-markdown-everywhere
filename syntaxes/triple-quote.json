@@ -7,7 +7,7 @@
 	],
 	"repository": {
 		"comment-markdown-cell-inject-triple-quote-BR": {
-			"begin": "(^|\\G)(\"\"\") ?$",
+			"begin": "(^)(\"\"\") ?$",
 			"captures": {
 				"2": {
 					"name": "comment.punctuation.definition.quote_code.triple-quote.BR"
@@ -20,7 +20,7 @@
 					"include": "text.html.markdown"
 				}
 			],
-			"end": "(^|\\G)( ?\"\"\") ?$"
+			"end": "( ?)( ?\"\"\")"
 		}
 	},
     "scopeName": "comment.markdown-cell-inject.triple-quote.BR"

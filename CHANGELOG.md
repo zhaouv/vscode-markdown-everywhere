@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.10 (2020-08-31)
+
+fix bug for BR & MR' beginRegExp endRegExp
+
 ## 0.0.9 (2020-08-20)
 
 improve when `/\s+/.test(whileSymbol)`  
