@@ -1,6 +1,10 @@
 # Change Log
 
+## 0.0.12 (2021-02-23)
+
 add more languages in rule `number-sign-double-percentage` ([#4](https://github.com/zhaouv/vscode-markdown-everywhere/issues/4))
+
+fix LRSM do not work in some language. Introducing side effects: the LRSM rules are also highlighted in block comment. ([#2](https://github.com/zhaouv/vscode-markdown-everywhere/issues/2#issuecomment-766083395))
 
 ## 0.0.11 (2021-02-05)
 

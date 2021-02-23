@@ -2,7 +2,7 @@
     "name": "vscode-markdown-everywhere",
     "displayName": "Markdown Everywhere",
     "description": "Embed and highlight and preview markdown everywhere. e.g. Highlight python markdown cell/ Highlight julia markdown doc string",
-    "version": "0.0.11",
+    "version": "0.0.12",
     "publisher": "zhaouv",
     "license": "Apache",
     "repository": {
@@ -279,7 +279,25 @@
             },
             {
                 "injectTo": [
-                    "source.python"
+                    "source.coffee",
+                    "source.dockerfile",
+                    "text.git-commit",
+                    "text.git-rebase",
+                    "source.diff",
+                    "source.ignore",
+                    "source.ini",
+                    "source.makefile",
+                    "source.perl",
+                    "source.perl.6",
+                    "source.powershell",
+                    "source.python",
+                    "source.r",
+                    "source.ruby",
+                    "source.shell",
+                    "source.yaml",
+                    "source.cython",
+                    "source.julia",
+                    "source.cmake"
                 ],
                 "scopeName": "comment.markdown-cell-inject.number-sign-double-percentage.LRSM",
                 "path": "./syntaxes/number-sign-double-percentage.json",

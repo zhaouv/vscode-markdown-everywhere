@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { RULETYPE, getRuleType, encodeRegExp } = require('./util');
+const { RULETYPE, getRuleType, encodeRegExp, LRSM } = require('./util');
 
 const grammarTemplates = {};
 
@@ -18,9 +18,17 @@ const renderTemplate = (rule, tpl) => {
         if (!/\w+RegExp|name/.test(key)) continue;
         rule_['__' + key + '__'] = encodeRegExp(rule[key]);
     }
+    let injectionAtom = s => 'L:' + s + ' -string -comment -meta.embedded.block.everywhere.md'
+    if (getRuleType(rule) == LRSM) {
+        // [#2](https://github.com/zhaouv/vscode-markdown-everywhere/issues/2#issuecomment-766083395)
+        // LRSM do not work in some language
+        // remove `-comment` after `-string` to fix 
+        // Introducing side effects: the LRSM rules are also highlighted in block comment
+        injectionAtom = s => 'L:' + s + ' -string -meta.embedded.block.everywhere.md'
+    }
     rule_['__languages__'] = rule.languages.map(language => {
         const sources = Array.isArray(language.source) ? language.source : [language.source];
-        return sources.map(s => 'L:' + s + ' -string -comment -meta.embedded.block.everywhere.md').join(', ');
+        return sources.map(injectionAtom).join(', ');
     }).join(', ');
     for (const key in rule_) {
         output = output.split(key).join(rule_[key]);
