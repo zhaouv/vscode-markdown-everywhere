@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.11 (2021-02-05)
+
+fix keybindings setting which may freeze the editor
+
 ## 0.0.10 (2020-08-31)
 
 fix bug for BR & MR' beginRegExp endRegExp
