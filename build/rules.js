@@ -180,7 +180,25 @@ exports.rules = [
         "whileSymbol": "#",
         "example": "# %% [markdown]<br># # highlight python markdown cell<br># for the vscode-python data-science feature<br>",
         "languages": [
-            {"name":"python","source":"source.python"}
+            {"name":"coffeescript","source":"source.coffee"},
+            {"name":"dockerfile","source":"source.dockerfile"},
+            {"name":"git-commit","source":"text.git-commit"},
+            {"name":"git-rebase","source":"text.git-rebase"},
+            {"name":"diff","source":"source.diff"},
+            {"name":"ignore","source":"source.ignore"},
+            {"name":"properties","source":"source.ini"},
+            {"name":"makefile","source":"source.makefile"},
+            {"name":"perl","source":"source.perl"},
+            {"name":"perl6","source":"source.perl.6"},
+            {"name":"powershell","source":"source.powershell"},
+            {"name":"python","source":"source.python"},
+            {"name":"r","source":"source.r"},
+            {"name":"ruby","source":"source.ruby"},
+            {"name":"shellscript","source":"source.shell"},
+            {"name":"yaml","source":"source.yaml"},
+            {"name":"cython","source":"source.cython"},
+            {"name":"julia","source":"source.julia"},
+            {"name":"cmake","source":"source.cmake"}
         ]
     },
     {

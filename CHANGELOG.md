@@ -1,8 +1,10 @@
 # Change Log
 
+add more languages in rule `number-sign-double-percentage` ([#4](https://github.com/zhaouv/vscode-markdown-everywhere/issues/4))
+
 ## 0.0.11 (2021-02-05)
 
-fix keybindings setting which may freeze the editor
+fix keybindings setting which may freeze the editor ([#3](https://github.com/zhaouv/vscode-markdown-everywhere/issues/3))
 
 ## 0.0.10 (2020-08-31)
 
