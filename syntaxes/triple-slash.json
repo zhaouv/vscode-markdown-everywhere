@@ -1,0 +1,27 @@
+{
+	"injectionSelector": "L:source.rust -string -comment -meta.embedded.block.everywhere.md",
+	"patterns": [
+		{
+			"include": "#comment-markdown-cell-inject-triple-slash-LRSW"
+		}
+	],
+	"repository": {
+		"comment-markdown-cell-inject-triple-slash-LRSW": {
+			"begin": "(^|\\G)\\s*(///) ?",
+			"captures": {
+				"2": {
+					"name": "comment.punctuation.definition.quote_code.triple-slash.LRSW"
+				}
+			},
+			"name": "comment.quote_code.triple-slash.LRSW",
+			"contentName": "meta.embedded.block.everywhere.md",
+			"patterns": [
+				{
+					"include": "text.html.markdown.rustdoc"
+				}
+			],
+			"while": "(^|\\G)\\s*(///) ?"
+		}
+	},
+    "scopeName": "comment.markdown-cell-inject.triple-slash.LRSW"
+}

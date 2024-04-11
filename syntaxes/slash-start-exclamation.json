@@ -1,0 +1,27 @@
+{
+	"injectionSelector": "L:source.rust -string -comment -meta.embedded.block.everywhere.md",
+	"patterns": [
+		{
+			"include": "#comment-markdown-cell-inject-slash-start-exclamation-BR"
+		}
+	],
+	"repository": {
+		"comment-markdown-cell-inject-slash-start-exclamation-BR": {
+			"begin": "(^)(/\\*!) ?$",
+			"captures": {
+				"2": {
+					"name": "comment.punctuation.definition.quote_code.slash-start-exclamation.BR"
+				}
+			},
+			"name": "comment.quote_code.slash-start-exclamation.BR",
+			"contentName": "meta.embedded.block.everywhere.md",
+			"patterns": [
+				{
+					"include": "text.html.markdown.rustdoc"
+				}
+			],
+			"end": "( ?)(\\*/)"
+		}
+	},
+    "scopeName": "comment.markdown-cell-inject.slash-start-exclamation.BR"
+}

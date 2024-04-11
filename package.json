@@ -95,7 +95,22 @@
                 "when": "editorLangId != 'markdown' && !notebookEditorFocused"
             }
         ],
+        "languages": [{
+            "id": "rustdoc",
+            "extensions": [".rustdoc"],
+            "configuration": "./language-configuration-rustdoc.json"
+        }],
         "grammars": [
+            {
+                "language": "rustdoc",
+                "scopeName": "text.html.markdown.rustdoc",
+                "path": "./syntaxes/rustdoc.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.html": "html",
+                    "meta.embedded.block.markdown": "markdown",
+                    "meta.embedded.block.rust": "rust"
+                }
+            },
             {
                 "injectTo": [
                     "source.coffee",
@@ -325,6 +340,17 @@
                 "path": "./syntaxes/whitespace-triple-quote.json",
                 "embeddedLanguages": {
                     "meta.embedded.block.everywhere.md": "markdown"
+                }
+            },
+            {
+                "injectTo": [
+                    "source.rust"
+                ],
+                "scopeName": "comment.markdown-cell-inject.rustdoc",
+                "path": "./syntaxes/rustdoc-inject.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.rustdoc": "rustdoc",
+                    "meta.embedded.block.rust": "rust"
                 }
             }
         ]
