@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.13 (2024-04-11)
+
+Add feature **Extract Markdown**.([#12](https://github.com/zhaouv/vscode-markdown-everywhere/issues/12))
+
 ## 0.0.12 (2021-02-23)
 
 add more languages in rule `number-sign-double-percentage` ([#4](https://github.com/zhaouv/vscode-markdown-everywhere/issues/4))

@@ -39,6 +39,10 @@
             {
                 "command": "markdown-everywhere.buildMarkdownEmbeddingRules",
                 "title": "Build Markdown Embedding Rules"
+            },
+            {
+                "command": "markdown-everywhere.extractMarkdown",
+                "title": "Extract as Markdown to Clipboard"
             }
         ],
         "markdown.markdownItPlugins": true,
@@ -72,6 +76,13 @@
             }
         },
         "menus": {
+            "editor/context": [
+                {
+                    "command": "markdown-everywhere.extractMarkdown",
+                    "when": "editorFocus",
+                    "group": "5_cutcopypaste"
+                }
+            ],
             "editor/title": [
                 {
                     "command": "markdown-everywhere.showPreviewToSide",

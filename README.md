@@ -33,6 +33,14 @@ Four mode
 change it at "settings.json"  
 ![](img_md/preview-mode-set.png)
 
+## Extract Markdown
+
+Command "Extract as Markdown to Clipboard" (also in right-mouse-click context menu.)
+
+Convert selection into Markdown format according to the rules and preview mode, place it into the clipboard.
+
+Can be used to copy Markdown from formats similar to JSDoc, automatically ignoring the `*` at the beginning of each line.
+
 ## Enhancing-typing
 
 `whileSymbol` or `whileRegExp` (if `whileSymbol` undefined) will be used for enhancing typing.  

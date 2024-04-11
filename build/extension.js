@@ -102,6 +102,18 @@ exports.activate = function (context) {
         vscode.commands.executeCommand('markdown.showPreviewToSide');
     }));
 
+    context.subscriptions.push(vscode.commands.registerCommand('markdown-everywhere.extractMarkdown', () => {
+        let editor = vscode.window.activeTextEditor;
+        if (!editor) return; // No open text editor
+        let selection = editor.selection;
+        if (selection.isEmpty) {
+            return;
+        }
+        let src = editor.document.getText(selection);
+        let ret=vscodeMarkdownRender.processSource(src);
+        vscode.env.clipboard.writeText(ret);
+    }));
+
     context.subscriptions.push(vscode.commands.registerCommand('markdown-everywhere.buildMarkdownEmbeddingRules', () => {
         let rules = getRules();
         require('./generateGrammar').updateGrammars(rules);
