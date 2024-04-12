@@ -1,0 +1,27 @@
+{
+	"injectionSelector": "L:source.haskell -string -comment -meta.embedded.block.everywhere.md, L:source.purescript -string -comment -meta.embedded.block.everywhere.md",
+	"patterns": [
+		{
+			"include": "#comment-markdown-cell-inject-double-dash-MD-LRSW"
+		}
+	],
+	"repository": {
+		"comment-markdown-cell-inject-double-dash-MD-LRSW": {
+			"begin": "(^|\\G)\\s*(-- MD) ?",
+			"captures": {
+				"2": {
+					"name": "comment.punctuation.definition.quote_code.double-dash-MD.LRSW"
+				}
+			},
+			"name": "comment.quote_code.double-dash-MD.LRSW",
+			"contentName": "meta.embedded.block.everywhere.md",
+			"patterns": [
+				{
+					"include": "text.html.markdown"
+				}
+			],
+			"while": "(^|\\G)\\s*(-- MD) ?"
+		}
+	},
+    "scopeName": "comment.markdown-cell-inject.double-dash-MD.LRSW"
+}
