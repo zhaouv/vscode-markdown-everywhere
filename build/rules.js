@@ -224,7 +224,7 @@ exports.rules = [
         ]
     },
     {
-        "name": "brace-quote",
+        "name": "brace-dash",
         "beginRegExp": "{-\\s*\\[markdown\\]",
         "endRegExp": "-}",
         "example": "{- [markdown]<br># title<br>content-}<br>",

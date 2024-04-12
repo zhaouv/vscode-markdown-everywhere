@@ -343,8 +343,8 @@
                     "source.haskell",
                     "source.purescript"
                 ],
-                "scopeName": "comment.markdown-cell-inject.brace-quote.BR",
-                "path": "./syntaxes/brace-quote.json",
+                "scopeName": "comment.markdown-cell-inject.brace-dash.BR",
+                "path": "./syntaxes/brace-dash.json",
                 "embeddedLanguages": {
                     "meta.embedded.block.everywhere.md": "markdown"
                 }
