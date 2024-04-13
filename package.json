@@ -2,7 +2,7 @@
     "name": "vscode-markdown-everywhere",
     "displayName": "Markdown Everywhere",
     "description": "Embed and highlight and preview markdown everywhere. e.g. Highlight python markdown cell/ Highlight julia markdown doc string",
-    "version": "0.0.13",
+    "version": "0.0.14",
     "publisher": "zhaouv",
     "license": "Apache",
     "repository": {
@@ -372,6 +372,36 @@
                 ],
                 "scopeName": "comment.markdown-cell-inject.double-dash.LRSM",
                 "path": "./syntaxes/double-dash.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.everywhere.md": "markdown"
+                }
+            },
+            {
+                "injectTo": [
+                    "source.rust"
+                ],
+                "scopeName": "comment.markdown-cell-inject.double-slash-exclamation.LRSW",
+                "path": "./syntaxes/double-slash-exclamation.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.everywhere.md": "markdown"
+                }
+            },
+            {
+                "injectTo": [
+                    "source.rust"
+                ],
+                "scopeName": "comment.markdown-cell-inject.triple-slash.LRSW",
+                "path": "./syntaxes/triple-slash.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.everywhere.md": "markdown"
+                }
+            },
+            {
+                "injectTo": [
+                    "source.rust"
+                ],
+                "scopeName": "comment.markdown-cell-inject.slash-start-exclamation.BR",
+                "path": "./syntaxes/slash-start-exclamation.json",
                 "embeddedLanguages": {
                     "meta.embedded.block.everywhere.md": "markdown"
                 }

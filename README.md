@@ -33,6 +33,8 @@ Four mode
 change it at "settings.json"  
 ![](img_md/preview-mode-set.png)
 
+provide setting to open preview automatically for listed languages
+
 ## Extract Markdown
 
 Command "Extract as Markdown to Clipboard" (also in right-mouse-click context menu.)
@@ -130,6 +132,9 @@ So that markdown can be easily distinguished from both code and comments.
 | brace-dash | BR | {- [markdown]<br># title<br>content-}<br> | haskell<br>purescript |
 | double-dash-MD | LRSW | -- MD # title<br>-- MD content<br> | haskell<br>purescript |
 | double-dash | LRSM | -- [markdown]<br>-- # title<br>% content<br> | haskell<br>purescript |
+| double-slash-exclamation | LRSW | //! # title<br>//! content<br> | rust |
+| triple-slash | LRSW | /// # title<br>/// content<br> | rust |
+| slash-start-exclamation | BR | /*! <br># My Crate<br>*/<br> | rust |
 
 <!--Supported_List_Splitter-->
 

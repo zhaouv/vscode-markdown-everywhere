@@ -251,5 +251,30 @@ exports.rules = [
             { "name": "haskell", "source": "source.haskell" },
             { "name": "purescript", "source": "source.purescript" }
         ]
+    },
+    {
+        "name": "double-slash-exclamation",
+        "whileRegExp": "//!",
+        "example": "//! # title<br>//! content<br>",
+        "languages": [
+            { "name": "rust", "source": "source.rust" },
+        ]
+    },
+    {
+        "name": "triple-slash",
+        "whileRegExp": "///",
+        "example": "/// # title<br>/// content<br>",
+        "languages": [
+            { "name": "rust", "source": "source.rust" },
+        ]
+    },
+    {
+        "name": "slash-start-exclamation",
+        "beginRegExp": "/\\*!",
+        "endRegExp": "\\*/",
+        "example": "/*! <br># My Crate<br>*/<br>",
+        "languages": [
+            { "name": "rust", "source": "source.rust" },
+        ]
     }
 ]

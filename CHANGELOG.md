@@ -1,8 +1,14 @@
 # Change Log
 
+## 0.0.14 (2024-04-13)
+
+Add feature **Setting to open preview automatically for listed languages**. Thank [cdfa](https://github.com/cdfa) for implementing this feature. [#14](https://github.com/zhaouv/vscode-markdown-everywhere/issues/14)
+
+Add some rules for Haskell and Purescript and Rust. [#13](https://github.com/zhaouv/vscode-markdown-everywhere/issues/13)
+
 ## 0.0.13 (2024-04-11)
 
-Add feature **Extract Markdown**.([#12](https://github.com/zhaouv/vscode-markdown-everywhere/issues/12))
+Add feature **Extract Markdown** Convert selection into Markdown format according to the rules and preview mode, place it into the clipboard..([#12](https://github.com/zhaouv/vscode-markdown-everywhere/issues/12))
 
 ## 0.0.12 (2021-02-23)
 
