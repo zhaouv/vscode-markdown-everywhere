@@ -8,7 +8,7 @@ const getLanguageConfiguration = (rules) => {
         .filter(rule => symbol(rule))
         .sort((ra, rb) => symbol(rb).length - symbol(ra).length)
         .map(rule => {
-            if (rule.whileSymbol!=null && /^\s*$/.test(rule.whileSymbol)) {
+            if (rule.whileSymbol != null && /^\s*$/.test(rule.whileSymbol)) {
                 return [];
             }
             let enterRule = (space) => ({
@@ -110,7 +110,7 @@ exports.activate = function (context) {
             return;
         }
         let src = editor.document.getText(selection);
-        let ret=vscodeMarkdownRender.processSource(src);
+        let ret = vscodeMarkdownRender.processSource(src);
         vscode.env.clipboard.writeText(ret);
     }));
 
@@ -120,6 +120,25 @@ exports.activate = function (context) {
         require('./generateInjection').updateInjection(rules);
         require('./generateDocs').updateDocs(rules);
     }));
+
+    const documentsForWhichPreviewWasOpened = new Set();
+
+    const showAutoPreview = editor => {
+        if (editor &&
+            vscode.workspace.getConfiguration('markdown-everywhere')['auto-preview'].includes(editor.document.languageId) &&
+            !documentsForWhichPreviewWasOpened.has(editor.document)
+        ) {
+            documentsForWhichPreviewWasOpened.add(editor.document);
+            vscode.commands.executeCommand('markdown.showPreviewToSide');
+        }
+    };
+
+    context.subscriptions.push(vscode.window.onDidChangeActiveTextEditor(showAutoPreview));
+
+    // onDidChangeActiveTextEditor does not trigger if the extension was not active when the file was opened.
+    // Open the preview if needed.
+    showAutoPreview(vscode.window.activeTextEditor);
+
 
     return { extendMarkdownIt: injectRender };
 }
