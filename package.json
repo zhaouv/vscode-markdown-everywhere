@@ -74,9 +74,9 @@
                     "description": "Save the first element \"defaultRules\" to keep default rules. Remove to only use customized rules. See README.md#Customize for details"
                 },
                 "markdown-everywhere.auto-preview": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "Automatically open the Markdown preview to the side when opening an editor with a supported language."
+                    "type": "array",
+                    "default": [],
+                    "description": "Automatically open the Markdown preview to the side when opening an editor with a listed language. e.g.[\"haskell\",\"purescript\"]"
                 }
             }
         },

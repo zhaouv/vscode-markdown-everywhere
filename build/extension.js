@@ -122,12 +122,12 @@ exports.activate = function (context) {
     }));
 
     const documentsForWhichPreviewWasOpened = new Set();
-    const supportedLanguages = new Set(rules.flatMap(rule => rule.languages.map(lang => lang.name)));
 
     const showAutoPreview = editor => {
-        if (!editor || !vscode.workspace.getConfiguration('markdown-everywhere')['auto-preview']) return;
-
-        if (!documentsForWhichPreviewWasOpened.has(editor.document) && supportedLanguages.has(editor.document.languageId)) {
+        if (editor &&
+            vscode.workspace.getConfiguration('markdown-everywhere')['auto-preview'].includes(editor.document.languageId) &&
+            !documentsForWhichPreviewWasOpened.has(editor.document)
+        ) {
             documentsForWhichPreviewWasOpened.add(editor.document);
             vscode.commands.executeCommand('markdown.showPreviewToSide');
         }
