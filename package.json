@@ -91,14 +91,14 @@
             "editor/title": [
                 {
                     "command": "markdown-everywhere.showPreviewToSide",
-                    "when": "editorLangId == 'coffeescript' && !notebookEditorFocused || editorLangId == 'dockerfile' && !notebookEditorFocused || editorLangId == 'git-commit' && !notebookEditorFocused || editorLangId == 'git-rebase' && !notebookEditorFocused || editorLangId == 'diff' && !notebookEditorFocused || editorLangId == 'ignore' && !notebookEditorFocused || editorLangId == 'properties' && !notebookEditorFocused || editorLangId == 'makefile' && !notebookEditorFocused || editorLangId == 'perl' && !notebookEditorFocused || editorLangId == 'perl6' && !notebookEditorFocused || editorLangId == 'powershell' && !notebookEditorFocused || editorLangId == 'python' && !notebookEditorFocused || editorLangId == 'r' && !notebookEditorFocused || editorLangId == 'ruby' && !notebookEditorFocused || editorLangId == 'shellscript' && !notebookEditorFocused || editorLangId == 'yaml' && !notebookEditorFocused || editorLangId == 'cython' && !notebookEditorFocused || editorLangId == 'julia' && !notebookEditorFocused || editorLangId == 'cmake' && !notebookEditorFocused || editorLangId == 'c' && !notebookEditorFocused || editorLangId == 'cpp' && !notebookEditorFocused || editorLangId == 'csharp' && !notebookEditorFocused || editorLangId == 'css' && !notebookEditorFocused || editorLangId == 'go' && !notebookEditorFocused || editorLangId == 'groovy' && !notebookEditorFocused || editorLangId == 'hlsl' && !notebookEditorFocused || editorLangId == 'java' && !notebookEditorFocused || editorLangId == 'javascriptreact' && !notebookEditorFocused || editorLangId == 'javascript' && !notebookEditorFocused || editorLangId == 'json' && !notebookEditorFocused || editorLangId == 'jsonc' && !notebookEditorFocused || editorLangId == 'less' && !notebookEditorFocused || editorLangId == 'objective-c' && !notebookEditorFocused || editorLangId == 'objective-cpp' && !notebookEditorFocused || editorLangId == 'php' && !notebookEditorFocused || editorLangId == 'rust' && !notebookEditorFocused || editorLangId == 'scss' && !notebookEditorFocused || editorLangId == 'shaderlab' && !notebookEditorFocused || editorLangId == 'sql' && !notebookEditorFocused || editorLangId == 'swift' && !notebookEditorFocused || editorLangId == 'typescript' && !notebookEditorFocused || editorLangId == 'typescriptreact' && !notebookEditorFocused || editorLangId == 'antlr' && !notebookEditorFocused || editorLangId == 'fsharp' && !notebookEditorFocused || editorLangId == 'qasm-lang' && !notebookEditorFocused || editorLangId == 'matlab' && !notebookEditorFocused || editorLangId == 'bibtex' && !notebookEditorFocused || editorLangId == 'tex' && !notebookEditorFocused || editorLangId == 'latex' && !notebookEditorFocused",
+                    "when": "editorLangId == 'coffeescript' && !notebookEditorFocused || editorLangId == 'dockerfile' && !notebookEditorFocused || editorLangId == 'git-commit' && !notebookEditorFocused || editorLangId == 'git-rebase' && !notebookEditorFocused || editorLangId == 'diff' && !notebookEditorFocused || editorLangId == 'ignore' && !notebookEditorFocused || editorLangId == 'properties' && !notebookEditorFocused || editorLangId == 'makefile' && !notebookEditorFocused || editorLangId == 'perl' && !notebookEditorFocused || editorLangId == 'perl6' && !notebookEditorFocused || editorLangId == 'powershell' && !notebookEditorFocused || editorLangId == 'python' && !notebookEditorFocused || editorLangId == 'r' && !notebookEditorFocused || editorLangId == 'ruby' && !notebookEditorFocused || editorLangId == 'shellscript' && !notebookEditorFocused || editorLangId == 'yaml' && !notebookEditorFocused || editorLangId == 'cython' && !notebookEditorFocused || editorLangId == 'julia' && !notebookEditorFocused || editorLangId == 'cmake' && !notebookEditorFocused || editorLangId == 'c' && !notebookEditorFocused || editorLangId == 'cpp' && !notebookEditorFocused || editorLangId == 'csharp' && !notebookEditorFocused || editorLangId == 'css' && !notebookEditorFocused || editorLangId == 'go' && !notebookEditorFocused || editorLangId == 'groovy' && !notebookEditorFocused || editorLangId == 'hlsl' && !notebookEditorFocused || editorLangId == 'java' && !notebookEditorFocused || editorLangId == 'javascriptreact' && !notebookEditorFocused || editorLangId == 'javascript' && !notebookEditorFocused || editorLangId == 'json' && !notebookEditorFocused || editorLangId == 'jsonc' && !notebookEditorFocused || editorLangId == 'less' && !notebookEditorFocused || editorLangId == 'objective-c' && !notebookEditorFocused || editorLangId == 'objective-cpp' && !notebookEditorFocused || editorLangId == 'php' && !notebookEditorFocused || editorLangId == 'rust' && !notebookEditorFocused || editorLangId == 'scss' && !notebookEditorFocused || editorLangId == 'shaderlab' && !notebookEditorFocused || editorLangId == 'sql' && !notebookEditorFocused || editorLangId == 'swift' && !notebookEditorFocused || editorLangId == 'typescript' && !notebookEditorFocused || editorLangId == 'typescriptreact' && !notebookEditorFocused || editorLangId == 'antlr' && !notebookEditorFocused || editorLangId == 'fsharp' && !notebookEditorFocused || editorLangId == 'qasm-lang' && !notebookEditorFocused || editorLangId == 'matlab' && !notebookEditorFocused || editorLangId == 'bibtex' && !notebookEditorFocused || editorLangId == 'tex' && !notebookEditorFocused || editorLangId == 'latex' && !notebookEditorFocused || editorLangId == 'haskell' && !notebookEditorFocused || editorLangId == 'purescript' && !notebookEditorFocused",
                     "group": "navigation"
                 }
             ],
             "commandPalette": [
                 {
                     "command": "markdown-everywhere.showPreviewToSide",
-                    "when": "editorLangId == 'coffeescript' && !notebookEditorFocused || editorLangId == 'dockerfile' && !notebookEditorFocused || editorLangId == 'git-commit' && !notebookEditorFocused || editorLangId == 'git-rebase' && !notebookEditorFocused || editorLangId == 'diff' && !notebookEditorFocused || editorLangId == 'ignore' && !notebookEditorFocused || editorLangId == 'properties' && !notebookEditorFocused || editorLangId == 'makefile' && !notebookEditorFocused || editorLangId == 'perl' && !notebookEditorFocused || editorLangId == 'perl6' && !notebookEditorFocused || editorLangId == 'powershell' && !notebookEditorFocused || editorLangId == 'python' && !notebookEditorFocused || editorLangId == 'r' && !notebookEditorFocused || editorLangId == 'ruby' && !notebookEditorFocused || editorLangId == 'shellscript' && !notebookEditorFocused || editorLangId == 'yaml' && !notebookEditorFocused || editorLangId == 'cython' && !notebookEditorFocused || editorLangId == 'julia' && !notebookEditorFocused || editorLangId == 'cmake' && !notebookEditorFocused || editorLangId == 'c' && !notebookEditorFocused || editorLangId == 'cpp' && !notebookEditorFocused || editorLangId == 'csharp' && !notebookEditorFocused || editorLangId == 'css' && !notebookEditorFocused || editorLangId == 'go' && !notebookEditorFocused || editorLangId == 'groovy' && !notebookEditorFocused || editorLangId == 'hlsl' && !notebookEditorFocused || editorLangId == 'java' && !notebookEditorFocused || editorLangId == 'javascriptreact' && !notebookEditorFocused || editorLangId == 'javascript' && !notebookEditorFocused || editorLangId == 'json' && !notebookEditorFocused || editorLangId == 'jsonc' && !notebookEditorFocused || editorLangId == 'less' && !notebookEditorFocused || editorLangId == 'objective-c' && !notebookEditorFocused || editorLangId == 'objective-cpp' && !notebookEditorFocused || editorLangId == 'php' && !notebookEditorFocused || editorLangId == 'rust' && !notebookEditorFocused || editorLangId == 'scss' && !notebookEditorFocused || editorLangId == 'shaderlab' && !notebookEditorFocused || editorLangId == 'sql' && !notebookEditorFocused || editorLangId == 'swift' && !notebookEditorFocused || editorLangId == 'typescript' && !notebookEditorFocused || editorLangId == 'typescriptreact' && !notebookEditorFocused || editorLangId == 'antlr' && !notebookEditorFocused || editorLangId == 'fsharp' && !notebookEditorFocused || editorLangId == 'qasm-lang' && !notebookEditorFocused || editorLangId == 'matlab' && !notebookEditorFocused || editorLangId == 'bibtex' && !notebookEditorFocused || editorLangId == 'tex' && !notebookEditorFocused || editorLangId == 'latex' && !notebookEditorFocused",
+                    "when": "editorLangId == 'coffeescript' && !notebookEditorFocused || editorLangId == 'dockerfile' && !notebookEditorFocused || editorLangId == 'git-commit' && !notebookEditorFocused || editorLangId == 'git-rebase' && !notebookEditorFocused || editorLangId == 'diff' && !notebookEditorFocused || editorLangId == 'ignore' && !notebookEditorFocused || editorLangId == 'properties' && !notebookEditorFocused || editorLangId == 'makefile' && !notebookEditorFocused || editorLangId == 'perl' && !notebookEditorFocused || editorLangId == 'perl6' && !notebookEditorFocused || editorLangId == 'powershell' && !notebookEditorFocused || editorLangId == 'python' && !notebookEditorFocused || editorLangId == 'r' && !notebookEditorFocused || editorLangId == 'ruby' && !notebookEditorFocused || editorLangId == 'shellscript' && !notebookEditorFocused || editorLangId == 'yaml' && !notebookEditorFocused || editorLangId == 'cython' && !notebookEditorFocused || editorLangId == 'julia' && !notebookEditorFocused || editorLangId == 'cmake' && !notebookEditorFocused || editorLangId == 'c' && !notebookEditorFocused || editorLangId == 'cpp' && !notebookEditorFocused || editorLangId == 'csharp' && !notebookEditorFocused || editorLangId == 'css' && !notebookEditorFocused || editorLangId == 'go' && !notebookEditorFocused || editorLangId == 'groovy' && !notebookEditorFocused || editorLangId == 'hlsl' && !notebookEditorFocused || editorLangId == 'java' && !notebookEditorFocused || editorLangId == 'javascriptreact' && !notebookEditorFocused || editorLangId == 'javascript' && !notebookEditorFocused || editorLangId == 'json' && !notebookEditorFocused || editorLangId == 'jsonc' && !notebookEditorFocused || editorLangId == 'less' && !notebookEditorFocused || editorLangId == 'objective-c' && !notebookEditorFocused || editorLangId == 'objective-cpp' && !notebookEditorFocused || editorLangId == 'php' && !notebookEditorFocused || editorLangId == 'rust' && !notebookEditorFocused || editorLangId == 'scss' && !notebookEditorFocused || editorLangId == 'shaderlab' && !notebookEditorFocused || editorLangId == 'sql' && !notebookEditorFocused || editorLangId == 'swift' && !notebookEditorFocused || editorLangId == 'typescript' && !notebookEditorFocused || editorLangId == 'typescriptreact' && !notebookEditorFocused || editorLangId == 'antlr' && !notebookEditorFocused || editorLangId == 'fsharp' && !notebookEditorFocused || editorLangId == 'qasm-lang' && !notebookEditorFocused || editorLangId == 'matlab' && !notebookEditorFocused || editorLangId == 'bibtex' && !notebookEditorFocused || editorLangId == 'tex' && !notebookEditorFocused || editorLangId == 'latex' && !notebookEditorFocused || editorLangId == 'haskell' && !notebookEditorFocused || editorLangId == 'purescript' && !notebookEditorFocused",
                     "group": "navigation"
                 }
             ]
@@ -342,6 +342,39 @@
                 "embeddedLanguages": {
                     "meta.embedded.block.everywhere.md": "markdown"
                 }
+            },
+            {
+                "injectTo": [
+                    "source.haskell",
+                    "source.purescript"
+                ],
+                "scopeName": "comment.markdown-cell-inject.brace-dash.BR",
+                "path": "./syntaxes/brace-dash.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.everywhere.md": "markdown"
+                }
+            },
+            {
+                "injectTo": [
+                    "source.haskell",
+                    "source.purescript"
+                ],
+                "scopeName": "comment.markdown-cell-inject.double-dash-MD.LRSW",
+                "path": "./syntaxes/double-dash-MD.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.everywhere.md": "markdown"
+                }
+            },
+            {
+                "injectTo": [
+                    "source.haskell",
+                    "source.purescript"
+                ],
+                "scopeName": "comment.markdown-cell-inject.double-dash.LRSM",
+                "path": "./syntaxes/double-dash.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.everywhere.md": "markdown"
+                }
             }
         ]
     },
@@ -394,6 +427,8 @@
         "onLanguage:matlab",
         "onLanguage:bibtex",
         "onLanguage:tex",
-        "onLanguage:latex"
+        "onLanguage:latex",
+        "onLanguage:haskell",
+        "onLanguage:purescript"
     ]
 }

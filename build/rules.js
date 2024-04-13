@@ -222,5 +222,34 @@ exports.rules = [
             {"name":"julia","source":"source.julia"},
             {"name":"python","source":"source.python"}
         ]
+    },
+    {
+        "name": "brace-dash",
+        "beginRegExp": "{-\\s*\\[markdown\\]",
+        "endRegExp": "-}",
+        "example": "{- [markdown]<br># title<br>content-}<br>",
+        "languages": [
+            { "name": "haskell", "source": "source.haskell" },
+            { "name": "purescript", "source": "source.purescript" }
+        ]
+    },
+    {
+        "name": "double-dash-MD",
+        "whileRegExp": "-- MD",
+        "example": "-- MD # title<br>-- MD content<br>",
+        "languages": [
+            { "name": "haskell", "source": "source.haskell" },
+            { "name": "purescript", "source": "source.purescript" }
+        ]
+    },
+    {
+        "name": "double-dash",
+        "beginRegExp": "--\\s*\\[markdown\\]",
+        "whileRegExp": "--",
+        "example": "-- [markdown]<br>-- # title<br>% content<br>",
+        "languages": [
+            { "name": "haskell", "source": "source.haskell" },
+            { "name": "purescript", "source": "source.purescript" }
+        ]
     }
 ]

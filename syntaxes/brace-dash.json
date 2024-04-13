@@ -1,0 +1,27 @@
+{
+	"injectionSelector": "L:source.haskell -string -comment -meta.embedded.block.everywhere.md, L:source.purescript -string -comment -meta.embedded.block.everywhere.md",
+	"patterns": [
+		{
+			"include": "#comment-markdown-cell-inject-brace-dash-BR"
+		}
+	],
+	"repository": {
+		"comment-markdown-cell-inject-brace-dash-BR": {
+			"begin": "(^)({-\\s*\\[markdown\\]) ?$",
+			"captures": {
+				"2": {
+					"name": "comment.punctuation.definition.quote_code.brace-dash.BR"
+				}
+			},
+			"name": "comment.quote_code.brace-dash.BR",
+			"contentName": "meta.embedded.block.everywhere.md",
+			"patterns": [
+				{
+					"include": "text.html.markdown"
+				}
+			],
+			"end": "( ?)(-})"
+		}
+	},
+    "scopeName": "comment.markdown-cell-inject.brace-dash.BR"
+}
