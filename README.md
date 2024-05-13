@@ -1,8 +1,8 @@
 # Markdown Everywhere
 
-Embed and highlight and **preview** markdown in any language which support line-comment or block-comment for vscode.
+Embed and highlight and **preview** markdown in any language which support line-comment or block-comment for vscode. Also used for interpreting text as markdown.
 
-e.g. Highlight python markdown cell/ Highlight julia markdown doc string
+e.g. Quickly preview LaTeX/ Highlight python markdown cell/ Highlight julia markdown doc string
 
 `Embed & Highlight`  
 ![](img_md/highlight-python.png)  
@@ -10,16 +10,18 @@ e.g. Highlight python markdown cell/ Highlight julia markdown doc string
 
 `preview`  
 ![](img_md/preview-icon.png)  
-![](img_md/fenced-preview.png)
+![](img_md/fenced-preview.png)  
+![](img_md/raw-preview.png)
 
 
 ## Preview
 
-Four mode  
+Five mode  
 + `splitter`: ignore source code part and put `<hr>` as splitter  
 + `ignored`: ignore source code part  
 + `fenced`: keep source code as fenced code  
 + `folded`: keep source code as folded fenced code  
++ `raw`: do nothing (for working with preview-inject)  
 
 `splitter` Help organize information  
 ![](img_md/spliter-preview.png)
@@ -29,11 +31,29 @@ Four mode
 ![](img_md/fenced-preview.png)
 `folded`  
 ![](img_md/folded-preview.png)
+`raw`  
+![](img_md/raw-preview.png)
 
-change it at "settings.json"  
+change it at `settings.json` - `preview-mode`  
 ![](img_md/preview-mode-set.png)
 
+using `preview-mode-language` could setting for respective languages
+
 provide setting to open preview automatically for listed languages
+
+## Preview Inject
+
+Do some actions in parsing, only support to do some replacing before parse markdown to html now.
+
+`settings.json` for quickly LaTeX previewing.
+```json
+    "markdown-everywhere.preview-mode-language": {"latex":"raw"},
+    "markdown-everywhere.preview-mode-inject": [
+        {"language":"latex","path":".*","beforeSource":" let {src,options}=args\n const lines = src.split(/\\r?\\n|\\r\\n?/);\n let lino = -1;\n let currentOffset = 0;\n \n while (++lino < lines.length) {\n let pa=null;\n let line = lines[lino];\n\n // MD remove `\\label`, do not change number of lines, directly replace\n line=line.replace(/\\\\label{.*?}/g,'')\n\n // MD fix equation, add 3 more lines. fix offset for trace\n pa=/\\\\begin{(equation|display|alignat|aligned|align|multline|flalign)}/\n if (pa.exec(line)){\n line=line.replace(pa,(m)=>'\\n\\n$$\\n'+m)\n currentOffset+=3\n options.offset.push([lino + currentOffset, currentOffset])\n }\n\n // MD fix equation\n pa=/\\\\end{(equation|display|alignat|aligned|align|multline|flalign)}/\n if (pa.exec(line)){\n line=line.replace(pa,(m)=>m+'\\n$$\\n\\n')\n currentOffset+=3\n options.offset.push([lino + currentOffset, currentOffset])\n }\n\n lines[lino] = line;\n }\n return lines.join('\\r\\n');\n \n "}
+    ],
+```
+
+> The JSON generated from issue. More applications may be listed in the issue.
 
 ## Extract Markdown
 

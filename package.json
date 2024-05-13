@@ -1,8 +1,8 @@
 {
     "name": "vscode-markdown-everywhere",
     "displayName": "Markdown Everywhere",
-    "description": "Embed and highlight and preview markdown everywhere. e.g. Highlight python markdown cell/ Highlight julia markdown doc string",
-    "version": "0.0.14",
+    "description": "Embed and highlight and preview markdown everywhere. e.g. Quickly preview LaTeX/ Highlight python markdown cell/ Highlight julia markdown doc string",
+    "version": "0.0.15",
     "publisher": "zhaouv",
     "license": "Apache",
     "repository": {
@@ -62,9 +62,20 @@
                         "splitter",
                         "ignored",
                         "fenced",
-                        "folded"
+                        "folded",
+                        "raw"
                     ],
-                    "description": "How to deal with the original source code (change file-content to trigger). 'splitter' for ignoring them and put lines as splitter. 'ignore' for ignoring. 'fenced' for showing source code as fenced code. 'folded' for showing source code as folded fenced code"
+                    "description": "How to deal with the original source code (change file-content to trigger). 'splitter' for ignoring them and put lines as splitter. 'ignore' for ignoring. 'fenced' for showing source code as fenced code. 'folded' for showing source code as folded fenced code. 'raw' do nothing regard source code as markdown. Use 'preview-mode-language' to set for respective languages."
+                },
+                "markdown-everywhere.preview-mode-language": {
+                    "type": "object",
+                    "default": {},
+                    "description": "preview-mode for respective languages. e.g. {\"latex\":\"raw\"}"
+                },
+                "markdown-everywhere.preview-mode-inject": {
+                    "type": "array",
+                    "default": [],
+                    "description": "do some actions in parsing. see README.md for details."
                 },
                 "markdown-everywhere.customized-rules": {
                     "type": "array",

@@ -35,8 +35,15 @@ const vscodeMarkdownRender = {
         if (languageId === 'markdown') {
             return src;
         }
-        let previewMode = vscode.workspace.getConfiguration('markdown-everywhere')['preview-mode'];
+        let previewMode = vscode.workspace.getConfiguration('markdown-everywhere')['preview-mode-language'][languageId]||vscode.workspace.getConfiguration('markdown-everywhere')['preview-mode'];
         this.setPreviewMode(previewMode);
+        let injects = vscode.workspace.getConfiguration('markdown-everywhere')['preview-mode-inject']
+        injects.forEach((inject) => {
+            if (languageId === inject.language && new RegExp(inject.path).exec(editor.document.fileName)){
+                const beforeSource = new Function('args', inject.beforeSource);
+                src=beforeSource({src,options:this.options});
+            }
+        });
         return processSource(languageId, this.rules, src, this.options);
     },
     /** @type {(ret) => String} */
@@ -59,6 +66,7 @@ const vscodeMarkdownRender = {
             "ignored": 0,
             "fenced": 1,
             "folded": 3,
+            "raw": 4,
         })[previewMode];
         this.options.offset = [];
     }

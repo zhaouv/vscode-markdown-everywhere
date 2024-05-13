@@ -76,7 +76,7 @@ const ruleProcess = (rule, ruleIndex, lines, marks, output) => {
 }
 
 const postProcessSource = (languageId, savedRules, lines, marks, output, options) => {
-    options.offset = [];
+    // options.offset = [];
     // MD do nothing
     if (options.code === 0) {
         return
@@ -150,7 +150,9 @@ const postProcessSource = (languageId, savedRules, lines, marks, output, options
 }
 
 exports.processSource = (languageId, rules, src, options) => {
-
+    if (options.code === 4) {
+        return src;
+    }
     let savedRules = fetchRelatedRule(languageId, rules);
     if (savedRules.length === 0) {
         return src;

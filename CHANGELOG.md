@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.0.15 (2024-05-13)
+
+Add settings `preview-mode-language` to set preview mode for respective languages.
+
+Add `raw` preview mode (for working with the following feature)
+
+Add feature **preview-mode-inject**. Do some actions in parsing, only support to do some replacing before parse markdown to html now.
+
 ## 0.0.14 (2024-04-13)
 
 Add feature **Setting to open preview automatically for listed languages**. Thank [cdfa](https://github.com/cdfa) for implementing this feature. [#14](https://github.com/zhaouv/vscode-markdown-everywhere/issues/14)
