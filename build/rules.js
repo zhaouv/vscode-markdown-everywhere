@@ -165,6 +165,7 @@ exports.rules = [
         "name": "percentage",
         "beginRegExp": "%\\s*\\[markdown\\]",
         "whileRegExp": "%",
+        "injectToComment": true,
         "example": "% [markdown]<br>% # title<br>% content<br>",
         "languages": [
             {"name":"matlab","source":"source.matlab"},

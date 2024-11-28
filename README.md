@@ -43,9 +43,9 @@ provide setting to open preview automatically for listed languages
 
 ## Preview Inject
 
-Do some actions in parsing, only support to do some replacing before parse markdown to html now.
+Do some actions in parsing, only support to do some replacing before parse markdown to html now. (config by changing `settings.json`)
 
-`settings.json` for quickly LaTeX previewing.
+Quickly LaTeX previewing
 ```json
     "markdown-everywhere.preview-mode-language": {"latex":"raw"},
     "markdown-everywhere.preview-mode-inject": [
@@ -53,7 +53,14 @@ Do some actions in parsing, only support to do some replacing before parse markd
     ],
 ```
 
-> The JSON generated from issue. More applications may be listed in the issue.
+[Documenter.jl style LaTeX-math-fencing](https://github.com/zhaouv/vscode-markdown-everywhere/issues/9)
+```json
+    "markdown-everywhere.preview-mode-inject": [
+        {"language":"julia","path":".*","beforeSource":" return args.src.replace(/```math/g,'$$$$\\n').replace(/```/g,'\\n$$$$').replace(/``/g,'$').replace(/\\\\\\\\/g,'\\\\') "}
+    ],
+```
+
+> The JSON generated from [issue](https://github.com/zhaouv/vscode-markdown-everywhere/issues/17). More applications may be listed in the [issue](https://github.com/zhaouv/vscode-markdown-everywhere/issues/17).
 
 ## Extract Markdown
 
@@ -284,7 +291,23 @@ rule={
 }
 ```
 
-> There is bug for this case. The following first line will be highlighted as comment. I haven't figured out the mechanism yet. So please put a empty line after these.
+> There is bug for this case. Some languages such as LaTeX and MATLAB, LSMR rules not work. Have to inject into comment. It will introduce side effects: 1.The LRSM rules are also highlighted in block comment. 2.The following first line will be highlighted as comment. I haven't figured out the mechanism yet. So please put a empty line after these for the listed languages.  
+> Add `"injectToComment": true,` in rule to active:
+```json
+    {
+        "name": "percentage",
+        "beginRegExp": "%\\s*\\[markdown\\]",
+        "whileRegExp": "%",
+        "injectToComment": true,
+        "example": "% [markdown]<br>% # title<br>% content<br>",
+        "languages": [
+            {"name":"matlab","source":"source.matlab"},
+            {"name":"bibtex","source":"text.bibtex"},
+            {"name":"tex","source":"text.tex"},
+            {"name":"latex","source":"text.latex"}
+        ]
+    },
+```
 
 * * * * *
 

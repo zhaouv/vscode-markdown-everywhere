@@ -2,7 +2,7 @@
     "name": "vscode-markdown-everywhere",
     "displayName": "Markdown Everywhere",
     "description": "Embed and highlight and preview markdown everywhere. e.g. Quickly preview LaTeX/ Highlight python markdown cell/ Highlight julia markdown doc string",
-    "version": "0.0.15",
+    "version": "0.0.16",
     "publisher": "zhaouv",
     "license": "Apache",
     "repository": {

@@ -62,3 +62,21 @@ function bar(x, y)
 end
 
 =#
+
+"""
+Here's some inline maths: ``\\sqrt[n]{1 + x + x^2 + \\ldots}``.
+
+Here's an equation:
+
+``\\frac{n!}{k!(n - k)!} = \\binom{n}{k}``
+
+This is the binomial coefficient.
+
+Here's an equation:
+
+```math
+\frac{n!}{k!(n - k)!} = \binom{n}{k}
+```
+
+"""
+func(x) = # ...

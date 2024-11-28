@@ -19,7 +19,7 @@ const renderTemplate = (rule, tpl) => {
         rule_['__' + key + '__'] = encodeRegExp(rule[key]);
     }
     let injectionAtom = s => 'L:' + s + ' -string -comment -meta.embedded.block.everywhere.md'
-    if (getRuleType(rule) == LRSM) {
+    if (rule.injectToComment) {
         // [#2](https://github.com/zhaouv/vscode-markdown-everywhere/issues/2#issuecomment-766083395)
         // LRSM do not work in some language
         // remove `-comment` after `-string` to fix 

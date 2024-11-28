@@ -12,7 +12,14 @@ function printInjectJson() {
             let line = lines[lino];
 
             // MD remove `\label`, do not change number of lines, directly replace
-            line=line.replace(/\\label{.*?}/g,'')
+            line=line
+            .replace(/\\label{.*?}/g,'')
+            .replace(/\\chapter{(.*?)}/g,'# $1')
+            .replace(/\\section{(.*?)}/g,'## $1')
+            .replace(/\\subsection{(.*?)}/g,'### $1')
+            .replace(/\\subsubsection{(.*?)}/g,'#### $1')
+            .replace(/\\paragraph{(.*?)}/g,'##### $1')
+            .replace(/\\subparagraph{(.*?)}/g,'##### $1')
 
             // MD fix equation, add 3 more lines. fix offset for trace
             pa=/\\begin{(equation|display|alignat|aligned|align|multline|flalign)}/
