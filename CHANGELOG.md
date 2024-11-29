@@ -2,7 +2,7 @@
 
 ## 0.0.16 (2024-11-28)
 
-Fix LSMR rules bug `The following first line will be highlighted as comment` [#24](https://github.com/zhaouv/vscode-markdown-everywhere/issues/24) [#25](https://github.com/zhaouv/vscode-markdown-everywhere/issues/25)
+Fix LSMR rules bug `The following first line will be highlighted as comment` [#24](https://github.com/zhaouv/vscode-markdown-everywhere/issues/24) [#25](https://github.com/zhaouv/vscode-markdown-everywhere/issues/25). Thank [yoshioka-naoki](https://github.com/yoshioka-naoki) for the outstanding work in identifying the cause of this bug.
 > Still remain in some languages such as LaTeX and MATLAB. Fixed for python/julia/rust/...
 
 ## 0.0.15 (2024-05-13)
