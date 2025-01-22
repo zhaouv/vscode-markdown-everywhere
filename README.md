@@ -41,59 +41,6 @@ using `preview-mode-language` could setting for respective languages
 
 provide setting to open preview automatically for listed languages
 
-## Preview Inject
-
-Do some actions in parsing, only support to do some replacing before parse markdown to html now. (config by changing `settings.json`)
-
-Quickly LaTeX previewing
-```json
-    "markdown-everywhere.preview-mode-language": {"latex":"raw"},
-    "markdown-everywhere.preview-mode-inject": [
-        {"language":"latex","path":".*","beforeSource":" let {src,options}=args\n const lines = src.split(/\\r?\\n|\\r\\n?/);\n let lino = -1;\n let currentOffset = 0;\n \n while (++lino < lines.length) {\n let pa=null;\n let line = lines[lino];\n\n // MD remove `\\label`, do not change number of lines, directly replace\n line=line.replace(/\\\\label{.*?}/g,'')\n\n // MD fix equation, add 3 more lines. fix offset for trace\n pa=/\\\\begin{(equation|display|alignat|aligned|align|multline|flalign)}/\n if (pa.exec(line)){\n line=line.replace(pa,(m)=>'\\n\\n$$\\n'+m)\n currentOffset+=3\n options.offset.push([lino + currentOffset, currentOffset])\n }\n\n // MD fix equation\n pa=/\\\\end{(equation|display|alignat|aligned|align|multline|flalign)}/\n if (pa.exec(line)){\n line=line.replace(pa,(m)=>m+'\\n$$\\n\\n')\n currentOffset+=3\n options.offset.push([lino + currentOffset, currentOffset])\n }\n\n lines[lino] = line;\n }\n return lines.join('\\r\\n');\n \n "}
-    ],
-```
-
-[Documenter.jl style LaTeX-math-fencing](https://github.com/zhaouv/vscode-markdown-everywhere/issues/9)
-```json
-    "markdown-everywhere.preview-mode-inject": [
-        {"language":"julia","path":".*","beforeSource":" return args.src.replace(/```math/g,'$$$$\\n').replace(/```/g,'\\n$$$$').replace(/``/g,'$').replace(/\\\\\\\\/g,'\\\\') "}
-    ],
-```
-
-> The JSON generated from [issue](https://github.com/zhaouv/vscode-markdown-everywhere/issues/17). More applications may be listed in the [issue](https://github.com/zhaouv/vscode-markdown-everywhere/issues/17).
-
-## Extract Markdown
-
-Command "Extract as Markdown to Clipboard" (also in right-mouse-click context menu.)
-
-Convert selection into Markdown format according to the rules and preview mode, place it into the clipboard.
-
-Can be used to copy Markdown from formats similar to JSDoc, automatically ignoring the `*` at the beginning of each line.
-
-## Enhancing-typing
-
-`whileSymbol` or `whileRegExp` (if `whileSymbol` undefined) will be used for enhancing typing.  
-There will be some `onEnterRules` pushed to markdown.  
-So it will also affect the editing of normal markdown files.  
-You can turn off it in "settings.json".
-
-`onEnterRules` checks the previous line, so it does not work on the first line of a markdown region.
-
-Example:
-```js
-// MD the first line
-// MD the second line
-```
-After pressing `enter` at `"e"`, it will automatically append `"// MD "`.
-```js
-// MD the first line
-// MD the second line
-// MD 
-```
-change it at "settings.json"  
-![](img_md/enhancing-typing-set.png)
-
-
 ## Recommended Color
 
 You can put those into "settings.json" to adjust the color.  
@@ -138,6 +85,55 @@ So that markdown can be easily distinguished from both code and comments.
 }
 ```
 
+## Preview Inject
+
+Do some actions in parsing, only support to do some replacing before parse markdown to html now. Used to correct the format in certain specific languages. (config by changing `settings.json`)
+
+Save the first element `defaultPreviewInjects` to keep default injects. Remove to only use customized injects.
+
+Three default injects for `Quickly LaTeX previewing`, [Documenter.jl style LaTeX-math-fencing](https://github.com/zhaouv/vscode-markdown-everywhere/issues/9), `Poweshell doc`
+
+Quickly LaTeX previewing
+```json
+    "markdown-everywhere.preview-mode-language": {"latex":"raw"},
+    "markdown-everywhere.preview-mode-inject": [
+        {"language":"latex","path":".*","beforeSource":" let {src,options}=args\n const lines = src.split(/\\r?\\n|\\r\\n?/);\n let lino = -1;\n let currentOffset = 0;\n \n while (++lino < lines.length) {\n let pa=null;\n let line = lines[lino];\n\n // MD remove `\\label`, do not change number of lines, directly replace\n line=line.replace(/\\\\label{.*?}/g,'')\n\n // MD fix equation, add 3 more lines. fix offset for trace\n pa=/\\\\begin{(equation|display|alignat|aligned|align|multline|flalign)}/\n if (pa.exec(line)){\n line=line.replace(pa,(m)=>'\\n\\n$$\\n'+m)\n currentOffset+=3\n options.offset.push([lino + currentOffset, currentOffset])\n }\n\n // MD fix equation\n pa=/\\\\end{(equation|display|alignat|aligned|align|multline|flalign)}/\n if (pa.exec(line)){\n line=line.replace(pa,(m)=>m+'\\n$$\\n\\n')\n currentOffset+=3\n options.offset.push([lino + currentOffset, currentOffset])\n }\n\n lines[lino] = line;\n }\n return lines.join('\\r\\n');\n \n "}
+    ],
+```
+
+> The JSON generated from [issue](https://github.com/zhaouv/vscode-markdown-everywhere/issues/17). More applications may be listed in the [issue](https://github.com/zhaouv/vscode-markdown-everywhere/issues/17).
+
+## Extract Markdown
+
+Command "Extract as Markdown to Clipboard" (also in right-mouse-click context menu.)
+
+Convert selection into Markdown format according to the rules and preview mode, place it into the clipboard.
+
+Can be used to copy Markdown from formats similar to JSDoc, automatically ignoring the `*` at the beginning of each line.
+
+## Enhancing-typing
+
+`whileSymbol` or `whileRegExp` (if `whileSymbol` undefined) will be used for enhancing typing.  
+There will be some `onEnterRules` pushed to markdown.  
+So it will also affect the editing of normal markdown files.  
+You can turn off it in "settings.json".
+
+`onEnterRules` checks the previous line, so it does not work on the first line of a markdown region.
+
+Example:
+```js
+// MD the first line
+// MD the second line
+```
+After pressing `enter` at `"e"`, it will automatically append `"// MD "`.
+```js
+// MD the first line
+// MD the second line
+// MD 
+```
+change it at "settings.json"  
+![](img_md/enhancing-typing-set.png)
+
 ## Supported List
 
 (note that some languages require that you install an VS Code extension that provides a grammar for that language)
@@ -162,6 +158,7 @@ So that markdown can be easily distinguished from both code and comments.
 | double-slash-exclamation | LRSW | //! # title<br>//! content<br> | rust |
 | triple-slash | LRSW | /// # title<br>/// content<br> | rust |
 | slash-start-exclamation | BR | /*! <br># My Crate<br>*/<br> | rust |
+| less-than-number-sign | BR | <#<br># title<br>content<br>#> | powershell |
 
 <!--Supported_List_Splitter-->
 

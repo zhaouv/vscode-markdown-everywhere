@@ -76,7 +76,6 @@ const ruleProcess = (rule, ruleIndex, lines, marks, output) => {
 }
 
 const postProcessSource = (languageId, savedRules, lines, marks, output, options) => {
-    // options.offset = [];
     // MD do nothing
     if (options.code === 0) {
         return
@@ -84,6 +83,16 @@ const postProcessSource = (languageId, savedRules, lines, marks, output, options
     // MD keep source  
     // MD fenced or \<details>\<summary>
     if (options.code === 1 || options.code === 3) {
+        let previousOffsetMap={}
+        if(options.offset.length){
+            // console.log(options.offset)
+            let previousOffset=0
+            for(let [k,v] of options.offset){
+                previousOffsetMap[k-v]=v-previousOffset
+                previousOffset=v
+            }
+        }
+        options.offset = []
         let startStr = '``` ' + languageId + '\r\n';
         let endStr = '\r\n```';
         let startOffset = 1;
@@ -109,6 +118,10 @@ const postProcessSource = (languageId, savedRules, lines, marks, output, options
         lino = -1;
         while (lino < lines.length - 1) {
             lino++;
+            if (previousOffsetMap[lino]) {
+                currentOffset+=previousOffsetMap[lino]
+                options.offset.push([lino + currentOffset, currentOffset])
+            }
             if (marks[lino] >= 0) continue;
             const line = lines[lino];
             let used = false;
@@ -170,6 +183,8 @@ exports.processResult = (languageId, ret, options) => {
         return ret;
     }
     const lines = ret.split(/\r?\n|\r\n?/);
+    // console.log(ret.split(/\r?\n|\r\n?/))
+    // console.log(options)
     let lino = -1;
     let offsetI = 0;
     let offsetV = 0;
@@ -187,3 +202,10 @@ exports.processResult = (languageId, ret, options) => {
     }
     return lines.join('\r\n');
 }
+
+// generated from highlightDemo/test.js
+exports.defaultPreviewInjects=[
+    {"language":"latex","path":".*","beforeSource":" let {src,options}=args\n const lines = src.split(/\\r?\\n|\\r\\n?/);\n let lino = -1;\n let currentOffset = 0;\n \n while (++lino < lines.length) {\n let pa=null;\n let line = lines[lino];\n\n // MD remove `\\label`, do not change number of lines, directly replace\n line=line\n .replace(/\\\\label{.*?}/g,'')\n .replace(/\\\\chapter{(.*?)}/g,'# $1')\n .replace(/\\\\section{(.*?)}/g,'## $1')\n .replace(/\\\\subsection{(.*?)}/g,'### $1')\n .replace(/\\\\subsubsection{(.*?)}/g,'#### $1')\n .replace(/\\\\paragraph{(.*?)}/g,'##### $1')\n .replace(/\\\\subparagraph{(.*?)}/g,'##### $1')\n\n // MD fix equation, add 3 more lines. fix offset for trace\n pa=/\\\\begin{(equation|display|alignat|aligned|align|multline|flalign)}/\n if (pa.exec(line)){\n line=line.replace(pa,(m)=>'\\n\\n$$\\n'+m)\n currentOffset+=3\n options.offset.push([lino + currentOffset, currentOffset])\n }\n\n // MD fix equation\n pa=/\\\\end{(equation|display|alignat|aligned|align|multline|flalign)}/\n if (pa.exec(line)){\n line=line.replace(pa,(m)=>m+'\\n$$\\n\\n')\n currentOffset+=3\n options.offset.push([lino + currentOffset, currentOffset])\n }\n\n lines[lino] = line;\n }\n return lines.join('\\r\\n');\n \n "},
+    {"language":"julia","path":".*","beforeSource":" let {src,options}=args\n console.log(JSON.stringify( src.slice(0,40)))\n const lines = src.split(/\\r?\\n|\\r\\n?/);\n let lino = -1;\n let currentOffset = 0;\n \n while (++lino < lines.length) {\n let pa=null;\n let line = lines[lino];\n\n // MD fix equation, add more lines. fix offset for trace\n pa=/```math/\n if (pa.exec(line)){\n line=line.replace(pa,(m)=>'\\n\\n$$\\n')\n currentOffset+=3\n options.offset.push([lino + currentOffset, currentOffset])\n }\n\n pa=/```/\n if (pa.exec(line)){\n line=line.replace(pa,(m)=>'\\n$$\\n\\n')\n currentOffset+=3\n options.offset.push([lino + currentOffset, currentOffset])\n }\n\n pa=/``.*``/\n if (pa.exec(line)){\n line=line.replace(pa,(m)=>m.replace(/``/g,'$').replace(/\\\\\\\\/g,'\\\\'))\n // MD do not change number of lines, directly replace\n }\n\n // Please note that KaTeX can also cause line numbers to shift, which is not within the scope of this extension.\n\n lines[lino] = line;\n }\n return lines.join('\\n');\n \n "},
+    {"language":"powershell","path":".*","beforeSource":" let parts=args.src.split(/^(?=\\.[\\w ]+$)/m)\n function trimLeadingWhitespace(lines) {\n let minIndent = Infinity;\n for (const line of lines) {\n if(!line)continue\n const match = line.match(/^[\\t ]*/);\n if (match) {\n const indent = match[0].length;\n if (indent < minIndent) {\n minIndent = indent;\n }\n }\n }\n if (minIndent === Infinity) {\n return [minIndent,lines];\n }\n const trimmedLines = lines.map(line => {\n return line.substring(minIndent);\n });\n return [minIndent,trimmedLines];\n }\n console.log(parts)\n for (let i in parts){\n const lines = parts[i].split(/\\r?\\n|\\r\\n?/);\n let [minIndent,trimmedLines]=trimLeadingWhitespace(lines.slice(1))\n if (minIndent !== Infinity && minIndent>0) {\n parts[i]='### '+lines[0].slice(1)+'\\n'+trimmedLines.join('\\n');\n }\n }\n console.log(parts)\n return parts.join('')\n \n "}
+]

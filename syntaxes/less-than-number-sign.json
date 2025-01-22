@@ -1,0 +1,27 @@
+{
+	"injectionSelector": "L:source.powershell -string -comment -meta.embedded.block.everywhere.md",
+	"patterns": [
+		{
+			"include": "#comment-markdown-cell-inject-less-than-number-sign-BR"
+		}
+	],
+	"repository": {
+		"comment-markdown-cell-inject-less-than-number-sign-BR": {
+			"begin": "(^)(<#.*) ?$",
+			"captures": {
+				"2": {
+					"name": "comment.punctuation.definition.quote_code.less-than-number-sign.BR"
+				}
+			},
+			"name": "comment.quote_code.less-than-number-sign.BR",
+			"contentName": "meta.embedded.block.everywhere.md",
+			"patterns": [
+				{
+					"include": "text.html.markdown"
+				}
+			],
+			"end": "( ?)(.*#>)"
+		}
+	},
+    "scopeName": "comment.markdown-cell-inject.less-than-number-sign.BR"
+}

@@ -1,4 +1,4 @@
-const { languages } = require('./comments')
+// const { languages } = require('./comments')
 exports.rules = [
     {
         "name": "number-sign-MD",
@@ -276,6 +276,15 @@ exports.rules = [
         "example": "/*! <br># My Crate<br>*/<br>",
         "languages": [
             { "name": "rust", "source": "source.rust" },
+        ]
+    },
+    {
+        "name": "less-than-number-sign",
+        "beginRegExp": "<#.*",
+        "endRegExp": ".*#>",
+        "example": "<#<br># title<br>content<br>#>",
+        "languages": [
+            {"name":"powershell","source":"source.powershell"}
         ]
     }
 ]

@@ -2,7 +2,7 @@
     "name": "vscode-markdown-everywhere",
     "displayName": "Markdown Everywhere",
     "description": "Embed and highlight and preview markdown everywhere. e.g. Quickly preview LaTeX/ Highlight python markdown cell/ Highlight julia markdown doc string",
-    "version": "0.0.16",
+    "version": "0.0.17",
     "publisher": "zhaouv",
     "license": "Apache",
     "repository": {
@@ -69,13 +69,17 @@
                 },
                 "markdown-everywhere.preview-mode-language": {
                     "type": "object",
-                    "default": {},
+                    "default": {
+                        "latex": "raw"
+                    },
                     "description": "preview-mode for respective languages. e.g. {\"latex\":\"raw\"}"
                 },
                 "markdown-everywhere.preview-mode-inject": {
                     "type": "array",
-                    "default": [],
-                    "description": "do some actions in parsing. see README.md for details."
+                    "default": [
+                        "defaultPreviewInjects"
+                    ],
+                    "description": "Do some actions in parsing. Save the first element \"defaultPreviewInjects\" to keep default injects. Remove to only use customized injects. see README.md for details."
                 },
                 "markdown-everywhere.customized-rules": {
                     "type": "array",
@@ -413,6 +417,16 @@
                 ],
                 "scopeName": "comment.markdown-cell-inject.slash-start-exclamation.BR",
                 "path": "./syntaxes/slash-start-exclamation.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.everywhere.md": "markdown"
+                }
+            },
+            {
+                "injectTo": [
+                    "source.powershell"
+                ],
+                "scopeName": "comment.markdown-cell-inject.less-than-number-sign.BR",
+                "path": "./syntaxes/less-than-number-sign.json",
                 "embeddedLanguages": {
                     "meta.embedded.block.everywhere.md": "markdown"
                 }

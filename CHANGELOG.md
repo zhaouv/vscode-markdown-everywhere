@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.0.17 (2025-01-22)
+
+Put three injects as `defaultPreviewInjects` for `Quickly LaTeX previewing`, `Documenter.jl style LaTeX-math-fencing`, `Poweshell doc`  
+
+Add rule `less-than-number-sign` for powershell  
+
+Fix offset calculation in preview mode `fenced` and `folded` when injected offset
+
 ## 0.0.16 (2024-11-28)
 
 Fix LSMR rules bug `The following first line will be highlighted as comment` [#24](https://github.com/zhaouv/vscode-markdown-everywhere/issues/24) [#25](https://github.com/zhaouv/vscode-markdown-everywhere/issues/25). Thank [yoshioka-naoki](https://github.com/yoshioka-naoki) for the outstanding work in identifying the cause of this bug.

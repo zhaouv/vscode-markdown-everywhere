@@ -1,6 +1,6 @@
 const vscode = require('vscode');
 const { rules: localRules } = require('./rules');
-const { processSource, processResult } = require('./previewAsMarkdown');
+const { processSource, processResult, defaultPreviewInjects } = require('./previewAsMarkdown');
 
 const getLanguageConfiguration = (rules) => {
     let symbol = (rule) => rule.whileSymbol || rule.whileRegExp;
@@ -24,6 +24,15 @@ const getLanguageConfiguration = (rules) => {
     return { onEnterRules: symbols.reduce((a, b) => a.concat(b)) };
 }
 
+const getInjects = () => {
+    let injects = Array.from(defaultPreviewInjects);
+    let customizedInjects = vscode.workspace.getConfiguration('markdown-everywhere')['preview-mode-inject'];
+    if (customizedInjects.indexOf("defaultPreviewInjects") === -1) {
+        injects = [];
+    }
+    return injects.concat(customizedInjects.filter(v => v !== "defaultPreviewInjects"));
+}
+
 const vscodeMarkdownRender = {
     /** @type {(src) => String} */
     processSource: function (src) {
@@ -37,7 +46,7 @@ const vscodeMarkdownRender = {
         }
         let previewMode = vscode.workspace.getConfiguration('markdown-everywhere')['preview-mode-language'][languageId]||vscode.workspace.getConfiguration('markdown-everywhere')['preview-mode'];
         this.setPreviewMode(previewMode);
-        let injects = vscode.workspace.getConfiguration('markdown-everywhere')['preview-mode-inject']
+        let injects = getInjects();
         injects.forEach((inject) => {
             if (languageId === inject.language && new RegExp(inject.path).exec(editor.document.fileName)){
                 const beforeSource = new Function('args', inject.beforeSource);
