@@ -22,9 +22,13 @@ const renderTemplate = (rule, tpl) => {
     if (rule.injectToComment) {
         // [#2](https://github.com/zhaouv/vscode-markdown-everywhere/issues/2#issuecomment-766083395)
         // LRSM do not work in some language
-        // remove `-comment` after `-string` to fix 
+        // remove `-comment` after `-string` to fix
         // Introducing side effects: the LRSM rules are also highlighted in block comment
         injectionAtom = s => 'L:' + s + ' -string -meta.embedded.block.everywhere.md'
+    }
+    if (rule.fstring) {
+        // For f-strings, we need to inject into string content, so don't exclude -string
+        injectionAtom = s => 'L:' + s + ' -comment -meta.embedded.block.everywhere.md'
     }
     rule_['__languages__'] = rule.languages.map(language => {
         const sources = Array.isArray(language.source) ? language.source : [language.source];

@@ -152,6 +152,8 @@ change it at "settings.json"
 | number-sign-double-percentage | LRSM | # %% [markdown]<br># # highlight python markdown cell<br># for the vscode-python data-science feature<br> | coffeescript<br>dockerfile<br>git-commit<br>git-rebase<br>diff<br>ignore<br>properties<br>makefile<br>perl<br>perl6<br>powershell<br>python<br>r<br>ruby<br>shellscript<br>yaml<br>cython<br>julia<br>cmake |
 | triple-quote | BR | """<br>&nbsp;&nbsp;&nbsp;&nbsp;bar(x[, y])<br><br>julia standard markdown doc<br>"""<br>function bar(x, y) ... | julia<br>python |
 | whitespace-triple-quote | MR | def abc():<br>&nbsp;&nbsp;&nbsp;&nbsp;"""<br>&nbsp;&nbsp;&nbsp;&nbsp;xxx xxx<br>&nbsp;&nbsp;&nbsp;&nbsp;xxx xxx<br>&nbsp;&nbsp;&nbsp;&nbsp;"""<br>&nbsp;&nbsp;&nbsp;&nbsp;... | julia<br>python |
+| f-triple-quote | FSTRING_BR | f"""<br># Markdown with {variable}<br>""" | python |
+| f-whitespace-triple-quote | FSTRING_MR | def foo():<br>&nbsp;&nbsp;&nbsp;&nbsp;f"""<br>&nbsp;&nbsp;&nbsp;&nbsp;# Markdown with {var}<br>&nbsp;&nbsp;&nbsp;&nbsp;""" | python |
 | brace-dash | BR | {- [markdown]<br># title<br>content-}<br> | haskell<br>purescript |
 | double-dash-MD | LRSW | -- MD # title<br>-- MD content<br> | haskell<br>purescript |
 | double-dash | LRSM | -- [markdown]<br>-- # title<br>% content<br> | haskell<br>purescript |

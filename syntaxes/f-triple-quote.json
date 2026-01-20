@@ -1,0 +1,41 @@
+{
+	"injectionSelector": "L:source.python -comment -meta.embedded.block.everywhere.md",
+	"patterns": [
+		{
+			"include": "#comment-markdown-cell-inject-f-triple-quote-FSTRING_BR"
+		}
+	],
+	"repository": {
+		"comment-markdown-cell-inject-f-triple-quote-FSTRING_BR": {
+			"begin": "(^)(f\"\"\") ?$",
+			"captures": {
+				"2": {
+					"name": "comment.punctuation.definition.quote_code.f-triple-quote.FSTRING_BR"
+				}
+			},
+			"name": "comment.quote_code.f-triple-quote.FSTRING_BR",
+			"contentName": "meta.embedded.block.everywhere.md",
+			"patterns": [
+				{
+					"comment": "Handle escaped braces first",
+					"match": "\\{\\{|\\}\\}",
+					"name": "constant.character.escape.python"
+				},
+				{
+					"comment": "Match f-string expressions - non-greedy match of content between braces",
+					"match": "(\\{)([^}]*)(\\})",
+					"captures": {
+						"1": { "name": "punctuation.section.interpolation.begin.python" },
+						"2": { "name": "meta.interpolation.python" },
+						"3": { "name": "punctuation.section.interpolation.end.python" }
+					}
+				},
+				{
+					"include": "text.html.markdown"
+				}
+			],
+			"end": "(^)( ?)( ?\"\"\")"
+		}
+	},
+	"scopeName": "comment.markdown-cell-inject.f-triple-quote.FSTRING_BR"
+}

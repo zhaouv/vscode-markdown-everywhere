@@ -360,6 +360,26 @@
             },
             {
                 "injectTo": [
+                    "source.python"
+                ],
+                "scopeName": "comment.markdown-cell-inject.f-triple-quote.FSTRING_BR",
+                "path": "./syntaxes/f-triple-quote.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.everywhere.md": "markdown"
+                }
+            },
+            {
+                "injectTo": [
+                    "source.python"
+                ],
+                "scopeName": "comment.markdown-cell-inject.f-whitespace-triple-quote.FSTRING_MR",
+                "path": "./syntaxes/f-whitespace-triple-quote.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.everywhere.md": "markdown"
+                }
+            },
+            {
+                "injectTo": [
                     "source.haskell",
                     "source.purescript"
                 ],

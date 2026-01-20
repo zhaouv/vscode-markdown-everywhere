@@ -1,0 +1,41 @@
+{
+	"injectionSelector": "__languages__",
+	"patterns": [
+		{
+			"include": "#comment-markdown-cell-inject-__name__-FSTRING_BR"
+		}
+	],
+	"repository": {
+		"comment-markdown-cell-inject-__name__-FSTRING_BR": {
+			"begin": "(^)(__beginRegExp__) ?$",
+			"captures": {
+				"2": {
+					"name": "comment.punctuation.definition.quote_code.__name__.FSTRING_BR"
+				}
+			},
+			"name": "comment.quote_code.__name__.FSTRING_BR",
+			"contentName": "meta.embedded.block.everywhere.md",
+			"patterns": [
+				{
+					"comment": "Handle escaped braces first",
+					"match": "\\{\\{|\\}\\}",
+					"name": "constant.character.escape.python"
+				},
+				{
+					"comment": "Match f-string expressions - non-greedy match of content between braces",
+					"match": "(\\{)([^}]*)(\\})",
+					"captures": {
+						"1": { "name": "punctuation.section.interpolation.begin.python" },
+						"2": { "name": "meta.interpolation.python" },
+						"3": { "name": "punctuation.section.interpolation.end.python" }
+					}
+				},
+				{
+					"include": "text.html.markdown"
+				}
+			],
+			"end": "(^)( ?)(__endRegExp__)"
+		}
+	},
+	"scopeName": "comment.markdown-cell-inject.__name__.FSTRING_BR"
+}

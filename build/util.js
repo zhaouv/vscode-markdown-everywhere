@@ -2,13 +2,23 @@ const LRSM = 'LRSM';
 const LRSW = 'LRSW';
 const MR = 'MR';
 const BR = 'BR';
+const FSTRING_BR = 'FSTRING_BR';
+const FSTRING_MR = 'FSTRING_MR';
 exports.LRSM = LRSM;
 exports.LRSW = LRSW;
 exports.MR = MR;
 exports.BR = BR;
-exports.RULETYPE = [LRSM, LRSW, MR, BR];
+exports.FSTRING_BR = FSTRING_BR;
+exports.FSTRING_MR = FSTRING_MR;
+exports.RULETYPE = [LRSM, LRSW, MR, BR, FSTRING_BR, FSTRING_MR];
 
 exports.getRuleType = (rule) => {
+    // Check for f-string rules first
+    if (rule.fstring) {
+        let check = '' + ~~!!rule.beginRegExp + ~~!!rule.whileRegExp + ~~!!rule.endRegExp;
+        if (check === '111') return FSTRING_MR;
+        if (check === '101') return FSTRING_BR;
+    }
     let check = '' + ~~!!rule.beginRegExp + ~~!!rule.whileRegExp + ~~!!rule.endRegExp;
     // Will throw an error if the input is not of any kind
     return ((check_) => ({

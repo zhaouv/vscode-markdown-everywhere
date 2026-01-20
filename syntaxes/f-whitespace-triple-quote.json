@@ -1,0 +1,50 @@
+{
+	"injectionSelector": "L:source.python -comment -meta.embedded.block.everywhere.md",
+	"patterns": [
+		{
+			"include": "#comment-markdown-cell-inject-f-whitespace-triple-quote-FSTRING_MR"
+		}
+	],
+	"repository": {
+		"comment-markdown-cell-inject-f-whitespace-triple-quote-FSTRING_MR": {
+			"name": "comment.quote_code.f-whitespace-triple-quote.FSTRING_MR",
+			"begin": "(?:^)\\s*\\s+f\"\"\" ?$",
+			"end": "\\s*\"\"\" ?",
+			"patterns": [
+				{
+					"include": "#f-whitespace-triple-quote-quote-FSTRING_MR"
+				}
+			]
+		},
+		"f-whitespace-triple-quote-quote-FSTRING_MR": {
+			"begin": "(^|\\G)\\s*(\\s*(?!\\s|\"\"\")) ?",
+			"captures": {
+				"2": {
+					"name": "comment.punctuation.definition.quote_code.f-whitespace-triple-quote.FSTRING_MR"
+				}
+			},
+			"contentName": "meta.embedded.block.everywhere.md",
+			"patterns": [
+				{
+					"comment": "Handle escaped braces first",
+					"match": "\\{\\{|\\}\\}",
+					"name": "constant.character.escape.python"
+				},
+				{
+					"comment": "Match f-string expressions - non-greedy match of content between braces",
+					"match": "(\\{)([^}]*)(\\})",
+					"captures": {
+						"1": { "name": "punctuation.section.interpolation.begin.python" },
+						"2": { "name": "meta.interpolation.python" },
+						"3": { "name": "punctuation.section.interpolation.end.python" }
+					}
+				},
+				{
+					"include": "text.html.markdown"
+				}
+			],
+			"while": "(^|\\G)\\s*(\\s*(?!\\s|\"\"\")) ?"
+		}
+	},
+	"scopeName": "comment.markdown-cell-inject.f-whitespace-triple-quote.FSTRING_MR"
+}

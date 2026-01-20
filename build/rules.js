@@ -225,6 +225,28 @@ exports.rules = [
         ]
     },
     {
+        "name": "f-triple-quote",
+        "beginRegExp": "f\"\"\"",
+        "endRegExp": " ?\"\"\"",
+        "fstring": true,
+        "example": "f\"\"\"<br># Markdown with {variable}<br>\"\"\"",
+        "languages": [
+            {"name":"python","source":"source.python"}
+        ]
+    },
+    {
+        "name": "f-whitespace-triple-quote",
+        "beginRegExp": "\\s+f\"\"\" ?",
+        "whileRegExp": "\\s*(?!\\s|\"\"\")",
+        "whileSymbol": " ",
+        "endRegExp": "\\s*\"\"\" ?",
+        "fstring": true,
+        "example": "def foo():<br>&nbsp;&nbsp;&nbsp;&nbsp;f\"\"\"<br>&nbsp;&nbsp;&nbsp;&nbsp;# Markdown with {var}<br>&nbsp;&nbsp;&nbsp;&nbsp;\"\"\"",
+        "languages": [
+            {"name":"python","source":"source.python"}
+        ]
+    },
+    {
         "name": "brace-dash",
         "beginRegExp": "{-\\s*\\[markdown\\]",
         "endRegExp": "-}",
